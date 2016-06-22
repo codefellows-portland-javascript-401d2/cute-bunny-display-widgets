@@ -1,0 +1,27 @@
+{
+  "name": "cute-bunny-display-widgets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jluangphasy/cute-bunny-display-widgets.git"
+  },
+  "author": "Johnny Luangphasy (https://github.com/jluangphasy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jluangphasy/cute-bunny-display-widgets/issues"
+  },
+  "homepage": "https://github.com/jluangphasy/cute-bunny-display-widgets#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
