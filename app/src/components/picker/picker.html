@@ -1,19 +1,24 @@
-<h1>picker</h1>
-<input type="text" ng-model="picker.url"></input>
-<button ng-click="picker.go()">GO</button>
+<div>
+  <input type="text" ng-model="picker.pic.url" size="100"></input>
+</div><br>
+<!-- <button ng-click="picker.go()">GO</button> -->
 <!-- <form ng-submit="submit()" name="display-select"> -->
-  <div ng-init="bunny={display: 'desc'}">
-    <input type="radio"
-      name="display"
-      ng-model="picker.display"
-      value="desc">Description
-    <input type="radio"
-      name="display"
-      ng-model="picker.display"
-      value="thumb">Thumbnail
-    <input type="radio"
-      name="display"
-      ng-model="picker.display"
-      value="full">Full Size
-  </div>
+<div ng-init="bunny={display: 'desc'}">
+  <input type="radio"
+  name="display"
+  ng-model="picker.display"
+  value="desc">Description
+  <input type="radio"
+  name="display"
+  ng-model="picker.display"
+  value="thumb">Thumbnail
+  <input type="radio"
+  name="display"
+  ng-model="picker.display"
+  value="full">Full Size
+</div>
+
+<description ng-show="picker.display === 'desc'" description=picker.pic.description title="picker.pic.title" url="picker.pic.url"></description>
+<thumb ng-show="picker.display === 'thumb'" pic="picker.pic.thumbpic"></thumb>
+<full ng-show="picker.display === 'full'" title="picker.pic.title" description="picker.pic.description" url="picker.pic.url"></full>
 <!-- </form> -->
