@@ -8,9 +8,13 @@ For this assignment, build three different display components for an image url:
  1. The third should display the title, the full-size image, and the description. 
 
 You can use your own URL, or work with this cute bunny: http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg 
-
 Create a high-level component that loads all three different directives for a single hard-coded url, 
 to demonstrate the distinctions between each display mode.
+
+Create an app component that hosts the high-level component.
+
+BONUS:
+* Have the high-level component take a "parameter" to toggle between the display modes.
 
 # Requirements
 App requirements: 6pts
