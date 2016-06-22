@@ -1,0 +1,19 @@
+<h1>picker</h1>
+<input type="text" ng-model="picker.url"></input>
+<button ng-click="picker.go()">GO</button>
+<!-- <form ng-submit="submit()" name="display-select"> -->
+  <div ng-init="bunny={display: 'desc'}">
+    <input type="radio"
+      name="display"
+      ng-model="picker.display"
+      value="desc">Description
+    <input type="radio"
+      name="display"
+      ng-model="picker.display"
+      value="thumb">Thumbnail
+    <input type="radio"
+      name="display"
+      ng-model="picker.display"
+      value="full">Full Size
+  </div>
+<!-- </form> -->
