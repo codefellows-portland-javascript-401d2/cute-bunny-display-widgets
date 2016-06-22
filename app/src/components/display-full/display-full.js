@@ -4,8 +4,8 @@ import template from './display-full.html';
 export default {
   template,
   controllerAs: 'full',
-  bindings: {
-
+  require: {
+    app: '^^'
   },
   controller: function() {
 

@@ -1,13 +1,13 @@
 import template from './display-thumb.html';
-// import style from './thumb.css';
+import style from './thumb.css';
 
 export default {
   template,
   controllerAs: 'thumb',
-  bindings: {
-
+  require: {
+    app: '^^'
   },
   controller: function() {
-
+    this.style = style;
   }
 };
