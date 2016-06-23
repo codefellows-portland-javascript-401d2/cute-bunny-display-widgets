@@ -18,11 +18,11 @@ module.exports = {
     loaders: [
       {
   			test: /\.html$/,
-  			loader: 'html?minimize',
+  			loader: 'html',
   		},
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?minimize')
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
         test: /\.js$/,
@@ -31,6 +31,10 @@ module.exports = {
         query: {
           presets: ['es2015']
         }
+      },
+      {
+        test: /\.json/,
+        loader: 'json'
       }
     ]
   },
