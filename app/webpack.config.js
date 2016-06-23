@@ -31,13 +31,16 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        loader: 'style!css'
+        test: /\.scss$/,
+        loader: 'style!css?sourceMap!sass?sourceMap'
       },
       {
         test: /\.html$/,
         loader: 'html'
       }
     ]
+  },
+  sassLoader: {
+    includePaths: ['./src/scss/includes']
   } 
 };

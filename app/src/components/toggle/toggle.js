@@ -1,14 +1,15 @@
 import template from './toggle.html';
-// import style from './toggle.css';
+import style from './toggle.scss';
 
 export default {
   template,
   controllerAs: 'toggler',
 
   bindings: {
-    image: '='
+    images: '='
   },
   controller: function() {
-    this.toggle = 'text';
+    this.toggle = 'thumb';
+    this.style = style;
   }
 };

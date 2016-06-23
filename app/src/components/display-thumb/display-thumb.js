@@ -1,13 +1,15 @@
 import template from './display-thumb.html';
-import style from './thumb.css';
+import style from './thumb.scss';
 
 export default {
   template,
   controllerAs: 'thumb',
   bindings: {
-    source: '='
+    source: '=',
+    postTitle: '='
   },
   controller: function() {
     this.style = style;
+    this.hoverOn = false;
   }
 };

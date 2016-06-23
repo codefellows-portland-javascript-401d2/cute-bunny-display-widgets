@@ -1,7 +1,6 @@
 import angular from 'angular';
-import mainCtrl from './main-controller';
 import components from './components';
 
-const app = angular.module('displayApp', [mainCtrl, components]);
+const app = angular.module('displayApp', [components]);
 
 export default app.name;
