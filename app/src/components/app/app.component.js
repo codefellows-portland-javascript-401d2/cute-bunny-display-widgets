@@ -4,7 +4,7 @@ import randomBunny from '../../lib/random-bunny';
 export default {
 	template,
 	controller() {
-		this.currentSection = 'text';
+		this.currentSection = 'list';
 		this.data = randomBunny();
 	}
 };
