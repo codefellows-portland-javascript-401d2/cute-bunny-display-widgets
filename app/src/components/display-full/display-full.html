@@ -1,3 +1,7 @@
-<h3>{{full.postTitle}}</h3>
-<img ng-src={{full.source}} />
-<p>{{full.description}}</p>
+<section ng-class="full.style.full">  
+  <h3>{{full.postTitle}}</h3>
+  <div class="img-wrapper">
+    <img ng-src={{full.source}} />
+  </div>
+  <p>{{full.description}}</p>
+</section>

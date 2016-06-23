@@ -1,10 +1,10 @@
 <div ng-class="thumb.style['thumb-container']"
-     ng-mouseover="thumb.hoverOn = true"
-     ng-mouseleave="thumb.hoverOn = false">  
+    ng-mouseover="thumb.hoverOn = true"
+    ng-mouseleave="thumb.hoverOn = false">  
   <div ng-show="thumb.hoverOn === true"
-       class="thumb-overlay">
+      class="thumb-overlay">
     <span class="thumb-overlay-text">{{thumb.postTitle}}</span>
   </div>
   <img ng-class="thumb.style.thumbnail" 
-       ng-src={{thumb.source}}  />
+      ng-src={{thumb.source}}  />
 </div>
