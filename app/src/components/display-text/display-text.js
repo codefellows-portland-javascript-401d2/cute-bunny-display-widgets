@@ -4,8 +4,10 @@ import template from './display-text.html';
 export default {
   template,
   controllerAs: 'text',
-  require: {
-    app: '^^'
+  bindings: {
+    postTitle: '=',
+    source: '=',
+    description: '='
   },
   controller: function() {
     this.shorten = function() {
