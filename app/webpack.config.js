@@ -21,9 +21,9 @@ module.exports = {
   			loader: 'html',
   		},
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-      },
+  			test: /\.scss$/,
+  			loader: 'style!css?sourceMap!sass?sourceMap'
+  		},
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -40,7 +40,10 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new HtmlPlugin({template: './src/index.html'}),
-    new ExtractTextPlugin('styles/bundle.css')
-  ]
+    new HtmlPlugin({template: './src/index.html'})
+    // new ExtractTextPlugin('styles/bundle.css')
+  ],
+  sassLoader: {
+    includePaths: ['./src/styles/includes']
+	}
 };
