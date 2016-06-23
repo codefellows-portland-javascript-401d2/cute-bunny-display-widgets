@@ -18,11 +18,11 @@ module.exports = {
     loaders: [
       {
   			test: /\.html$/,
-  			loader: 'html',
+  			loader: 'html?minimize',
   		},
       {
   			test: /\.scss$/,
-  			loader: 'style!css?sourceMap!sass?sourceMap'
+  			loader: ExtractTextPlugin.extract('style!', 'css?minimize&sourceMap!sass?sourceMap')
   		},
       {
         test: /\.js$/,
@@ -40,8 +40,8 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new HtmlPlugin({template: './src/index.html'})
-    // new ExtractTextPlugin('styles/bundle.css')
+    new HtmlPlugin({template: './src/index.html'}),
+    new ExtractTextPlugin('styles/bundle.css')
   ],
   sassLoader: {
     includePaths: ['./src/styles/includes']
