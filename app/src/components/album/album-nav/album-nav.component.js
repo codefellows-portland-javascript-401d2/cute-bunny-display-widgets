@@ -12,16 +12,16 @@ export default {
     this.data = {
       sections: [
         {
-          name: 'text',
-          text: 'Text'
+          name: 'list',
+          text: 'List View'
         },
         {
-          name: 'thumb',
-          text: 'Thumbnail'
+          name: 'tile',
+          text: 'Tile View'
         },
         {
           name: 'full',
-          text: 'Full Size Image'
+          text: 'Full View'
         }
       ]
     };

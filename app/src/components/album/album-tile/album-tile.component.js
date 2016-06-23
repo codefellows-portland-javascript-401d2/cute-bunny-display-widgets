@@ -1,4 +1,4 @@
-import template from './album-thumb.view.html';
+import template from './album-tile.view.html';
 
 export default {
   template,
