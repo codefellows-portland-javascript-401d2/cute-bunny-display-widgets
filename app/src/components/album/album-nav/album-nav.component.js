@@ -1,4 +1,4 @@
-import template from './bunny-nav.html';
+import template from './album-nav.view.html';
 
 export default {
   template,
@@ -8,7 +8,6 @@ export default {
   require: {
     app: '^^'
   },
-  controllerAs: 'bunnyNav',
   controller() {
     this.data = {
       sections: [

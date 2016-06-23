@@ -1,0 +1,11 @@
+<section>
+  <h2>
+    <a href="{{$ctrl.data.imageLink}}" target="_blank">{{$ctrl.data.title}}</a>
+  </h2>
+  <figure>
+    <a href="{{$ctrl.data.imageLink}}" target="_blank">
+      <img ng-src="{{$ctrl.data.imageLink}}" class="image--responsive" alt="{{$ctrl.data.title}}" width="{{$ctrl.data.imageThumbWidth}}" height="{{$ctrl.data.imageThumbHeight}}">
+    </a>
+    <figcaption>{{$ctrl.data.description}}</figcaption>
+  </figure>
+</section>

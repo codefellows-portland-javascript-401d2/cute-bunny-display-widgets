@@ -1,0 +1,9 @@
+<header>
+  <h1>Cute Bunny</h1>
+  <album-nav current-section="$ctrl.currentSection"></album-nav>
+</header>
+<main>
+  <album-text ng-show="$ctrl.currentSection == 'text'" data="$ctrl.data"></album-text>
+  <album-thumb ng-show="$ctrl.currentSection == 'thumb'" data="$ctrl.data"></album-thumb>
+  <album-full ng-show="$ctrl.currentSection == 'full'" data="$ctrl.data"></album-full>
+</main>
