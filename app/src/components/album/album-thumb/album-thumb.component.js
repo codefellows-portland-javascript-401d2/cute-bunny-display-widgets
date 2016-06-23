@@ -1,4 +1,4 @@
-import template from './bunny-full.html';
+import template from './album-thumb.view.html';
 
 export default {
   template,
@@ -7,6 +7,5 @@ export default {
   },
   require: {
     app: '^^'
-  },
-  controllerAs: 'bunnyFull'
+  }
 };
