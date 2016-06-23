@@ -3,19 +3,19 @@
     "title": "Calico Bunny",
     "description": "Too cute to be real.",
     "imageLink": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
-    "imageThumbWidth": 100,
-    "imageThumbHeight": 67,
+    "imageThumbWidth": 150,
+    "imageThumbHeight": 100,
     "imageFullWidth": 2896,
     "imageFullHeight": 1936
   },
   {
     "title": "Little Brown Bunny",
     "description": "Insane cuteness is always inspiring.",
-    "imageLink": "https://s-media-cache-ak0.pinimg.com/564x/40/94/74/409474b465c5f1f0d189881fb168cea1.jpg",
+    "imageLink": "https://s-media-cache-ak0.pinimg.com/640x/40/94/74/409474b465c5f1f0d189881fb168cea1.jpg",
     "imageThumbWidth": 100,
     "imageThumbHeight": 100,
-    "imageFullWidth": 564,
-    "imageFullHeight": 564
+    "imageFullWidth": 640,
+    "imageFullHeight": 640
   },
   {
     "title": "White Fluffy Bunny",
@@ -25,5 +25,32 @@
     "imageThumbHeight": 100,
     "imageFullWidth": 403,
     "imageFullHeight": 403
+  },
+  {
+    "title": "Bunny in a Basket",
+    "description": "having a bad day.. just look at that.. i mean you just can't beat that..",
+    "imageLink": "https://s-media-cache-ak0.pinimg.com/564x/03/83/34/0383348ae51d018d1f3dce7d467fdf1f.jpg",
+    "imageThumbWidth": 134,
+    "imageThumbHeight": 100,
+    "imageFullWidth": 450,
+    "imageFullHeight": 337
+  },
+  {
+    "title": "Cute Bunny Tongue",
+    "description": "Cutest bunny sticking out their tongue.",
+    "imageLink": "http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-6.jpg",
+    "imageThumbWidth": 158,
+    "imageThumbHeight": 100,
+    "imageFullWidth": 1267,
+    "imageFullHeight": 800
+  },
+  {
+    "title": "Bunny Stuck",
+    "description": "Awwww. Can they get any cuter?",
+    "imageLink": "https://s-media-cache-ak0.pinimg.com/564x/86/08/13/8608133093c74c5b895a1fa2f876cebd.jpg",
+    "imageThumbWidth": 125,
+    "imageThumbHeight": 100,
+    "imageFullWidth": 564,
+    "imageFullHeight": 451
   }
 ]
