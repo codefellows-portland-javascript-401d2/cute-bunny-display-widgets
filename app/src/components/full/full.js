@@ -5,9 +5,7 @@ export default {
   template,
   controllerAs: 'full',
   bindings: {
-    url: '=',
-    title: '=',
-    description: '='
+    pic: '='
   },
   controller: function(){
     this.styles = styles;

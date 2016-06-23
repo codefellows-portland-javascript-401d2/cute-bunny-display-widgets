@@ -4,11 +4,8 @@ export default {
   template,
   controllerAs: 'desc',
   bindings: {
-    description: '=',
-    title: '=',
-    url: '='
+    pic: '='
   },
   controller: function() {
-
   }
 };
