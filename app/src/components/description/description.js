@@ -1,4 +1,5 @@
 import template from './description.html';
+import styles from './description.scss';
 
 export default {
   template,
@@ -7,5 +8,6 @@ export default {
     pic: '='
   },
   controller: function() {
+    this.styles = styles;
   }
 };

@@ -1,0 +1,15 @@
+@import 'colors';
+
+:local(.full){
+
+  img {
+    width: 100%;
+  }
+
+  h3 {
+    margin-top: 0.5em;
+    margin-bottom: .25em;
+    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);
+  }
+
+}

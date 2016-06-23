@@ -1,0 +1,27 @@
+@import 'colors';
+
+// $text-color = hsla($text-color-hue, 100%, 100%, 1);
+
+h1, h2, h3, h4, p {
+  font-family: arial, sans-serif;
+  color: hsla($text-base-hue, 100%, $text-primary-lightness, 1);
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding-top: .25em;
+  padding-bottom: .25em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.alt {
+  background-color: hsla($background-hue, 60%, 90%, 1);
+}
+
+body {
+  background-color: hsla($background-hue, 70%, 80%, 1);
+}

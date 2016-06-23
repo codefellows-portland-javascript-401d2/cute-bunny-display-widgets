@@ -1,0 +1,32 @@
+@import 'colors';
+
+:local(.description){
+
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+
+  p {
+    font-size: 80%;
+    color: hsla($text-accent-hue, 100%, $text-primary-lightness, .5);
+    // opacity: 0.5;
+    margin-top: 0em;
+    margin-bottom: .25em
+  }
+
+  h3 {
+    margin-top: 0.5em;
+    margin-bottom: .25em;
+    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);
+  }
+
+  h4 {
+    margin-top: 0em;
+    margin-bottom: .25em;
+    color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);
+  }
+
+
+
+}
