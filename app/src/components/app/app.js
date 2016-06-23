@@ -1,5 +1,4 @@
 import template from './app.html';
-// import style from './full.css';
 
 export default {
   template,

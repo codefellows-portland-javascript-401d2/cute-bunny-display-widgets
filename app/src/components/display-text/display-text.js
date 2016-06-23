@@ -1,5 +1,4 @@
 import template from './display-text.html';
-// import style from './text.css';
 
 export default {
   template,
@@ -10,8 +9,9 @@ export default {
     description: '='
   },
   controller: function() {
-    this.shorten = function() {
-
+    this.shorten = function(txt) {
+      const cutoff = 16;
+      return txt.split(' ').slice(0, cutoff).join(' ') + '...';
     };
   }
 };
