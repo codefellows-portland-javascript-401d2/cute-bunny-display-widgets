@@ -1,0 +1,26 @@
+<div>
+  <h2>Source</h2>
+  <input type="text" ng-model="picker.pic.url" size="100"></input>
+  <button ng-click="picker.go()">Submit</button>
+</div><br>
+
+<div ng-init="bunny={display: 'desc'}">
+  <p>
+    <input type="radio"
+    name="display"
+    ng-model="picker.display"
+    value="desc">Description
+    <input type="radio"
+    name="display"
+    ng-model="picker.display"
+    value="thumb">Thumbnail
+    <input type="radio"
+    name="display"
+    ng-model="picker.display"
+    value="full">Full Size
+  </p>
+</div>
+
+<description ng-show="picker.display === 'desc'" pic="picker.pic"></description>
+<thumb ng-show="picker.display === 'thumb'" pic="picker.pic"></thumb>
+<full ng-show="picker.display === 'full'" pic="picker.pic""></full>
