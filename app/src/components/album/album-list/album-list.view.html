@@ -1,6 +1,6 @@
 <section>
-  <h2>
-    <a href="{{$ctrl.data.imageLink}}" target="_blank">{{$ctrl.data.title}}</a>
+  <h2 ng-repeat-start="bunny in $ctrl.bunnies">
+    <a href="{{ bunny.imageLink }}" target="_blank">{{ bunny.title }}</a>
   </h2>
-  <p>{{$ctrl.data.description}}</p>
+  <p ng-repeat-end>{{ bunny.description }}</p>
 </section>

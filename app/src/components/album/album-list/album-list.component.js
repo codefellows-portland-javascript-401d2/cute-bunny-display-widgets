@@ -3,7 +3,7 @@ import template from './album-list.view.html';
 export default {
   template,
   bindings: {
-    data: '='
+    bunnies: '='
   },
   require: {
     app: '^^'
