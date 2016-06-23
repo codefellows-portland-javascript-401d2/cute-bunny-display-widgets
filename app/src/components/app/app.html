@@ -1,0 +1,9 @@
+<header>
+  <h1>Cute Bunny</h1>
+  <bunny-nav current-section="app.currentSection"></bunny-nav>
+</header>
+<main>
+  <bunny-text ng-show="app.currentSection == 'text'" data="app.data"></bunny-text>
+  <bunny-thumb ng-show="app.currentSection == 'thumb'" data="app.data"></bunny-thumb>
+  <bunny-full ng-show="app.currentSection == 'full'" data="app.data"></bunny-full>
+</main>
