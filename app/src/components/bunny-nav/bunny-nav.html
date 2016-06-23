@@ -1,0 +1,7 @@
+<nav>
+  <ul>
+    <li ng-repeat="section in bunnyNav.data.sections">
+      <a href="#{{section.name}}" ng-click="bunnyNav.toggleNav($event, section.name)">{{section.text}}</a>
+    </li>
+  </ul>
+</nav>
