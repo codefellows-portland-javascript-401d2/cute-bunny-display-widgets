@@ -26,7 +26,8 @@
   "scripts": {
     "test": "karma start",
     "start": "webpack-dev-server --inline",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "eslint ."
   },
   "author": "Dave Hanagan",
   "license": "ISC"

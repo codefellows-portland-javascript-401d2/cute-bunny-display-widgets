@@ -15,10 +15,11 @@ export default {
       thumbpic: './src/data/small.jpg'
     };
 
+    // Initial radio button selection
     this.display = 'desc';
 
     this.go = function(){
-
+      console.log('did it');
     };
 
   }

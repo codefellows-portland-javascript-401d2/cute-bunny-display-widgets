@@ -1,4 +1,5 @@
 import template from './full.html';
+import styles from './full.css';
 
 export default {
   template,
@@ -9,6 +10,6 @@ export default {
     description: '='
   },
   controller: function(){
-
+    this.styles = styles;
   }
 };
