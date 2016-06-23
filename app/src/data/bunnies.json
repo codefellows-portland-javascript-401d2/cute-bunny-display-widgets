@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Calico Bunny",
+    "description": "Too cute to be real.",
+    "imageLink": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+    "imageThumbWidth": 100,
+    "imageThumbHeight": 67,
+    "imageFullWidth": 2896,
+    "imageFullHeight": 1936
+  },
+  {
+    "title": "Little Brown Bunny",
+    "description": "Insane cuteness is always inspiring.",
+    "imageLink": "https://s-media-cache-ak0.pinimg.com/564x/40/94/74/409474b465c5f1f0d189881fb168cea1.jpg",
+    "imageThumbWidth": 100,
+    "imageThumbHeight": 100,
+    "imageFullWidth": 564,
+    "imageFullHeight": 564
+  },
+  {
+    "title": "White Fluffy Bunny",
+    "description": "If I stretch just so, my ears make me look taller.",
+    "imageLink": "https://s-media-cache-ak0.pinimg.com/564x/02/67/4b/02674bc406fb2927c7fa3d314cfae34b.jpg",
+    "imageThumbWidth": 100,
+    "imageThumbHeight": 100,
+    "imageFullWidth": 403,
+    "imageFullHeight": 403
+  }
+]
