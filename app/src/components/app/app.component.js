@@ -1,10 +1,10 @@
 import template from './app.view.html';
-import randomBunny from '../../lib/random-bunny';
+import bunnies from '../../data/bunnies.json';
 
 export default {
 	template,
 	controller() {
 		this.currentSection = 'list';
-		this.data = randomBunny();
+		this.bunnies = bunnies;
 	}
 };

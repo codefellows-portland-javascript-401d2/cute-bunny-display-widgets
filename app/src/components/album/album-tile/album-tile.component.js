@@ -3,7 +3,7 @@ import template from './album-tile.view.html';
 export default {
   template,
   bindings: {
-    data: '='
+    bunnies: '='
   },
   require: {
     app: '^^'

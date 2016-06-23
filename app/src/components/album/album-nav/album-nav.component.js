@@ -9,22 +9,20 @@ export default {
     app: '^^'
   },
   controller() {
-    this.data = {
-      sections: [
-        {
-          name: 'list',
-          text: 'List View'
-        },
-        {
-          name: 'tile',
-          text: 'Tile View'
-        },
-        {
-          name: 'full',
-          text: 'Full View'
-        }
-      ]
-    };
+    this.sections = [
+      {
+        name: 'list',
+        text: 'List View'
+      },
+      {
+        name: 'tile',
+        text: 'Tile View'
+      },
+      {
+        name: 'full',
+        text: 'Full View'
+      }
+    ];
 
     this.toggleNav = ($event, sectionName) => {
       $event.preventDefault();

@@ -3,7 +3,7 @@
   <album-nav current-section="$ctrl.currentSection"></album-nav>
 </header>
 <main>
-  <album-list ng-show="$ctrl.currentSection == 'list'" data="$ctrl.data"></album-list>
-  <album-tile ng-show="$ctrl.currentSection == 'tile'" data="$ctrl.data"></album-tile>
-  <album-full ng-show="$ctrl.currentSection == 'full'" data="$ctrl.data"></album-full>
+  <album-list ng-show="$ctrl.currentSection == 'list'" bunnies="$ctrl.bunnies"></album-list>
+  <album-tile ng-show="$ctrl.currentSection == 'tile'" bunnies="$ctrl.bunnies"></album-tile>
+  <album-full ng-show="$ctrl.currentSection == 'full'" bunnies="$ctrl.bunnies"></album-full>
 </main>
