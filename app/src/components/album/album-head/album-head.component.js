@@ -1,4 +1,5 @@
 import template from './album-head.view.html';
+import styles from './album-head.styles.scss';
 
 export default {
   template,
@@ -9,6 +10,7 @@ export default {
     app: '^^'
   },
   controller() {
+    this.styles = styles;
     this.sections = [
       {
         name: 'list',
