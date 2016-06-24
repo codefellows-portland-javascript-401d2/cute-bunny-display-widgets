@@ -1,13 +1,13 @@
 <form class="toggler-form">
-  <label>
+  <label ng-class="{selected: toggler.toggle === 'text'}">
     <input type="radio" value="text" ng-model="toggler.toggle"/>
     Text Only
   </label>
-  <label>
+  <label ng-class="{selected: toggler.toggle === 'thumb'}">
     <input type="radio"  value="thumb" ng-model="toggler.toggle"/>
     Thumbnail
   </label>
-  <label>
+  <label ng-class="{selected: toggler.toggle === 'full'}">
     <input type="radio" value="full" ng-model="toggler.toggle"/>
     Full Post
   </label>
