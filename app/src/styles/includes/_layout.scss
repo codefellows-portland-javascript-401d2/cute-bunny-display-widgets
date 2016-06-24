@@ -1,0 +1,53 @@
+.page__head {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: 112px;
+  background-color: $color-2;
+  border-bottom: 1px solid $color-3;
+
+  @media (min-width: 544px) {
+    height: 78px;
+  }
+}
+
+.branding {
+  text-align: center;
+
+  @media (min-width: 544px) {
+    float: left;
+  }
+
+  h1 {
+    margin: 10px 0;
+  }
+}
+
+.nav--sections {
+  text-align: center;
+
+  @media (min-width: 544px) {
+    float: right;
+    text-align: left;
+  }
+}
+
+.list--inline-block {
+  padding-left: 0;
+  margin-bottom: 10px;
+
+  @media (min-width: 544px) {
+    margin-top: 22px;
+  }
+
+  > li {
+    display: inline-block;
+    margin-left: 15px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
