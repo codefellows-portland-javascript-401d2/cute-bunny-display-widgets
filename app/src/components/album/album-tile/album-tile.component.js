@@ -1,4 +1,5 @@
 import template from './album-tile.view.html';
+import styles from './album-tile.styles.scss';
 
 export default {
   template,
@@ -22,5 +23,6 @@ export default {
     }
 
     this.bunniesGroup = bunniesGroup;
+    this.styles = styles;
   }
 };
