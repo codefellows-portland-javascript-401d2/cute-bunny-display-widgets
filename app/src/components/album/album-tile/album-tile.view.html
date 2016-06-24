@@ -1,11 +1,15 @@
 <section>
-  <h2 ng-repeat-start="bunny in $ctrl.bunnies">
-    <a href="{{ bunny.imageLink }}" target="_blank">{{ bunny.title }}</a>
-  </h2>
-  <figure ng-repeat-end>
-    <a href="{{ bunny.imageLink }}" target="_blank">
-      <img ng-src="{{ bunny.imageLink }}" class="image--responsive" alt="{{ bunny.title }}" width="{{ bunny.imageThumbWidth }}" height="{{ bunny.imageThumbHeight }}">
-    </a>
-    <figcaption>{{ bunny.description }}</figcaption>
-  </figure>
+  <div class="row" ng-repeat="bunnies in $ctrl.bunniesGroup">
+    <div class="column four" ng-repeat="bunny in bunnies">
+      <h2>
+        <a href="{{ bunny.imageLink }}" target="_blank">{{ bunny.title }}</a>
+      </h2>
+      <figure>
+        <a href="{{ bunny.imageLink }}" target="_blank">
+          <img ng-src="{{ bunny.imageLink }}" class="image--responsive" alt="{{ bunny.title }}" width="{{ bunny.imageThumbWidth }}" height="{{ bunny.imageThumbHeight }}">
+        </a>
+        <figcaption>{{ bunny.description }}</figcaption>
+      </figure>
+    </div>
+  </div>
 </section>
