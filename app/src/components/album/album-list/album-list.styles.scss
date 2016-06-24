@@ -1,4 +1,4 @@
-:local(.item) {
+:local(.list-item) {
   border-top: 1px solid #ddd;
 
   h2 {
@@ -16,6 +16,6 @@
   }
 }
 
-.row:first-child > div > :local(.item) {
+.row:first-child > div > :local(.list-item) {
   border-top: none;
 }
