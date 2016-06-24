@@ -8,8 +8,7 @@ export default {
   },
   controllerAs: 'album',
   controller: ['$location', '$anchorScroll', function($location, $anchorScroll){
-    this.select = function(myId, index){
-      console.log(`this is the ID ${myId} and index ${index}`);
+    this.select = function(myId){
       // Switch to Full display
       this.display = 'full';
       // Go to anchor tab with ID

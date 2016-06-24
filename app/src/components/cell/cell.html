@@ -1,0 +1,27 @@
+<span title="{{cell.pic.title}}"
+  ng-class="{
+    '{{cell.styles.thumb}}': cell.display === 'thumb',
+    '{{cell.styles.desc}}': cell.display === 'desc',
+    '{{cell.styles.full}}': cell.display === 'full',
+    'alt': cell.isodd === true && cell.display === 'desc'
+  }">
+
+  <a id="{{cell.pic.id}}"></a>
+
+  <h3
+    ng-click="cell.select({myId: cell.pic.id})"
+    ng-hide="cell.display === 'thumb'">{{cell.pic.title}}
+  </h3>
+
+  <h4 ng-show="cell.display === 'desc'">{{cell.pic.description}}
+  </h4>
+
+  <a href="{{cell.pic.url}}" ng-show="cell.display === 'desc'">{{cell.pic.url}}
+  </a>
+
+  <img
+  ng-src="{{cell.pic.url}}"
+  ng-click="cell.select({myId: cell.pic.id})"
+  ng-hide="cell.display === 'desc'">
+
+</span>

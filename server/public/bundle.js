@@ -54,7 +54,7 @@
 	
 	var _cuteBunny2 = _interopRequireDefault(_cuteBunny);
 	
-	__webpack_require__(29);
+	__webpack_require__(21);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31594,25 +31594,17 @@
 	
 	var _picker2 = _interopRequireDefault(_picker);
 	
-	var _description = __webpack_require__(13);
+	var _cell = __webpack_require__(13);
 	
-	var _description2 = _interopRequireDefault(_description);
+	var _cell2 = _interopRequireDefault(_cell);
 	
-	var _thumb = __webpack_require__(17);
-	
-	var _thumb2 = _interopRequireDefault(_thumb);
-	
-	var _full = __webpack_require__(21);
-	
-	var _full2 = _interopRequireDefault(_full);
-	
-	var _album = __webpack_require__(25);
+	var _album = __webpack_require__(17);
 	
 	var _album2 = _interopRequireDefault(_album);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var components = _angular2.default.module('components', []).component('app', _app2.default).component('picker', _picker2.default).component('description', _description2.default).component('thumb', _thumb2.default).component('full', _full2.default).component('album', _album2.default);
+	var components = _angular2.default.module('components', []).component('app', _app2.default).component('picker', _picker2.default).component('cell', _cell2.default).component('album', _album2.default);
 	
 	exports.default = components.name;
 
@@ -32033,7 +32025,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div>\n  <p>\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"desc\">Description\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"thumb\">Thumbnail\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"full\">Full Size\n  </p>\n</div>\n\n<album display=\"picker.display\"></album>\n";
+	module.exports = "<div>\n  <p>\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"desc\">Description\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"thumb\">Thumbnail\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"full\">Full Size\n  </p>\n</div>\n\n<album display=\"picker.display\"></album>\n";
 
 /***/ },
 /* 13 */
@@ -32045,25 +32037,29 @@
 	  value: true
 	});
 	
-	var _description = __webpack_require__(14);
+	var _cell = __webpack_require__(14);
 	
-	var _description2 = _interopRequireDefault(_description);
+	var _cell2 = _interopRequireDefault(_cell);
 	
-	var _description3 = __webpack_require__(15);
+	var _cell3 = __webpack_require__(15);
 	
-	var _description4 = _interopRequireDefault(_description3);
+	var _cell4 = _interopRequireDefault(_cell3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  template: _description2.default,
-	  controllerAs: 'desc',
+	  template: _cell2.default,
+	  controllerAs: 'cell',
 	  bindings: {
 	    pic: '=',
-	    select: '&'
+	    select: '&',
+	    display: '=',
+	    isodd: '='
 	  },
 	  controller: function controller() {
-	    this.styles = _description4.default;
+	    var self = this;
+	    self.mytemp = 'temp';
+	    self.styles = _cell4.default;
 	  }
 	};
 
@@ -32071,7 +32067,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"{{desc.styles.description}}\">\n  <h3 ng-click=\"desc.select({myId: desc.pic.id})\">{{desc.pic.title}}</h3>\n  <h4>{{desc.pic.description}}</h4>\n  <a href=\"{{desc.pic.url}}\">{{desc.pic.url}}</a>\n</div>\n";
+	module.exports = "<span title=\"{{cell.pic.title}}\"\n  ng-class=\"{\n    '{{cell.styles.thumb}}': cell.display === 'thumb',\n    '{{cell.styles.desc}}': cell.display === 'desc',\n    '{{cell.styles.full}}': cell.display === 'full',\n    'alt': cell.isodd === true && cell.display === 'desc'\n  }\">\n\n  <a id=\"{{cell.pic.id}}\"></a>\n\n  <h3\n    ng-click=\"cell.select({myId: cell.pic.id})\"\n    ng-hide=\"cell.display === 'thumb'\">{{cell.pic.title}}\n  </h3>\n\n  <h4 ng-show=\"cell.display === 'desc'\">{{cell.pic.description}}\n  </h4>\n\n  <a href=\"{{cell.pic.url}}\" ng-show=\"cell.display === 'desc'\">{{cell.pic.url}}\n  </a>\n\n  <img\n  ng-src=\"{{cell.pic.url}}\"\n  ng-click=\"cell.select({myId: cell.pic.id})\"\n  ng-hide=\"cell.display === 'desc'\">\n\n</span>\n";
 
 /***/ },
 /* 15 */
@@ -32089,8 +32085,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./description.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./description.scss");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./cell.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./cell.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -32108,11 +32104,13 @@
 	
 	
 	// module
-	exports.push([module.id, ".umsNWXUaKOxUr6527MwIg {\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em; }\n  .umsNWXUaKOxUr6527MwIg a {\n    font-size: 80%;\n    color: rgba(0, 85, 102, 0.5);\n    margin-top: 0em;\n    margin-bottom: .25em; }\n  .umsNWXUaKOxUr6527MwIg h3:hover {\n    cursor: pointer; }\n  .umsNWXUaKOxUr6527MwIg h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: #005566; }\n", "", {"version":3,"sources":["/./src/app/src/components/description/description.scss"],"names":[],"mappings":"AAEA;EAEE,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,kBAAkB,EAsBnB;EA3BD;IAQI,eAAe;IACf,6BAAW;IACX,gBAAgB;IAChB,qBACD,EAAC;EAZJ;IAiBM,gBAAgB,EACjB;EAlBL;IAsBI,gBAAgB;IAChB,qBAAqB;IACrB,eAAW,EACZ","file":"description.scss","sourcesContent":["@import 'colors';\n\n:local(.description){\n\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em;\n\n  a {\n    font-size: 80%;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, .5);\n    margin-top: 0em;\n    margin-bottom: .25em\n  }\n\n  h3 {\n    \n    &:hover{\n      cursor: pointer;\n    }\n  }\n\n  h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._26-GN_NK9AF--eaRHKNYJj img {\n  padding: 1em;\n  max-width: 100px;\n  max-height: 80px; }\n  ._26-GN_NK9AF--eaRHKNYJj img:hover {\n    cursor: pointer; }\n\n._2xzzrB678wMSO8p4Div_mo {\n  display: block;\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em; }\n  ._2xzzrB678wMSO8p4Div_mo a {\n    font-size: 80%;\n    color: rgba(0, 85, 102, 0.5);\n    margin-top: 0em;\n    margin-bottom: .25em; }\n  ._2xzzrB678wMSO8p4Div_mo h3:hover {\n    cursor: pointer; }\n  ._2xzzrB678wMSO8p4Div_mo h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: #005566; }\n\n.io4eyQ5KFnc0CnpQo5EdK {\n  display: block; }\n  .io4eyQ5KFnc0CnpQo5EdK img {\n    width: 100%; }\n", "", {"version":3,"sources":["/./src/app/src/components/cell/cell.scss"],"names":[],"mappings":"AAMA;EAEI,aAAa;EACb,iBAAiB;EACjB,iBAAiB,EAKlB;EATH;IAOM,gBAAgB,EACjB;;AAIL;EACE,eAAe;EAEf,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,kBAAkB,EAsBnB;EA5BD;IASI,eAAe;IACf,6BAAW;IACX,gBAAgB;IAChB,qBACD,EAAC;EAbJ;IAkBM,gBAAgB,EACjB;EAnBL;IAuBI,gBAAgB;IAChB,qBAAqB;IACrB,eAAW,EACZ;;AAIH;EACE,eAAe,EAKhB;EAND;IAII,YAAY,EACb","file":"cell.scss","sourcesContent":["@import 'colors';\n\n:local(.cell){\n\n}\n\n:local(.thumb){\n  img {\n    padding: 1em;\n    max-width: 100px;\n    max-height: 80px;\n\n    &:hover {\n      cursor: pointer;\n    }\n  }\n}\n\n:local(.desc){\n  display: block;\n\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em;\n\n  a {\n    font-size: 80%;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, .5);\n    margin-top: 0em;\n    margin-bottom: .25em\n  }\n\n  h3 {\n\n    &:hover{\n      cursor: pointer;\n    }\n  }\n\n  h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);\n  }\n\n}\n\n:local(.full){\n  display: block;\n\n  img {\n    width: 100%;\n  }\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"description": "umsNWXUaKOxUr6527MwIg"
+		"thumb": "_26-GN_NK9AF--eaRHKNYJj",
+		"desc": "_2xzzrB678wMSO8p4Div_mo",
+		"full": "io4eyQ5KFnc0CnpQo5EdK"
 	};
 
 /***/ },
@@ -32125,170 +32123,11 @@
 	  value: true
 	});
 	
-	var _thumb = __webpack_require__(18);
-	
-	var _thumb2 = _interopRequireDefault(_thumb);
-	
-	var _thumb3 = __webpack_require__(19);
-	
-	var _thumb4 = _interopRequireDefault(_thumb3);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  template: _thumb2.default,
-	  controllerAs: 'thumb',
-	  bindings: {
-	    pic: '=',
-	    select: '&'
-	  },
-	  controller: function controller() {
-	    this.styles = _thumb4.default;
-	  }
-	};
-
-/***/ },
-/* 18 */
-/***/ function(module, exports) {
-
-	module.exports = "<img ng-src=\"{{thumb.pic.url}}\" class=\"{{thumb.styles.thumb}}\" ng-click=\"thumb.select({myId: thumb.pic.id})\">\n";
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(20);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(10)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./thumb.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./thumb.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(9)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._3yYhF36OyO1Y_2F2qoQ0_2 {\n  padding: 1em;\n  max-width: 100px;\n  max-height: 80px; }\n  ._3yYhF36OyO1Y_2F2qoQ0_2:hover {\n    cursor: pointer; }\n", "", {"version":3,"sources":["/./src/app/src/components/thumb/thumb.scss"],"names":[],"mappings":"AAEA;EAEI,aAAa;EACb,iBAAiB;EACjB,iBAAiB,EAMpB;EAVD;IAOE,gBAAgB,EAChB","file":"thumb.scss","sourcesContent":["@import 'colors';\n\n:local(.thumb){\n\n    padding: 1em;\n    max-width: 100px;\n    max-height: 80px;\n\n    &:hover {\n\t\tcursor: pointer;\n\t}\n\n}\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"thumb": "_3yYhF36OyO1Y_2F2qoQ0_2"
-	};
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _full = __webpack_require__(22);
-	
-	var _full2 = _interopRequireDefault(_full);
-	
-	var _full3 = __webpack_require__(23);
-	
-	var _full4 = _interopRequireDefault(_full3);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  template: _full2.default,
-	  controllerAs: 'full',
-	  bindings: {
-	    pic: '='
-	  },
-	  controller: function controller() {
-	    this.styles = _full4.default;
-	  }
-	};
-
-/***/ },
-/* 22 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"{{full.styles.full}}\">\n  <a id=\"{{full.pic.id}}\"></a>\n  <h3>{{full.pic.title}}</h3>\n  <p>{{full.pic.description}}</p>\n  <img ng-src=\"{{full.pic.url}}\">\n</div>\n";
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(24);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(10)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./full.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./full.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(9)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._3BXnKaatD18cBg6OMtdOgv img {\n  width: 100%; }\n", "", {"version":3,"sources":["/./src/app/src/components/full/full.scss"],"names":[],"mappings":"AAEA;EAGI,YAAY,EACb","file":"full.scss","sourcesContent":["@import 'colors';\n\n:local(.full){\n\n  img {\n    width: 100%;\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"full": "_3BXnKaatD18cBg6OMtdOgv"
-	};
-
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _album = __webpack_require__(26);
+	var _album = __webpack_require__(18);
 	
 	var _album2 = _interopRequireDefault(_album);
 	
-	var _album3 = __webpack_require__(27);
+	var _album3 = __webpack_require__(19);
 	
 	var _album4 = _interopRequireDefault(_album3);
 	
@@ -32301,8 +32140,7 @@
 	  },
 	  controllerAs: 'album',
 	  controller: ['$location', '$anchorScroll', function ($location, $anchorScroll) {
-	    this.select = function (myId, index) {
-	      console.log('this is the ID ' + myId + ' and index ' + index);
+	    this.select = function (myId) {
 	      // Switch to Full display
 	      this.display = 'full';
 	      // Go to anchor tab with ID
@@ -32364,19 +32202,19 @@
 	};
 
 /***/ },
-/* 26 */
+/* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div ng-show=\"album.display === 'desc'\">\n  <div ng-repeat=\"pic in album.arrayOfPics\" ng-class=\"{alt: $odd}\">\n    <description pic=\"pic\" select=\"album.select(myId, $index)\"></description>\n  </div>\n</div>\n\n<div ng-show=\"album.display === 'thumb'\">\n  <p><em>Click on a thumbnail</em></p>\n  <span ng-repeat=\"pic in album.arrayOfPics\" title=\"{{pic.title}}\">\n    <thumb pic=\"pic\" select=\"album.select(myId, $index)\"></thumb>\n  </span>\n</div>\n\n<ul ng-show=\"album.display === 'full'\">\n  <li ng-repeat=\"pic in album.arrayOfPics\">\n    <full pic=\"pic\"></full>\n  </li>\n</ul>\n";
+	module.exports = "<div ng-show=\"album.display === album.display\">\n  <p ng-show=\"album.display === 'thumb'\"><em>Click on a thumbnail</em></p>\n  <span ng-repeat=\"pic in album.arrayOfPics\">\n    <cell pic=\"pic\" select=\"album.select(myId)\" display=\"album.display\" isodd=\"$odd\"></cell>\n  </span>\n</div>\n";
 
 /***/ },
-/* 27 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(28);
+	var content = __webpack_require__(20);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(10)(content, {});
@@ -32396,7 +32234,7 @@
 	}
 
 /***/ },
-/* 28 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(9)();
@@ -32410,13 +32248,13 @@
 
 
 /***/ },
-/* 29 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(30);
+	var content = __webpack_require__(22);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(10)(content, {});
@@ -32436,7 +32274,7 @@
 	}
 
 /***/ },
-/* 30 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(9)();

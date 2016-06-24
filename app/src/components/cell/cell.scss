@@ -1,6 +1,23 @@
 @import 'colors';
 
-:local(.description){
+:local(.cell){
+
+}
+
+:local(.thumb){
+  img {
+    padding: 1em;
+    max-width: 100px;
+    max-height: 80px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+:local(.desc){
+  display: block;
 
   padding-left: 1em;
   padding-right: 1em;
@@ -15,7 +32,7 @@
   }
 
   h3 {
-    
+
     &:hover{
       cursor: pointer;
     }
@@ -27,4 +44,12 @@
     color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);
   }
 
+}
+
+:local(.full){
+  display: block;
+
+  img {
+    width: 100%;
+  }
 }
