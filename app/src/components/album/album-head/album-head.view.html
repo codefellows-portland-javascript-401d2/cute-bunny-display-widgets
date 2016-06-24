@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="twelve columns">
+    <div class="branding">
+      <h1>Cute Bunny Album</h1>
+    </div>
+    <nav class="nav nav--sections">
+      <ul class="list--inline-block">
+        <li ng-repeat="section in $ctrl.sections">
+          <a href="#{{ section.name }}" ng-click="$ctrl.toggleNav($event, section.name)" title="{{ section.text }}">
+            <i class="fa fa-{{ section.fa }} fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">{{ section.text }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

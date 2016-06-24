@@ -1,15 +1,8 @@
 <header class="page__head">
-  <div class="row">
-    <div class="twelve columns">
-      <div class="branding">
-        <h1>Cute Bunny Album</h1>
-      </div>
-      <album-nav current-section="$ctrl.currentSection"></album-nav>
-    </div>
-  </div>
+  <album-head current-section="$ctrl.currentSection"></album-head>
 </header>
 <main class="page__main">
-  <album-list ng-show="$ctrl.currentSection == 'list'" bunnies="$ctrl.bunnies"></album-list>
-  <album-tile ng-show="$ctrl.currentSection == 'tile'" bunnies="$ctrl.bunnies"></album-tile>
-  <album-full ng-show="$ctrl.currentSection == 'full'" bunnies="$ctrl.bunnies"></album-full>
+  <album-list ng-show="$ctrl.currentSection === 'list'" bunnies="$ctrl.bunnies"></album-list>
+  <album-tile ng-show="$ctrl.currentSection === 'tile'" bunnies="$ctrl.bunnies"></album-tile>
+  <album-full ng-show="$ctrl.currentSection === 'full'" bunnies="$ctrl.bunnies"></album-full>
 </main>
