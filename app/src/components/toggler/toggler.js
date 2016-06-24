@@ -1,5 +1,5 @@
-import template from './toggle.html';
-import style from './toggle.scss';
+import template from './toggler.html';
+import style from './toggler.scss';
 
 export default {
   template,

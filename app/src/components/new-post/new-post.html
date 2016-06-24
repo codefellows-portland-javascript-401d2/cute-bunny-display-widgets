@@ -1,0 +1,14 @@
+<form class="new-post" 
+      ng-submit="newPost.addPost(newPost.postData)">
+  <label>Title: </label>
+  <input ng-model="newPost.postData.title" />
+  <br>
+  <label>URL: </label>
+  <input ng-model="newPost.postData.url" />
+  <br>
+  <label>Description: </label>
+  <input ng-model="newPost.postData.description" />
+  <br>
+  <input type="submit" value="Add Image"/>
+</form>
+

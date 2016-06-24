@@ -1,15 +1,17 @@
 import angular from 'angular';
-import displayText from './display-text/display-text';
-import displayThumb from './display-thumb/display-thumb';
-import displayFull from './display-full/display-full';
-import toggle from './toggle/toggle';
-import app from './app/app';
+import camelcase from 'camelcase';
+import path from 'path';
 
-const components = angular.module('components', [])
-  .component('text', displayText)
-  .component('thumb', displayThumb)
-  .component('full', displayFull)
-  .component('toggler', toggle)
-  .component('app', app);
+const reqContext = require.context(
+    './', 
+    true, 
+    /^\.\/(?!index).+?\.js$/
+);
+
+const components = angular.module( 'components', [] );
+reqContext.keys().forEach( key => {
+  const name = camelcase( path.basename( key, '.js' ) );
+  components.component( name, reqContext( key ).default );
+});
 
 export default components.name;

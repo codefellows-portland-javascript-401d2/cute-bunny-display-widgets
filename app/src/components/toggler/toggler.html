@@ -16,23 +16,23 @@
 <ul class="viewer">
   <li ng-repeat="image in toggler.images"
       ng-class="toggler.toggle">
-    <text post-title="image.title"
+    <display-text post-title="image.title"
           source="image.url"
           description="image.description"
           ng-show="toggler.toggle === 'text'">
-    </text>
+    </display-text>
 
-    <thumb source="image.url"
+    <display-thumb source="image.url"
            post-title="image.title"
            ng-show="toggler.toggle === 'thumb'">
-    </thumb>
+    </display-thumb>
 
     <hr ng-show="toggler.toggle === 'text'">
 
-    <full post-title="image.title"
+    <display-full post-title="image.title"
           source="image.url"
           description="image.description"
           ng-show="toggler.toggle === 'full'">
-    </full>
+    </display-full>
   </li>
 </ul>
