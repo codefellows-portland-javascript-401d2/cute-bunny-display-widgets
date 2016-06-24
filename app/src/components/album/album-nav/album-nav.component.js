@@ -12,15 +12,18 @@ export default {
     this.sections = [
       {
         name: 'list',
-        text: 'List View'
+        text: 'List View',
+        fa: 'list'
       },
       {
         name: 'tile',
-        text: 'Tile View'
+        text: 'Tile View',
+        fa: 'th'
       },
       {
         name: 'full',
-        text: 'Full View'
+        text: 'Full View',
+        fa: 'image'
       }
     ];
 
