@@ -1,10 +1,12 @@
 <section>
   <div class="row" ng-repeat="bunny in $ctrl.bunnies">
     <div class="twelve columns">
-      <h2>
-        <a href="{{ bunny.imageLink }}" target="_blank">{{ bunny.title }}</a>
-      </h2>
-      <p>{{ bunny.description }}</p>
+      <div class="box">
+        <h2>
+          <a href="{{ bunny.imageLink }}" target="_blank">{{ bunny.title }}</a>
+        </h2>
+        <p>{{ bunny.description }}</p>
+      </div>
     </div>
   </div>
 </section>

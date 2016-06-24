@@ -1,6 +1,5 @@
 body {
-  background-color: $color-1;
-  color: $color-4;
+  color: $color-3;
   margin-top: 112px;
 
   @media (min-width: 544px) {
@@ -9,6 +8,6 @@ body {
 }
 
 a {
-  color: $color-4;
+  color: $color-3;
   text-decoration: none;
 }
