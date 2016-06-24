@@ -48,17 +48,17 @@
 	
 	__webpack_require__(1);
 	
-	var _angular = __webpack_require__(6);
+	var _angular = __webpack_require__(5);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _bunnyApp = __webpack_require__(8);
+	var _app = __webpack_require__(7);
 	
-	var _bunnyApp2 = _interopRequireDefault(_bunnyApp);
+	var _app2 = _interopRequireDefault(_app);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.bootstrap(document, [_bunnyApp2.default]);
+	_angular2.default.bootstrap(document, [_app2.default]);
 
 /***/ },
 /* 1 */
@@ -70,16 +70,15 @@
 /* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */,
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(7);
+	__webpack_require__(6);
 	module.exports = angular;
 
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports) {
 
 	/**
@@ -31557,6 +31556,30 @@
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _angular = __webpack_require__(5);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _album = __webpack_require__(8);
+	
+	var _album2 = _interopRequireDefault(_album);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var appModule = _angular2.default.module('app', [_album2.default]);
+	
+	exports.default = appModule.name;
+
+/***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31566,19 +31589,35 @@
 	  value: true
 	});
 	
-	var _angular = __webpack_require__(6);
+	var _angular = __webpack_require__(5);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _components = __webpack_require__(9);
+	var _app = __webpack_require__(9);
 	
-	var _components2 = _interopRequireDefault(_components);
+	var _app2 = _interopRequireDefault(_app);
+	
+	var _albumHead = __webpack_require__(14);
+	
+	var _albumHead2 = _interopRequireDefault(_albumHead);
+	
+	var _albumList = __webpack_require__(18);
+	
+	var _albumList2 = _interopRequireDefault(_albumList);
+	
+	var _albumTile = __webpack_require__(22);
+	
+	var _albumTile2 = _interopRequireDefault(_albumTile);
+	
+	var _albumFull = __webpack_require__(26);
+	
+	var _albumFull2 = _interopRequireDefault(_albumFull);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var app = _angular2.default.module('bunnyApp', [_components2.default]);
+	var albumModule = _angular2.default.module('components', []).component('app', _app2.default).component('albumHead', _albumHead2.default).component('albumList', _albumList2.default).component('albumTile', _albumTile2.default).component('albumFull', _albumFull2.default);
 	
-	exports.default = app.name;
+	exports.default = albumModule.name;
 
 /***/ },
 /* 9 */
@@ -31587,83 +31626,16 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _angular = __webpack_require__(6);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _app = __webpack_require__(10);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	var _bunnyNav = __webpack_require__(14);
-	
-	var _bunnyNav2 = _interopRequireDefault(_bunnyNav);
-	
-	var _bunnyText = __webpack_require__(16);
-	
-	var _bunnyText2 = _interopRequireDefault(_bunnyText);
-	
-	var _bunnyThumb = __webpack_require__(18);
-	
-	var _bunnyThumb2 = _interopRequireDefault(_bunnyThumb);
-	
-	var _bunnyFull = __webpack_require__(20);
-	
-	var _bunnyFull2 = _interopRequireDefault(_bunnyFull);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var components = _angular2.default.module('components', []).component('app', _app2.default).component('bunnyNav', _bunnyNav2.default).component('bunnyText', _bunnyText2.default).component('bunnyThumb', _bunnyThumb2.default).component('bunnyFull', _bunnyFull2.default);
-	
-	exports.default = components.name;
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 	
-	var _app = __webpack_require__(11);
+	var _appView = __webpack_require__(10);
 	
-	var _app2 = _interopRequireDefault(_app);
+	var _appView2 = _interopRequireDefault(_appView);
 	
-	var _randomBunny = __webpack_require__(12);
+	var _appStyles = __webpack_require__(11);
 	
-	var _randomBunny2 = _interopRequireDefault(_randomBunny);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-		template: _app2.default,
-		controllerAs: 'app',
-		controller: function controller() {
-			this.currentSection = 'text';
-			this.data = (0, _randomBunny2.default)();
-		}
-	};
-
-/***/ },
-/* 11 */
-/***/ function(module, exports) {
-
-	module.exports = "<header>\n  <h1>Cute Bunny</h1>\n  <bunny-nav current-section=\"app.currentSection\"></bunny-nav>\n</header>\n<main>\n  <bunny-text ng-show=\"app.currentSection == 'text'\" data=\"app.data\"></bunny-text>\n  <bunny-thumb ng-show=\"app.currentSection == 'thumb'\" data=\"app.data\"></bunny-thumb>\n  <bunny-full ng-show=\"app.currentSection == 'full'\" data=\"app.data\"></bunny-full>\n</main>\n";
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	var _appStyles2 = _interopRequireDefault(_appStyles);
 	
 	var _bunnies = __webpack_require__(13);
 	
@@ -31671,11 +31643,30 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function () {
-	  return _bunnies2.default[Math.floor(Math.random() * _bunnies2.default.length)];
+	exports.default = {
+		template: _appView2.default,
+		controller: function controller() {
+			this.styles = _appStyles2.default;
+			this.currentSection = 'list';
+			this.bunnies = _bunnies2.default;
+		}
 	};
 
 /***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	module.exports = "<header ng-class=$ctrl.styles.header> <album-head current-section=$ctrl.currentSection></album-head> </header> <main ng-class=$ctrl.styles.main> <album-list ng-show=\"$ctrl.currentSection === 'list'\" bunnies=$ctrl.bunnies></album-list> <album-tile ng-show=\"$ctrl.currentSection === 'tile'\" bunnies=$ctrl.bunnies></album-tile> <album-full ng-show=\"$ctrl.currentSection === 'full'\" bunnies=$ctrl.bunnies></album-full> </main>";
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"header":"_2_V8O27ldq2hyeDymS-Owh","main":"_2m7uWZd6aJ9c2wOUSygq3j"};
+
+/***/ },
+/* 12 */,
 /* 13 */
 /***/ function(module, exports) {
 
@@ -31684,19 +31675,19 @@
 			"title": "Calico Bunny",
 			"description": "Too cute to be real.",
 			"imageLink": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
-			"imageThumbWidth": 100,
-			"imageThumbHeight": 67,
-			"imageFullWidth": 2896,
-			"imageFullHeight": 1936
+			"imageThumbWidth": 150,
+			"imageThumbHeight": 100,
+			"imageFullWidth": 504,
+			"imageFullHeight": 337
 		},
 		{
 			"title": "Little Brown Bunny",
 			"description": "Insane cuteness is always inspiring.",
-			"imageLink": "https://s-media-cache-ak0.pinimg.com/564x/40/94/74/409474b465c5f1f0d189881fb168cea1.jpg",
+			"imageLink": "https://s-media-cache-ak0.pinimg.com/640x/40/94/74/409474b465c5f1f0d189881fb168cea1.jpg",
 			"imageThumbWidth": 100,
 			"imageThumbHeight": 100,
-			"imageFullWidth": 564,
-			"imageFullHeight": 564
+			"imageFullWidth": 337,
+			"imageFullHeight": 337
 		},
 		{
 			"title": "White Fluffy Bunny",
@@ -31704,8 +31695,35 @@
 			"imageLink": "https://s-media-cache-ak0.pinimg.com/564x/02/67/4b/02674bc406fb2927c7fa3d314cfae34b.jpg",
 			"imageThumbWidth": 100,
 			"imageThumbHeight": 100,
-			"imageFullWidth": 403,
-			"imageFullHeight": 403
+			"imageFullWidth": 337,
+			"imageFullHeight": 337
+		},
+		{
+			"title": "Bunny in a Basket",
+			"description": "having a bad day.. just look at that.. i mean you just can't beat that..",
+			"imageLink": "https://s-media-cache-ak0.pinimg.com/564x/03/83/34/0383348ae51d018d1f3dce7d467fdf1f.jpg",
+			"imageThumbWidth": 134,
+			"imageThumbHeight": 100,
+			"imageFullWidth": 450,
+			"imageFullHeight": 337
+		},
+		{
+			"title": "Cute Bunny Tongue",
+			"description": "Cutest bunny sticking out their tongue.",
+			"imageLink": "http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-6.jpg",
+			"imageThumbWidth": 158,
+			"imageThumbHeight": 100,
+			"imageFullWidth": 554,
+			"imageFullHeight": 337
+		},
+		{
+			"title": "Bunny Stuck",
+			"description": "Awwww. Can they get any cuter?",
+			"imageLink": "https://s-media-cache-ak0.pinimg.com/564x/86/08/13/8608133093c74c5b895a1fa2f876cebd.jpg",
+			"imageThumbWidth": 125,
+			"imageThumbHeight": 100,
+			"imageFullWidth": 421,
+			"imageFullHeight": 337
 		}
 	];
 
@@ -31719,36 +31737,41 @@
 	  value: true
 	});
 	
-	var _bunnyNav = __webpack_require__(15);
+	var _albumHeadView = __webpack_require__(15);
 	
-	var _bunnyNav2 = _interopRequireDefault(_bunnyNav);
+	var _albumHeadView2 = _interopRequireDefault(_albumHeadView);
+	
+	var _albumHeadStyles = __webpack_require__(16);
+	
+	var _albumHeadStyles2 = _interopRequireDefault(_albumHeadStyles);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  template: _bunnyNav2.default,
+	  template: _albumHeadView2.default,
 	  bindings: {
 	    currentSection: '='
 	  },
 	  require: {
 	    app: '^^'
 	  },
-	  controllerAs: 'bunnyNav',
 	  controller: function controller() {
 	    var _this = this;
 	
-	    this.data = {
-	      sections: [{
-	        name: 'text',
-	        text: 'Text'
-	      }, {
-	        name: 'thumb',
-	        text: 'Thumbnail'
-	      }, {
-	        name: 'full',
-	        text: 'Full Size Image'
-	      }]
-	    };
+	    this.styles = _albumHeadStyles2.default;
+	    this.sections = [{
+	      name: 'list',
+	      text: 'List View',
+	      fa: 'list'
+	    }, {
+	      name: 'tile',
+	      text: 'Tile View',
+	      fa: 'th'
+	    }, {
+	      name: 'full',
+	      text: 'Full View',
+	      fa: 'image'
+	    }];
 	
 	    this.toggleNav = function ($event, sectionName) {
 	      $event.preventDefault();
@@ -31762,42 +31785,17 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav>\n  <ul>\n    <li ng-repeat=\"section in bunnyNav.data.sections\">\n      <a href=\"#{{section.name}}\" ng-click=\"bunnyNav.toggleNav($event, section.name)\">{{section.text}}</a>\n    </li>\n  </ul>\n</nav>\n";
+	module.exports = "<div class=row> <div class=\"twelve columns\"> <div ng-class=$ctrl.styles.branding> <h1>Cute Bunny Album</h1> </div> <nav ng-class=$ctrl.styles.nav> <ul> <li ng-repeat=\"section in $ctrl.sections\"> <a href=\"#{{ section.name }}\" ng-click=\"$ctrl.toggleNav($event, section.name)\" title=\"{{ section.text }}\"> <i class=\"fa fa-{{ section.fa }} fa-lg\" aria-hidden=true></i> <span class=sr-only>{{ section.text }}</span> </a> </li> </ul> </nav> </div> </div>";
 
 /***/ },
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _bunnyText = __webpack_require__(17);
-	
-	var _bunnyText2 = _interopRequireDefault(_bunnyText);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  template: _bunnyText2.default,
-	  bindings: {
-	    data: '='
-	  },
-	  require: {
-	    app: '^^'
-	  },
-	  controllerAs: 'bunnyText'
-	};
-
-/***/ },
-/* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <h2>\n    <a href=\"{{bunnyText.data.imageLink}}\" target=\"_blank\">{{bunnyText.data.title}}</a>\n  </h2>\n  <p>{{bunnyText.data.description}}</p>\n</section>\n";
+	// removed by extract-text-webpack-plugin
+	module.exports = {"branding":"KsEp7qlXH9ZSDiJtuzJCX","nav":"_3MRYDjM0mEkJR0auLIoxIm"};
 
 /***/ },
+/* 17 */,
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31807,31 +31805,45 @@
 	  value: true
 	});
 	
-	var _bunnyThumb = __webpack_require__(19);
+	var _albumListView = __webpack_require__(19);
 	
-	var _bunnyThumb2 = _interopRequireDefault(_bunnyThumb);
+	var _albumListView2 = _interopRequireDefault(_albumListView);
+	
+	var _albumListStyles = __webpack_require__(20);
+	
+	var _albumListStyles2 = _interopRequireDefault(_albumListStyles);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  template: _bunnyThumb2.default,
+	  template: _albumListView2.default,
 	  bindings: {
-	    data: '='
+	    bunnies: '='
 	  },
 	  require: {
 	    app: '^^'
 	  },
-	  controllerAs: 'bunnyThumb'
+	  controller: function controller() {
+	    this.styles = _albumListStyles2.default;
+	  }
 	};
 
 /***/ },
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <h2>\n    <a href=\"{{bunnyThumb.data.imageLink}}\" target=\"_blank\">{{bunnyThumb.data.title}}</a>\n  </h2>\n  <figure>\n    <a href=\"{{bunnyThumb.data.imageLink}}\" target=\"_blank\">\n      <img ng-src=\"{{bunnyThumb.data.imageLink}}\" class=\"image--responsive\" alt=\"{{bunnyThumb.data.title}}\" width=\"{{bunnyThumb.data.imageThumbWidth}}\" height=\"{{bunnyThumb.data.imageThumbHeight}}\">\n    </a>\n    <figcaption>{{bunnyThumb.data.description}}</figcaption>\n  </figure>\n</section>\n";
+	module.exports = "<section> <div class=row ng-repeat=\"bunny in $ctrl.bunnies\"> <div class=\"twelve columns\"> <div ng-class=\"$ctrl.styles['list-item']\"> <h2>{{ bunny.title }} <a href=\"{{ bunny.imageLink }}\" target=_blank><i class=\"fa fa-external-link\" aria-hidden=true></i></a></h2> <p>{{ bunny.description }}</p> </div> </div> </div> </section>";
 
 /***/ },
 /* 20 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"list-item":"_1K-Cr3HE2i_C3-3Bpkqb5F"};
+
+/***/ },
+/* 21 */,
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31840,28 +31852,125 @@
 	  value: true
 	});
 	
-	var _bunnyFull = __webpack_require__(21);
+	var _albumTileView = __webpack_require__(23);
 	
-	var _bunnyFull2 = _interopRequireDefault(_bunnyFull);
+	var _albumTileView2 = _interopRequireDefault(_albumTileView);
+	
+	var _albumTileStyles = __webpack_require__(24);
+	
+	var _albumTileStyles2 = _interopRequireDefault(_albumTileStyles);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  template: _bunnyFull2.default,
+	  template: _albumTileView2.default,
 	  bindings: {
-	    data: '='
+	    bunnies: '='
 	  },
 	  require: {
 	    app: '^^'
 	  },
-	  controllerAs: 'bunnyFull'
+	  controller: function controller() {
+	    var bunnies = [];
+	    var bunniesGroup = [];
+	
+	    for (var i = 0; i < this.bunnies.length; i++) {
+	      bunnies.push(this.bunnies[i]);
+	
+	      if (i % 3 === 2) {
+	        bunniesGroup.push(bunnies);
+	        bunnies = [];
+	      }
+	    }
+	
+	    this.bunniesGroup = bunniesGroup;
+	    this.styles = _albumTileStyles2.default;
+	  }
 	};
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <h2>\n    <a href=\"{{bunnyFull.data.imageLink}}\" target=\"_blank\">{{bunnyFull.data.title}}</a>\n  </h2>\n  <figure>\n    <a href=\"{{bunnyFull.data.imageLink}}\" target=\"_blank\">\n      <img ng-src=\"{{bunnyFull.data.imageLink}}\" class=\"image--responsive\" alt=\"{{bunnyFull.data.title}}\" width=\"{{bunnyFull.data.imageFullWidth}}\" height=\"{{bunnyFull.data.imageFullHeight}}\">\n    </a>\n    <figcaption>{{bunnyFull.data.description}}</figcaption>\n  </figure>\n</section>\n";
+	module.exports = "<section> <div class=row ng-repeat=\"bunnies in $ctrl.bunniesGroup\"> <div class=\"column four\" ng-repeat=\"bunny in bunnies\"> <div ng-class=$ctrl.styles.thumbnail ng-style=\"{'background-image': 'url('+bunny.imageLink+')'}\" title=\"{{ bunny.description }}\"> <h2>{{ bunny.title }}</h2> </div> </div> </div> </section>";
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"thumbnail":"_3pp1ifTIaUD-6fgKmLVn04"};
+
+/***/ },
+/* 25 */,
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _albumFullView = __webpack_require__(27);
+	
+	var _albumFullView2 = _interopRequireDefault(_albumFullView);
+	
+	var _albumFullStyles = __webpack_require__(28);
+	
+	var _albumFullStyles2 = _interopRequireDefault(_albumFullStyles);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _albumFullView2.default,
+	  bindings: {
+	    bunnies: '='
+	  },
+	  require: {
+	    app: '^^'
+	  },
+	  controller: function controller() {
+	    var _this = this;
+	
+	    this.styles = _albumFullStyles2.default;
+	    this.bunniesIndex = 0;
+	    this.bunny = this.bunnies[this.bunniesIndex];
+	
+	    this.prevBtn = function () {
+	      if (_this.bunniesIndex !== 0) {
+	        _this.bunniesIndex -= 1;
+	      } else {
+	        _this.bunniesIndex = _this.bunnies.length - 1;
+	      }
+	
+	      _this.bunny = _this.bunnies[_this.bunniesIndex];
+	    };
+	
+	    this.nextBtn = function () {
+	      if (_this.bunniesIndex + 1 !== _this.bunnies.length) {
+	        _this.bunniesIndex += 1;
+	      } else {
+	        _this.bunniesIndex = 0;
+	      }
+	
+	      _this.bunny = _this.bunnies[_this.bunniesIndex];
+	    };
+	  }
+	};
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	module.exports = "<section> <div class=\"row no-stacking-on-mobiles\"> <div class=\"twelve columns\"> <div ng-class=\"$ctrl.styles['gallery-info']\" ng-style=\"{'background-image': 'url('+$ctrl.bunny.imageLink+')'}\"> <h2>{{ $ctrl.bunny.title }}</h2> <p>{{ $ctrl.bunny.description }}</p> </div> <div ng-class=\"$ctrl.styles['gallery-nav']\"> <button type=button ng-click=$ctrl.prevBtn()> <i class=\"fa fa-chevron-left fa-2x\" aria-hidden=true></i> <span>Prev</span> </button> <button type=button ng-click=$ctrl.nextBtn()> <span>Next</span> <i class=\"fa fa-chevron-right fa-2x\" aria-hidden=true></i> </button> </div> </div> </div> </section>";
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"gallery-info":"BPtd3iwmLhrRJPRI21kSv","gallery-nav":"_2JsYh3xWEg2cAG_00skd0X"};
 
 /***/ }
 /******/ ]);
