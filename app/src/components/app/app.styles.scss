@@ -1,4 +1,6 @@
-.page__head {
+@import 'colors';
+
+:local(.header) {
   position: absolute;
   top: 0;
   right: 0;
@@ -13,6 +15,6 @@
   }
 }
 
-.page__main {
+:local(.main) {
   padding: 10px 0;
 }

@@ -1,7 +1,7 @@
-<header class="page__head">
+<header ng-class="$ctrl.styles.header">
   <album-head current-section="$ctrl.currentSection"></album-head>
 </header>
-<main class="page__main">
+<main ng-class="$ctrl.styles.main">
   <album-list ng-show="$ctrl.currentSection === 'list'" bunnies="$ctrl.bunnies"></album-list>
   <album-tile ng-show="$ctrl.currentSection === 'tile'" bunnies="$ctrl.bunnies"></album-tile>
   <album-full ng-show="$ctrl.currentSection === 'full'" bunnies="$ctrl.bunnies"></album-full>
