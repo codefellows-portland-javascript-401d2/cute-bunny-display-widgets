@@ -54,7 +54,7 @@
 	
 	var _cuteBunny2 = _interopRequireDefault(_cuteBunny);
 	
-	__webpack_require__(27);
+	__webpack_require__(29);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31687,7 +31687,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3mPZeL0koMJf2Jh6Avjeno {\n  padding: 1em; }\n  ._3mPZeL0koMJf2Jh6Avjeno h1 {\n    color: #b3001e; }\n", "", {"version":3,"sources":["/./src/app/src/components/app/app.scss"],"names":[],"mappings":"AAEA;EAEE,aAAa,EAMd;EARD;IAKI,eAAW,EACZ","file":"app.scss","sourcesContent":["@import 'colors';\n\n:local(.app){\n\n  padding: 1em;\n\n  h1 {\n    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._3mPZeL0koMJf2Jh6Avjeno {\n  padding: 1em; }\n  ._3mPZeL0koMJf2Jh6Avjeno h1 {\n    color: #b3001e; }\n", "", {"version":3,"sources":["/./src/app/src/components/app/app.scss"],"names":[],"mappings":"AAEA;EACE,aAAa,EAMd;EAPD;IAII,eAAW,EACZ","file":"app.scss","sourcesContent":["@import 'colors';\n\n:local(.app){\n  padding: 1em;\n\n  h1 {\n    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);\n  }\n  \n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
@@ -32025,7 +32025,7 @@
 	  controller: function controller() {
 	
 	    // Initial radio button selection
-	    this.display = 'desc';
+	    this.display = 'thumb';
 	  }
 	};
 
@@ -32059,7 +32059,8 @@
 	  template: _description2.default,
 	  controllerAs: 'desc',
 	  bindings: {
-	    pic: '='
+	    pic: '=',
+	    select: '&'
 	  },
 	  controller: function controller() {
 	    this.styles = _description4.default;
@@ -32070,7 +32071,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"{{desc.styles.description}}\">\n  <h3>{{desc.pic.title}}</h3>\n  <h4>{{desc.pic.description}}</h4>\n  <p>{{desc.pic.url}}</p>\n</div>\n";
+	module.exports = "<div class=\"{{desc.styles.description}}\">\n  <h3 ng-click=\"desc.select({myId: desc.pic.id})\">{{desc.pic.title}}</h3>\n  <h4>{{desc.pic.description}}</h4>\n  <a href=\"{{desc.pic.url}}\">{{desc.pic.url}}</a>\n</div>\n";
 
 /***/ },
 /* 15 */
@@ -32107,7 +32108,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".umsNWXUaKOxUr6527MwIg {\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em; }\n  .umsNWXUaKOxUr6527MwIg p {\n    font-size: 80%;\n    color: rgba(0, 85, 102, 0.5);\n    margin-top: 0em;\n    margin-bottom: .25em; }\n  .umsNWXUaKOxUr6527MwIg h3 {\n    margin-top: 0.5em;\n    margin-bottom: .25em;\n    color: #b3001e; }\n  .umsNWXUaKOxUr6527MwIg h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: #005566; }\n", "", {"version":3,"sources":["/./src/app/src/components/description/description.scss"],"names":[],"mappings":"AAEA;EAEE,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,kBAAkB,EAwBnB;EA7BD;IAQI,eAAe;IACf,6BAAW;IAEX,gBAAgB;IAChB,qBACD,EAAC;EAbJ;IAgBI,kBAAkB;IAClB,qBAAqB;IACrB,eAAW,EACZ;EAnBH;IAsBI,gBAAgB;IAChB,qBAAqB;IACrB,eAAW,EACZ","file":"description.scss","sourcesContent":["@import 'colors';\n\n:local(.description){\n\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em;\n\n  p {\n    font-size: 80%;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, .5);\n    // opacity: 0.5;\n    margin-top: 0em;\n    margin-bottom: .25em\n  }\n\n  h3 {\n    margin-top: 0.5em;\n    margin-bottom: .25em;\n    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);\n  }\n\n  h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);\n  }\n\n\n\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, ".umsNWXUaKOxUr6527MwIg {\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em; }\n  .umsNWXUaKOxUr6527MwIg a {\n    font-size: 80%;\n    color: rgba(0, 85, 102, 0.5);\n    margin-top: 0em;\n    margin-bottom: .25em; }\n  .umsNWXUaKOxUr6527MwIg h3:hover {\n    cursor: pointer; }\n  .umsNWXUaKOxUr6527MwIg h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: #005566; }\n", "", {"version":3,"sources":["/./src/app/src/components/description/description.scss"],"names":[],"mappings":"AAEA;EAEE,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,kBAAkB,EAsBnB;EA3BD;IAQI,eAAe;IACf,6BAAW;IACX,gBAAgB;IAChB,qBACD,EAAC;EAZJ;IAiBM,gBAAgB,EACjB;EAlBL;IAsBI,gBAAgB;IAChB,qBAAqB;IACrB,eAAW,EACZ","file":"description.scss","sourcesContent":["@import 'colors';\n\n:local(.description){\n\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em;\n\n  a {\n    font-size: 80%;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, .5);\n    margin-top: 0em;\n    margin-bottom: .25em\n  }\n\n  h3 {\n    \n    &:hover{\n      cursor: pointer;\n    }\n  }\n\n  h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
@@ -32138,7 +32139,8 @@
 	  template: _thumb2.default,
 	  controllerAs: 'thumb',
 	  bindings: {
-	    pic: '='
+	    pic: '=',
+	    select: '&'
 	  },
 	  controller: function controller() {
 	    this.styles = _thumb4.default;
@@ -32149,7 +32151,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<img ng-src=\"{{thumb.pic.url}}\" class=\"{{thumb.styles.thumb}}\">\n";
+	module.exports = "<img ng-src=\"{{thumb.pic.url}}\" class=\"{{thumb.styles.thumb}}\" ng-click=\"thumb.select({myId: thumb.pic.id})\">\n";
 
 /***/ },
 /* 19 */
@@ -32186,7 +32188,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3yYhF36OyO1Y_2F2qoQ0_2 {\n  padding: 1em;\n  max-width: 100px;\n  max-height: 80px; }\n", "", {"version":3,"sources":["/./src/app/src/components/thumb/thumb.scss"],"names":[],"mappings":"AAEA;EAEI,aAAa;EACb,iBAAiB;EACjB,iBAAiB,EAEpB","file":"thumb.scss","sourcesContent":["@import 'colors';\n\n:local(.thumb){\n\n    padding: 1em;\n    max-width: 100px;\n    max-height: 80px;\n\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._3yYhF36OyO1Y_2F2qoQ0_2 {\n  padding: 1em;\n  max-width: 100px;\n  max-height: 80px; }\n  ._3yYhF36OyO1Y_2F2qoQ0_2:hover {\n    cursor: pointer; }\n", "", {"version":3,"sources":["/./src/app/src/components/thumb/thumb.scss"],"names":[],"mappings":"AAEA;EAEI,aAAa;EACb,iBAAiB;EACjB,iBAAiB,EAMpB;EAVD;IAOE,gBAAgB,EAChB","file":"thumb.scss","sourcesContent":["@import 'colors';\n\n:local(.thumb){\n\n    padding: 1em;\n    max-width: 100px;\n    max-height: 80px;\n\n    &:hover {\n\t\tcursor: pointer;\n\t}\n\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
@@ -32228,7 +32230,7 @@
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"{{full.styles.full}}\">\n  <h3>{{full.pic.title}}</h3>\n  <p>{{full.pic.description}}</p>\n  <img ng-src=\"{{full.pic.url}}\">\n</div>\n";
+	module.exports = "<div class=\"{{full.styles.full}}\">\n  <a id=\"{{full.pic.id}}\"></a>\n  <h3>{{full.pic.title}}</h3>\n  <p>{{full.pic.description}}</p>\n  <img ng-src=\"{{full.pic.url}}\">\n</div>\n";
 
 /***/ },
 /* 23 */
@@ -32265,7 +32267,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3BXnKaatD18cBg6OMtdOgv img {\n  width: 100%; }\n\n._3BXnKaatD18cBg6OMtdOgv h3 {\n  margin-top: 0.5em;\n  margin-bottom: .25em;\n  color: #b3001e; }\n", "", {"version":3,"sources":["/./src/app/src/components/full/full.scss"],"names":[],"mappings":"AAEA;EAGI,YAAY,EACb;;AAJH;EAOI,kBAAkB;EAClB,qBAAqB;EACrB,eAAW,EACZ","file":"full.scss","sourcesContent":["@import 'colors';\n\n:local(.full){\n\n  img {\n    width: 100%;\n  }\n\n  h3 {\n    margin-top: 0.5em;\n    margin-bottom: .25em;\n    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._3BXnKaatD18cBg6OMtdOgv img {\n  width: 100%; }\n", "", {"version":3,"sources":["/./src/app/src/components/full/full.scss"],"names":[],"mappings":"AAEA;EAGI,YAAY,EACb","file":"full.scss","sourcesContent":["@import 'colors';\n\n:local(.full){\n\n  img {\n    width: 100%;\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
@@ -32286,6 +32288,10 @@
 	
 	var _album2 = _interopRequireDefault(_album);
 	
+	var _album3 = __webpack_require__(27);
+	
+	var _album4 = _interopRequireDefault(_album3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
@@ -32294,56 +32300,74 @@
 	    display: '='
 	  },
 	  controllerAs: 'album',
-	  controller: function controller() {
+	  controller: ['$location', '$anchorScroll', function ($location, $anchorScroll) {
+	    this.select = function (myId, index) {
+	      console.log('this is the ID ' + myId + ' and index ' + index);
+	      // Switch to Full display
+	      this.display = 'full';
+	      // Go to anchor tab with ID
+	      $location.hash(myId);
+	      $anchorScroll();
+	    }, this.styles = _album4.default;
 	    this.arrayOfPics = [{
+	      id: 1,
 	      title: 'Melville',
 	      description: 'Calico bunny next to a brick wall',
 	      url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
 	    }, {
+	      id: 2,
 	      title: 'Rhonda',
 	      description: 'Orange bunny sticking out its tongue',
 	      url: 'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-6.jpg'
 	    }, {
+	      id: 3,
 	      title: 'Cedar',
 	      description: 'Floppy eared bunny',
 	      url: 'http://rexrabbitsusa.com/wp-content/uploads/2015/03/Bunny-Wallpapers-bunny-rabbits-128637_1024_768.jpg'
 	    }, {
+	      id: 4,
 	      title: 'Marv',
 	      description: 'White bunny on grass',
 	      url: 'http://slodive.com/wp-content/uploads/2013/02/cute-bunny-pictures/cute.jpg'
 	    }, {
+	      id: 5,
 	      title: 'Hank',
 	      description: 'Tiny white bunny looking up',
 	      url: 'http://maxcdn.thedesigninspiration.com/wp-content/uploads/2014/07/Cute-Rabbits-026.jpg'
 	    }, {
+	      id: 6,
 	      title: 'Eloise',
 	      description: 'White bunny on a log',
 	      url: 'http://media1.santabanta.com/full1/Animals/Rabbits/rabbits-12a.jpg'
 	    }, {
+	      id: 7,
 	      title: 'Quian',
 	      description: 'Kooky askew bunny with tongue',
 	      url: 'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-3.jpg'
 	    }, {
+	      id: 8,
 	      title: 'Roz',
 	      description: 'Fluffy tiny orange bunny',
 	      url: 'http://cdn.kickvick.com/wp-content/uploads/2015/09/cutest-bunny-rabbits-05.jpg'
 	    }, {
+	      id: 9,
 	      title: 'Elmer',
 	      description: 'Bunny inside a knitted cap',
 	      url: 'https://www.viewfoo.com/uploads/images/125_1419030600_croppicorgimgbunnyjpg.jpg'
 	    }, {
+	      id: 10,
 	      title: 'Sissy',
 	      description: 'Superhero bunny in disguise',
 	      url: 'http://cdnpix.com/show/imgs/1fa0e6dd961b82cee622fa9710ea7d4a.jpg'
 	    }];
-	  }
+	  }]
 	};
 
 /***/ },
 /* 26 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<ul ng-show=\"album.display === 'full'\">\n  <li ng-repeat=\"pic in album.arrayOfPics\">\n    <full pic=\"pic\"></full>\n  </li>\n</ul>\n\n<div ng-show=\"album.display === 'thumb'\">\n  <span ng-repeat=\"pic in album.arrayOfPics\" title=\"{{pic.title}}\">\n    <thumb pic=\"pic\"></thumb>\n  </span>\n</div>\n\n<div ng-show=\"album.display === 'desc'\">\n  <div ng-repeat=\"pic in album.arrayOfPics\" ng-class=\"{alt: $odd}\">\n    <description pic=\"pic\"></description>\n  </div>\n</div>\n";
+	module.exports = "\n<div ng-show=\"album.display === 'desc'\">\n  <div ng-repeat=\"pic in album.arrayOfPics\" ng-class=\"{alt: $odd}\">\n    <description pic=\"pic\" select=\"album.select(myId, $index)\"></description>\n  </div>\n</div>\n\n<div ng-show=\"album.display === 'thumb'\">\n  <p><em>Click on a thumbnail</em></p>\n  <span ng-repeat=\"pic in album.arrayOfPics\" title=\"{{pic.title}}\">\n    <thumb pic=\"pic\" select=\"album.select(myId, $index)\"></thumb>\n  </span>\n</div>\n\n<ul ng-show=\"album.display === 'full'\">\n  <li ng-repeat=\"pic in album.arrayOfPics\">\n    <full pic=\"pic\"></full>\n  </li>\n</ul>\n";
 
 /***/ },
 /* 27 */
@@ -32353,6 +32377,46 @@
 	
 	// load the styles
 	var content = __webpack_require__(28);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./album.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./album.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"album.scss","sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(30);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(10)(content, {});
@@ -32372,7 +32436,7 @@
 	}
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(9)();
@@ -32380,7 +32444,7 @@
 	
 	
 	// module
-	exports.push([module.id, "h1, h2, h3, h4, p {\n  font-family: arial, sans-serif;\n  color: #660011; }\n\nul {\n  list-style-type: none; }\n\nli {\n  padding-top: .25em;\n  padding-bottom: .25em;\n  padding-left: 1em;\n  padding-right: 1em; }\n\n.alt {\n  background-color: #f5f0d6; }\n\nbody {\n  background-color: #f0e4a8; }\n", "", {"version":3,"sources":["/./app/src/scss/main.scss"],"names":[],"mappings":"AAEA;EACE,+BAA+B;EAC/B,eAAW,EACZ;;AAED;EACE,sBAAsB,EACvB;;AAED;EACE,mBAAmB;EACnB,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB,EACpB;;AAED;EACE,0BAAsB,EACvB;;AAED;EACE,0BAAsB,EACvB","file":"main.scss","sourcesContent":["@import 'colors';\n\nh1, h2, h3, h4, p {\n  font-family: arial, sans-serif;\n  color: hsla($text-base-hue, 100%, $text-primary-lightness, 1);\n}\n\nul {\n  list-style-type: none;\n}\n\nli {\n  padding-top: .25em;\n  padding-bottom: .25em;\n  padding-left: 1em;\n  padding-right: 1em;\n}\n\n.alt {\n  background-color: hsla($background-hue, 60%, 90%, 1);\n}\n\nbody {\n  background-color: hsla($background-hue, 70%, 80%, 1);\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "h1, h2, h3, h4, p, a {\n  font-family: arial, sans-serif;\n  color: #660011; }\n\nh3 {\n  margin-top: 0.5em;\n  margin-bottom: .25em;\n  color: #b3001e; }\n\nul {\n  list-style-type: none; }\n\nli {\n  padding-top: .25em;\n  padding-bottom: .25em;\n  padding-left: 1em;\n  padding-right: 1em; }\n\nbody {\n  background-color: #f0e4a8; }\n\n.alt {\n  background-color: #f5f0d6; }\n", "", {"version":3,"sources":["/./app/src/scss/main.scss"],"names":[],"mappings":"AAEA;EACE,+BAA+B;EAC/B,eAAW,EACZ;;AAED;EACE,kBAAkB;EAClB,qBAAqB;EACrB,eAAW,EACZ;;AAED;EACE,sBAAsB,EACvB;;AAED;EACE,mBAAmB;EACnB,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB,EACpB;;AAED;EACE,0BAAsB,EACvB;;AAED;EACE,0BAAsB,EACvB","file":"main.scss","sourcesContent":["@import 'colors';\n\nh1, h2, h3, h4, p, a {\n  font-family: arial, sans-serif;\n  color: hsla($text-base-hue, 100%, $text-primary-lightness, 1);\n}\n\nh3 {\n  margin-top: 0.5em;\n  margin-bottom: .25em;\n  color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);\n}\n\nul {\n  list-style-type: none;\n}\n\nli {\n  padding-top: .25em;\n  padding-bottom: .25em;\n  padding-left: 1em;\n  padding-right: 1em;\n}\n\nbody {\n  background-color: hsla($background-hue, 70%, 80%, 1);\n}\n\n.alt {\n  background-color: hsla($background-hue, 60%, 90%, 1);\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
