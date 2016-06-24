@@ -1,0 +1,14 @@
+body {
+  background-color: $color-1;
+  color: $color-4;
+  margin-top: 112px;
+
+  @media (min-width: 544px) {
+    margin-top: 78px;
+  }
+}
+
+a {
+  color: $color-4;
+  text-decoration: none;
+}
