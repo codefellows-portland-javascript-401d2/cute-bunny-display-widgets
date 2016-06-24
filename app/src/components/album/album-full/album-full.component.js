@@ -1,4 +1,5 @@
 import template from './album-full.view.html';
+import styles from './album-full.styles.scss';
 
 export default {
   template,
@@ -9,6 +10,7 @@ export default {
     app: '^^'
   },
   controller() {
+    this.styles = styles;
     this.bunniesIndex = 0;
     this.bunny = this.bunnies[this.bunniesIndex];
 
