@@ -1,7 +1,10 @@
 <nav>
   <ul>
     <li ng-repeat="section in $ctrl.sections">
-      <a href="#{{ section.name }}" ng-click="$ctrl.toggleNav($event, section.name)">{{ section.text }}</a>
+      <a href="#{{ section.name }}" ng-click="$ctrl.toggleNav($event, section.name)" title="{{ section.text }}">
+        <i class="fa fa-{{ section.fa }}" aria-hidden="true"></i>
+        <span class="sr-only">{{ section.text }}</span>
+      </a>
     </li>
   </ul>
 </nav>
