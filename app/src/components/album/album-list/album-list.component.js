@@ -1,4 +1,5 @@
 import template from './album-list.view.html';
+import styles from './album-list.styles.scss';
 
 export default {
   template,
@@ -7,5 +8,8 @@ export default {
   },
   require: {
     app: '^^'
+  },
+  controller() {
+    this.styles = styles;
   }
 };
