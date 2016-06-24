@@ -1,18 +1,19 @@
 
+<div ng-show="album.display === 'desc'">
+  <div ng-repeat="pic in album.arrayOfPics" ng-class="{alt: $odd}">
+    <description pic="pic" select="album.select(myId, $index)"></description>
+  </div>
+</div>
+
+<div ng-show="album.display === 'thumb'">
+  <p><em>Click on a thumbnail</em></p>
+  <span ng-repeat="pic in album.arrayOfPics" title="{{pic.title}}">
+    <thumb pic="pic" select="album.select(myId, $index)"></thumb>
+  </span>
+</div>
+
 <ul ng-show="album.display === 'full'">
   <li ng-repeat="pic in album.arrayOfPics">
     <full pic="pic"></full>
   </li>
 </ul>
-
-<div ng-show="album.display === 'thumb'">
-  <span ng-repeat="pic in album.arrayOfPics" title="{{pic.title}}">
-    <thumb pic="pic"></thumb>
-  </span>
-</div>
-
-<div ng-show="album.display === 'desc'">
-  <div ng-repeat="pic in album.arrayOfPics" ng-class="{alt: $odd}">
-    <description pic="pic"></description>
-  </div>
-</div>

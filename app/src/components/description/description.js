@@ -5,7 +5,8 @@ export default {
   template,
   controllerAs: 'desc',
   bindings: {
-    pic: '='
+    pic: '=',
+    select: '&'
   },
   controller: function() {
     this.styles = styles;

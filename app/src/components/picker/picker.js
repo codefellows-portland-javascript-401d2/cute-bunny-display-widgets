@@ -7,7 +7,8 @@ export default {
 
   },
   controller: function() {
+
     // Initial radio button selection
-    this.display = 'desc';
+    this.display = 'thumb';
   }
 };

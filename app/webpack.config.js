@@ -27,15 +27,15 @@ module.exports = {
       }
     },
     {
-			test: /\.scss$/,
-			loader: 'style!css?sourceMap!sass?sourceMap'
+      test: /\.scss$/,
+      loader: 'style!css?sourceMap!sass?sourceMap'
     },
     {
       test: /\.html$/,
       loader: 'html'
     }]
   },
-	sassLoader: {
-		includePaths: [ './src/scss/includes' ]
-	}
+  sassLoader: {
+    includePaths: [ './src/scss/includes' ]
+  }
 };

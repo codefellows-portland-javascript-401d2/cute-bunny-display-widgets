@@ -54,16 +54,13 @@
 	
 	var _cuteBunny2 = _interopRequireDefault(_cuteBunny);
 	
-	var _index = __webpack_require__(9);
-	
-	var _index2 = _interopRequireDefault(_index);
-	
-	__webpack_require__(10);
+	__webpack_require__(27);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	document.body.innerHTML = _index2.default;
+	// document.body.innerHTML = template;
 	_angular2.default.bootstrap(document, [_cuteBunny2.default]);
+	// import template from './index.html';
 
 /***/ },
 /* 1 */
@@ -31593,13 +31590,29 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _picker = __webpack_require__(7);
+	var _picker = __webpack_require__(11);
 	
 	var _picker2 = _interopRequireDefault(_picker);
 	
+	var _description = __webpack_require__(13);
+	
+	var _description2 = _interopRequireDefault(_description);
+	
+	var _thumb = __webpack_require__(17);
+	
+	var _thumb2 = _interopRequireDefault(_thumb);
+	
+	var _full = __webpack_require__(21);
+	
+	var _full2 = _interopRequireDefault(_full);
+	
+	var _album = __webpack_require__(25);
+	
+	var _album2 = _interopRequireDefault(_album);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var components = _angular2.default.module('components', []).component('app', _app2.default).component('picker', _picker2.default);
+	var components = _angular2.default.module('components', []).component('app', _app2.default).component('picker', _picker2.default).component('description', _description2.default).component('thumb', _thumb2.default).component('full', _full2.default).component('album', _album2.default);
 	
 	exports.default = components.name;
 
@@ -31617,95 +31630,46 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
+	var _app3 = __webpack_require__(7);
+	
+	var _app4 = _interopRequireDefault(_app3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// import angular from 'angular';
 	exports.default = {
 	  template: _app2.default,
 	  controllerAs: 'app',
-	  bindings: {
-	    // something: '=',
-	    doSomething: '&'
-	  },
+	  bindings: {},
 	  controller: function controller() {
-	    var _this = this;
-	
-	    // this.something = 'here we go';
-	    this.doSomething = function () {
-	      _this.something = 'alas a thing';
-	      console.log('done it');
-	    };
+	    this.styles = _app4.default;
 	  }
-	}; // import angular from 'angular';
+	};
 
 /***/ },
 /* 6 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>Cute Bunny!</h1>\n<!-- <h2>and... <span  ng-bind=\"app.something\"></span></h2> -->\n<!-- <h3>{{app.something}}</h3> -->\n<!-- <button ng-click=\"app.doSomething()\">\"do it\"</button> -->\n\n<picker></picker>\n";
+	module.exports = "<div class={{app.styles.app}}>\n  <h1>Bunnies Album</h1>\n  <picker></picker>\n<div>\n";
 
 /***/ },
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _picker = __webpack_require__(8);
-	
-	var _picker2 = _interopRequireDefault(_picker);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  template: _picker2.default,
-	  controllerAs: 'picker',
-	  bindings: {
-	    // display: '='
-	    // url: '='
-	  },
-	  controller: function controller() {
-	    this.url = 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg';
-	    this.display = 'desc';
-	    this.go = function () {
-	      console.log(this.url);
-	      console.log(this.display);
-	    };
-	  }
-	};
-
-/***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-	module.exports = "<h1>picker</h1>\n<input type=\"text\" ng-model=\"picker.url\"></input>\n<button ng-click=\"picker.go()\">GO</button>\n<!-- <form ng-submit=\"submit()\" name=\"display-select\"> -->\n  <div ng-init=\"bunny={display: 'desc'}\">\n    <input type=\"radio\"\n      name=\"display\"\n      ng-model=\"picker.display\"\n      value=\"desc\">Description\n    <input type=\"radio\"\n      name=\"display\"\n      ng-model=\"picker.display\"\n      value=\"thumb\">Thumbnail\n    <input type=\"radio\"\n      name=\"display\"\n      ng-model=\"picker.display\"\n      value=\"full\">Full Size\n  </div>\n<!-- </form> -->\n";
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	module.exports = "<!DOCTYPE html>\n<html land=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n</head>\n<body>\n  <app></app>\n</body>\n</html>\n";
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(11);
+	var content = __webpack_require__(8);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./main.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./main.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./app.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./app.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -31715,21 +31679,23 @@
 	}
 
 /***/ },
-/* 11 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(9)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "body {\n\tcolor: steelblue;\n}\n", ""]);
+	exports.push([module.id, "._3mPZeL0koMJf2Jh6Avjeno {\n  padding: 1em; }\n  ._3mPZeL0koMJf2Jh6Avjeno h1 {\n    color: #b3001e; }\n", "", {"version":3,"sources":["/./src/app/src/components/app/app.scss"],"names":[],"mappings":"AAEA;EAEE,aAAa,EAMd;EARD;IAKI,eAAW,EACZ","file":"app.scss","sourcesContent":["@import 'colors';\n\n:local(.app){\n\n  padding: 1em;\n\n  h1 {\n    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
-
+	exports.locals = {
+		"app": "_3mPZeL0koMJf2Jh6Avjeno"
+	};
 
 /***/ },
-/* 12 */
+/* 9 */
 /***/ function(module, exports) {
 
 	/*
@@ -31785,7 +31751,7 @@
 
 
 /***/ },
-/* 13 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -32034,6 +32000,389 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _picker = __webpack_require__(12);
+	
+	var _picker2 = _interopRequireDefault(_picker);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _picker2.default,
+	  controllerAs: 'picker',
+	  bindings: {},
+	  controller: function controller() {
+	
+	    // Initial radio button selection
+	    this.display = 'desc';
+	  }
+	};
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div>\n  <p>\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"desc\">Description\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"thumb\">Thumbnail\n    <input type=\"radio\" name=\"display\" ng-model=\"picker.display\" value=\"full\">Full Size\n  </p>\n</div>\n\n<album display=\"picker.display\"></album>\n";
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _description = __webpack_require__(14);
+	
+	var _description2 = _interopRequireDefault(_description);
+	
+	var _description3 = __webpack_require__(15);
+	
+	var _description4 = _interopRequireDefault(_description3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _description2.default,
+	  controllerAs: 'desc',
+	  bindings: {
+	    pic: '='
+	  },
+	  controller: function controller() {
+	    this.styles = _description4.default;
+	  }
+	};
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"{{desc.styles.description}}\">\n  <h3>{{desc.pic.title}}</h3>\n  <h4>{{desc.pic.description}}</h4>\n  <p>{{desc.pic.url}}</p>\n</div>\n";
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(16);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./description.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./description.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".umsNWXUaKOxUr6527MwIg {\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em; }\n  .umsNWXUaKOxUr6527MwIg p {\n    font-size: 80%;\n    color: rgba(0, 85, 102, 0.5);\n    margin-top: 0em;\n    margin-bottom: .25em; }\n  .umsNWXUaKOxUr6527MwIg h3 {\n    margin-top: 0.5em;\n    margin-bottom: .25em;\n    color: #b3001e; }\n  .umsNWXUaKOxUr6527MwIg h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: #005566; }\n", "", {"version":3,"sources":["/./src/app/src/components/description/description.scss"],"names":[],"mappings":"AAEA;EAEE,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,kBAAkB,EAwBnB;EA7BD;IAQI,eAAe;IACf,6BAAW;IAEX,gBAAgB;IAChB,qBACD,EAAC;EAbJ;IAgBI,kBAAkB;IAClB,qBAAqB;IACrB,eAAW,EACZ;EAnBH;IAsBI,gBAAgB;IAChB,qBAAqB;IACrB,eAAW,EACZ","file":"description.scss","sourcesContent":["@import 'colors';\n\n:local(.description){\n\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em;\n\n  p {\n    font-size: 80%;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, .5);\n    // opacity: 0.5;\n    margin-top: 0em;\n    margin-bottom: .25em\n  }\n\n  h3 {\n    margin-top: 0.5em;\n    margin-bottom: .25em;\n    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);\n  }\n\n  h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);\n  }\n\n\n\n}\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+	exports.locals = {
+		"description": "umsNWXUaKOxUr6527MwIg"
+	};
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _thumb = __webpack_require__(18);
+	
+	var _thumb2 = _interopRequireDefault(_thumb);
+	
+	var _thumb3 = __webpack_require__(19);
+	
+	var _thumb4 = _interopRequireDefault(_thumb3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _thumb2.default,
+	  controllerAs: 'thumb',
+	  bindings: {
+	    pic: '='
+	  },
+	  controller: function controller() {
+	    this.styles = _thumb4.default;
+	  }
+	};
+
+/***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+	module.exports = "<img ng-src=\"{{thumb.pic.url}}\" class=\"{{thumb.styles.thumb}}\">\n";
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(20);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./thumb.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./thumb.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._3yYhF36OyO1Y_2F2qoQ0_2 {\n  padding: 1em;\n  max-width: 100px;\n  max-height: 80px; }\n", "", {"version":3,"sources":["/./src/app/src/components/thumb/thumb.scss"],"names":[],"mappings":"AAEA;EAEI,aAAa;EACb,iBAAiB;EACjB,iBAAiB,EAEpB","file":"thumb.scss","sourcesContent":["@import 'colors';\n\n:local(.thumb){\n\n    padding: 1em;\n    max-width: 100px;\n    max-height: 80px;\n\n}\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+	exports.locals = {
+		"thumb": "_3yYhF36OyO1Y_2F2qoQ0_2"
+	};
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _full = __webpack_require__(22);
+	
+	var _full2 = _interopRequireDefault(_full);
+	
+	var _full3 = __webpack_require__(23);
+	
+	var _full4 = _interopRequireDefault(_full3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _full2.default,
+	  controllerAs: 'full',
+	  bindings: {
+	    pic: '='
+	  },
+	  controller: function controller() {
+	    this.styles = _full4.default;
+	  }
+	};
+
+/***/ },
+/* 22 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"{{full.styles.full}}\">\n  <h3>{{full.pic.title}}</h3>\n  <p>{{full.pic.description}}</p>\n  <img ng-src=\"{{full.pic.url}}\">\n</div>\n";
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(24);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./full.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./full.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._3BXnKaatD18cBg6OMtdOgv img {\n  width: 100%; }\n\n._3BXnKaatD18cBg6OMtdOgv h3 {\n  margin-top: 0.5em;\n  margin-bottom: .25em;\n  color: #b3001e; }\n", "", {"version":3,"sources":["/./src/app/src/components/full/full.scss"],"names":[],"mappings":"AAEA;EAGI,YAAY,EACb;;AAJH;EAOI,kBAAkB;EAClB,qBAAqB;EACrB,eAAW,EACZ","file":"full.scss","sourcesContent":["@import 'colors';\n\n:local(.full){\n\n  img {\n    width: 100%;\n  }\n\n  h3 {\n    margin-top: 0.5em;\n    margin-bottom: .25em;\n    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+	exports.locals = {
+		"full": "_3BXnKaatD18cBg6OMtdOgv"
+	};
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _album = __webpack_require__(26);
+	
+	var _album2 = _interopRequireDefault(_album);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _album2.default,
+	  bindings: {
+	    display: '='
+	  },
+	  controllerAs: 'album',
+	  controller: function controller() {
+	    this.arrayOfPics = [{
+	      title: 'Melville',
+	      description: 'Calico bunny next to a brick wall',
+	      url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
+	    }, {
+	      title: 'Rhonda',
+	      description: 'Orange bunny sticking out its tongue',
+	      url: 'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-6.jpg'
+	    }, {
+	      title: 'Cedar',
+	      description: 'Floppy eared bunny',
+	      url: 'http://rexrabbitsusa.com/wp-content/uploads/2015/03/Bunny-Wallpapers-bunny-rabbits-128637_1024_768.jpg'
+	    }, {
+	      title: 'Marv',
+	      description: 'White bunny on grass',
+	      url: 'http://slodive.com/wp-content/uploads/2013/02/cute-bunny-pictures/cute.jpg'
+	    }, {
+	      title: 'Hank',
+	      description: 'Tiny white bunny looking up',
+	      url: 'http://maxcdn.thedesigninspiration.com/wp-content/uploads/2014/07/Cute-Rabbits-026.jpg'
+	    }, {
+	      title: 'Eloise',
+	      description: 'White bunny on a log',
+	      url: 'http://media1.santabanta.com/full1/Animals/Rabbits/rabbits-12a.jpg'
+	    }, {
+	      title: 'Quian',
+	      description: 'Kooky askew bunny with tongue',
+	      url: 'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-3.jpg'
+	    }, {
+	      title: 'Roz',
+	      description: 'Fluffy tiny orange bunny',
+	      url: 'http://cdn.kickvick.com/wp-content/uploads/2015/09/cutest-bunny-rabbits-05.jpg'
+	    }, {
+	      title: 'Elmer',
+	      description: 'Bunny inside a knitted cap',
+	      url: 'https://www.viewfoo.com/uploads/images/125_1419030600_croppicorgimgbunnyjpg.jpg'
+	    }, {
+	      title: 'Sissy',
+	      description: 'Superhero bunny in disguise',
+	      url: 'http://cdnpix.com/show/imgs/1fa0e6dd961b82cee622fa9710ea7d4a.jpg'
+	    }];
+	  }
+	};
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<ul ng-show=\"album.display === 'full'\">\n  <li ng-repeat=\"pic in album.arrayOfPics\">\n    <full pic=\"pic\"></full>\n  </li>\n</ul>\n\n<div ng-show=\"album.display === 'thumb'\">\n  <span ng-repeat=\"pic in album.arrayOfPics\" title=\"{{pic.title}}\">\n    <thumb pic=\"pic\"></thumb>\n  </span>\n</div>\n\n<div ng-show=\"album.display === 'desc'\">\n  <div ng-repeat=\"pic in album.arrayOfPics\" ng-class=\"{alt: $odd}\">\n    <description pic=\"pic\"></description>\n  </div>\n</div>\n";
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(28);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./main.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./main.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "h1, h2, h3, h4, p {\n  font-family: arial, sans-serif;\n  color: #660011; }\n\nul {\n  list-style-type: none; }\n\nli {\n  padding-top: .25em;\n  padding-bottom: .25em;\n  padding-left: 1em;\n  padding-right: 1em; }\n\n.alt {\n  background-color: #f5f0d6; }\n\nbody {\n  background-color: #f0e4a8; }\n", "", {"version":3,"sources":["/./app/src/scss/main.scss"],"names":[],"mappings":"AAEA;EACE,+BAA+B;EAC/B,eAAW,EACZ;;AAED;EACE,sBAAsB,EACvB;;AAED;EACE,mBAAmB;EACnB,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB,EACpB;;AAED;EACE,0BAAsB,EACvB;;AAED;EACE,0BAAsB,EACvB","file":"main.scss","sourcesContent":["@import 'colors';\n\nh1, h2, h3, h4, p {\n  font-family: arial, sans-serif;\n  color: hsla($text-base-hue, 100%, $text-primary-lightness, 1);\n}\n\nul {\n  list-style-type: none;\n}\n\nli {\n  padding-top: .25em;\n  padding-bottom: .25em;\n  padding-left: 1em;\n  padding-right: 1em;\n}\n\n.alt {\n  background-color: hsla($background-hue, 60%, 90%, 1);\n}\n\nbody {\n  background-color: hsla($background-hue, 70%, 80%, 1);\n}\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
 
 
 /***/ }
