@@ -5,7 +5,7 @@ import path from 'path';
 const reqContext = require.context(
     './',
     true,
-    /[^index].js$/
+    /^\.\/(?!index).+?\.js$/
 );
 
 const components = angular.module( 'components', [] );

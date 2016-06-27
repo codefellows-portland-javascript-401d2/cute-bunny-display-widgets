@@ -1,0 +1,37 @@
+@mixin border {
+  border: 1px solid darkgray;
+}
+$thumb-size: 80%;
+
+$tile-height: 220px;
+:local(.image) {
+  height: $thumb-size;
+  width: $thumb-size;
+  display:block;
+  margin:0 auto;
+}
+
+:local(.list) {
+  list-style: none;
+}
+
+:local(.tile) {
+  height: $tile-height;
+  width: 200px;
+  font-size: 0.7em;
+  margin: 20px;
+  padding: 10px;
+  box-shadow:3px 3px 8px black;
+  @include border;
+}
+
+:local(.div){
+  width:92%;
+  min-height: $tile-height * 1.2;
+  height:auto;
+  padding:8px;
+  display: flex;
+  flex-flow: row wrap;
+  @include border;
+  margin: 0 auto;
+}

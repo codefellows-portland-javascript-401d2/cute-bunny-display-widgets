@@ -1,16 +1,14 @@
 import template from './app.html';
+import styles from './app.scss';
 
 export default {
   template,
   controllerAs: 'app',
   controller() {
-    this.prev = function() {
-      if (--this.index < 0) this.index = this.data.length -1;
+    this.styles = styles;
+    this.addBunny = (bunny) => {
+      this.data.push(bunny);
     };
-    this.next = function() {
-      if (++this.index > this.data.length -1) this.index = 0;
-    };
-    this.index = 0;
     this.data = [{
       title: 'Cutest Bunny Ever',
       description: 'This is the cutest damn bunny in all of creation.  Other things attempting to be cute tremble with terror at the cuteness of the bunny displayed here today.',
