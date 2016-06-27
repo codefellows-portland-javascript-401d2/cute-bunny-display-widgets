@@ -1,0 +1,31 @@
+@import 'colors';
+
+h1, h2, h3, h4, p, a {
+  font-family: arial, sans-serif;
+  color: hsla($text-base-hue, 100%, $text-primary-lightness, 1);
+}
+
+h3 {
+  margin-top: 0.5em;
+  margin-bottom: .25em;
+  color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding-top: .25em;
+  padding-bottom: .25em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+body {
+  background-color: hsla($background-hue, 70%, 80%, 1);
+}
+
+.alt {
+  background-color: hsla($background-hue, 60%, 90%, 1);
+}

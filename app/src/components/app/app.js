@@ -1,5 +1,6 @@
 // import angular from 'angular';
 import template from './app.html';
+import styles from './app.scss';
 
 export default {
   template: template,
@@ -7,6 +8,6 @@ export default {
   bindings: {
   },
   controller: function(){
-
+    this.styles = styles;
   }
 };
