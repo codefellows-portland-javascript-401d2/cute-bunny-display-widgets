@@ -32052,14 +32052,12 @@
 	  controllerAs: 'cell',
 	  bindings: {
 	    pic: '=',
-	    select: '&',
 	    display: '=',
-	    isodd: '='
+	    isodd: '=',
+	    select: '&'
 	  },
 	  controller: function controller() {
-	    var self = this;
-	    self.mytemp = 'temp';
-	    self.styles = _cell4.default;
+	    this.styles = _cell4.default;
 	  }
 	};
 
