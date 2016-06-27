@@ -6,9 +6,6 @@ export default {
   bindings: {
     bunnies: '='
   },
-  require: {
-    app: '^^'
-  },
   controller() {
     this.styles = styles;
     this.bunniesIndex = 0;
