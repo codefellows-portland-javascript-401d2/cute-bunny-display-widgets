@@ -44,5 +44,10 @@
     "lint": "eslint ."
   },
   "author": "Dave Hanagan",
-  "license": "ISC"
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
 }
