@@ -1,25 +1,5 @@
 @import 'colors';
 
-ul.viewer {
-  padding: 20px 8%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-li {
-  list-style: none;
-  
-  h3 {
-    color: $h-color;
-  }
-
-  &.full {
-    margin-bottom: 50px;
-  }
-}
-
 .toggler-form {
   text-align: center;
 
