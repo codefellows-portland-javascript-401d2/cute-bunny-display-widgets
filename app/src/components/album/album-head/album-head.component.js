@@ -6,9 +6,6 @@ export default {
   bindings: {
     currentSection: '='
   },
-  require: {
-    app: '^^'
-  },
   controller() {
     this.styles = styles;
     this.sections = [

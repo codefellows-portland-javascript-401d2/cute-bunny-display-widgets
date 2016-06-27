@@ -6,9 +6,6 @@ export default {
   bindings: {
     bunnies: '='
   },
-  require: {
-    app: '^^'
-  },
   controller() {
     let bunnies = [];
     let bunniesGroup = [];
