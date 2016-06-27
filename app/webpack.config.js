@@ -18,12 +18,12 @@ module.exports = {
     loaders: [
       {
   			test: /\.html$/,
-  			loader: 'html',
+  			loader: 'html?minimize',
   		},
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-      },
+  			test: /\.scss$/,
+  			loader: ExtractTextPlugin.extract('style!', 'css?minimize&sourceMap!sass?sourceMap')
+  		},
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -42,5 +42,8 @@ module.exports = {
   plugins: [
     new HtmlPlugin({template: './src/index.html'}),
     new ExtractTextPlugin('styles/bundle.css')
-  ]
+  ],
+  sassLoader: {
+    includePaths: ['./src/styles/includes']
+	}
 };

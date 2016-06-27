@@ -1,0 +1,13 @@
+body {
+  color: $color-3;
+  margin-top: 112px;
+
+  @media (min-width: 544px) {
+    margin-top: 78px;
+  }
+}
+
+a {
+  color: $color-3;
+  text-decoration: none;
+}

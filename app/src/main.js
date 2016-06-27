@@ -1,6 +1,6 @@
-import './styles/main.css';
+import './styles/main.scss';
 
 import ng from 'angular';
-import app from './bunny-app';
+import appModule from './components/app/app.module';
 
-ng.bootstrap(document, [app]);
+ng.bootstrap(document, [appModule]);
