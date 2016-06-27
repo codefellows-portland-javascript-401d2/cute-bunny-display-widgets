@@ -13,5 +13,9 @@ export default {
           console.error('500: Problem Retrieving Images');
         }
       });
+
+    this.addImage = (post) => {
+      this.images.unshift(post);
+    };
   }
 };
