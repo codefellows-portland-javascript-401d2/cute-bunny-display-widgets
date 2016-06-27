@@ -10,7 +10,8 @@ export default {
   },
   controller: function() {
     this.shorten = function(txt) {
-      const cutoff = 16;
+      const cutoff = 30;
+      if (!txt) return;
       return txt.split(' ').slice(0, cutoff).join(' ') + '...';
     };
   }

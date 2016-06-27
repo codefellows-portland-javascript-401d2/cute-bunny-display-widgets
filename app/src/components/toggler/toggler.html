@@ -1,0 +1,38 @@
+<form class="toggler-form">
+  <label ng-class="{selected: toggler.toggle === 'text'}">
+    <input type="radio" value="text" ng-model="toggler.toggle"/>
+    Text Only
+  </label>
+  <label ng-class="{selected: toggler.toggle === 'thumb'}">
+    <input type="radio"  value="thumb" ng-model="toggler.toggle"/>
+    Thumbnail
+  </label>
+  <label ng-class="{selected: toggler.toggle === 'full'}">
+    <input type="radio" value="full" ng-model="toggler.toggle"/>
+    Full Post
+  </label>
+</form>
+
+<ul class="viewer">
+  <li ng-repeat="image in toggler.images"
+      ng-class="toggler.toggle">
+    <display-text post-title="image.title"
+          source="image.url"
+          description="image.description"
+          ng-show="toggler.toggle === 'text'">
+    </display-text>
+
+    <display-thumb source="image.url"
+           post-title="image.title"
+           ng-show="toggler.toggle === 'thumb'">
+    </display-thumb>
+
+    <hr ng-show="toggler.toggle === 'text'">
+
+    <display-full post-title="image.title"
+          source="image.url"
+          description="image.description"
+          ng-show="toggler.toggle === 'full'">
+    </display-full>
+  </li>
+</ul>
