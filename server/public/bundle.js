@@ -54,7 +54,7 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	__webpack_require__(33);
+	__webpack_require__(37);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31564,7 +31564,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _angularAnimate = __webpack_require__(31);
+	var _angularAnimate = __webpack_require__(35);
 	
 	var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 	
@@ -32036,7 +32036,8 @@
 		"./display-text/display-text.js": 17,
 		"./display-thumb/display-thumb.js": 19,
 		"./new-post/new-post.js": 23,
-		"./toggler/toggler.js": 27
+		"./toggler/toggler.js": 27,
+		"./viewer/viewer.js": 31
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -32072,37 +32073,9 @@
 	  template: _app2.default,
 	  controllerAs: 'app',
 	
-	  controller: function controller() {
+	  controller: function controller($http) {
+	    // this.images =
 	
-	    this.images = [{
-	      title: 'Gojira',
-	      url: 'http://images1.westword.com/imager/u/745xauto/7214738/godzilla_fixed.jpg',
-	      description: 'The King of all monsters. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, purus nec ornare viverra, velit ipsum elementum orci, a tristique massa metus ut est. Ut tortor ante, consectetur vitae fringilla non, sagittis ut elit. In efficitur a neque a placerat. Sed sit amet gravida ex. Aliquam laoreet purus nisi, nec congue tortor viverra in. Ut in metus et sem auctor semper nec at ex. Aliquam posuere lectus urna, quis cursus quam sagittis sagittis. Mauris luctus nec erat at tempus. Phasellus placerat turpis ornare magna lacinia, egestas euismod ligula pellentesque. Duis pellentesque velit at odio blandit rutrum. Etiam quis ultricies orci, eget facilisis lacus. Quisque blandit sem at ligula accumsan luctus. Nulla dignissim massa eros, ut pellentesque quam bibendum id. Tiam diam augue, placerat a eros vulputate, vehicula convallis lectus. Quisque luctus, nunc quis posuere pellentesque, odio purus elementum eros, sed tempus augue sem sit amet quam. Sed tristique, purus sit amet pretium laoreet, nisl ante malesuada nisl, quis elementum odio lectus eget diam.'
-	    }, {
-	      title: 'Godzilla',
-	      url: 'http://www.flickeringmyth.com/wp-content/uploads/2016/05/godzilla-film-2014-790x444.jpg',
-	      description: 'The American king of all monsters. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, purus nec ornare viverra, velit ipsum elementum orci, a tristique massa metus ut est. Ut tortor ante, consectetur vitae fringilla non, sagittis ut elit. In efficitur a neque a placerat. Sed sit amet gravida ex. Aliquam laoreet purus nisi, nec congue tortor viverra in. Ut in metus et sem auctor semper nec at ex. Aliquam posuere lectus urna, quis cursus quam sagittis sagittis. Mauris luctus nec erat at tempus. Phasellus placerat turpis ornare magna lacinia, egestas euismod ligula pellentesque. Duis pellentesque velit at odio blandit rutrum. Etiam quis ultricies orci, eget facilisis lacus. Quisque blandit sem at ligula accumsan luctus. Nulla dignissim massa eros, ut pellentesque quam bibendum id. Tiam diam augue, placerat a eros vulputate, vehicula convallis lectus. Quisque luctus, nunc quis posuere pellentesque, odio purus elementum eros, sed tempus augue sem sit amet quam. Sed tristique, purus sit amet pretium laoreet, nisl ante malesuada nisl, quis elementum odio lectus eget diam.'
-	    }, {
-	      title: 'Mecha Godzilla',
-	      url: 'http://images3.static-bluray.com/reviews/9878_5.jpg',
-	      description: 'The robot king of all monsters. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, purus nec ornare viverra, velit ipsum elementum orci, a tristique massa metus ut est. Ut tortor ante, consectetur vitae fringilla non, sagittis ut elit. In efficitur a neque a placerat. Sed sit amet gravida ex. Aliquam laoreet purus nisi, nec congue tortor viverra in. Ut in metus et sem auctor semper nec at ex. Aliquam posuere lectus urna, quis cursus quam sagittis sagittis. Mauris luctus nec erat at tempus. Phasellus placerat turpis ornare magna lacinia, egestas euismod ligula pellentesque. Duis pellentesque velit at odio blandit rutrum. Etiam quis ultricies orci, eget facilisis lacus. Quisque blandit sem at ligula accumsan luctus. Nulla dignissim massa eros, ut pellentesque quam bibendum id. Tiam diam augue, placerat a eros vulputate, vehicula convallis lectus. Quisque luctus, nunc quis posuere pellentesque, odio purus elementum eros, sed tempus augue sem sit amet quam. Sed tristique, purus sit amet pretium laoreet, nisl ante malesuada nisl, quis elementum odio lectus eget diam.'
-	    }, {
-	      title: 'Space Godzilla',
-	      url: 'http://basementrejects.com/wp-content/uploads/2014/03/godzilla-vs-space-godzilla-spacegodzilla-1994-monster-creature-review.jpg',
-	      description: 'The space king of all monsters. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, purus nec ornare viverra, velit ipsum elementum orci, a tristique massa metus ut est. Ut tortor ante, consectetur vitae fringilla non, sagittis ut elit. In efficitur a neque a placerat. Sed sit amet gravida ex. Aliquam laoreet purus nisi, nec congue tortor viverra in. Ut in metus et sem auctor semper nec at ex. Aliquam posuere lectus urna, quis cursus quam sagittis sagittis. Mauris luctus nec erat at tempus. Phasellus placerat turpis ornare magna lacinia, egestas euismod ligula pellentesque. Duis pellentesque velit at odio blandit rutrum. Etiam quis ultricies orci, eget facilisis lacus. Quisque blandit sem at ligula accumsan luctus. Nulla dignissim massa eros, ut pellentesque quam bibendum id. Tiam diam augue, placerat a eros vulputate, vehicula convallis lectus. Quisque luctus, nunc quis posuere pellentesque, odio purus elementum eros, sed tempus augue sem sit amet quam. Sed tristique, purus sit amet pretium laoreet, nisl ante malesuada nisl, quis elementum odio lectus eget diam.'
-	    }, {
-	      title: 'Destroyah',
-	      url: 'http://www.previewsworld.com/catalogimages/STK_IMAGES/STK520001-540000/STK524104.jpg',
-	      description: 'Pretty tuff and scarry. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, purus nec ornare viverra, velit ipsum elementum orci, a tristique massa metus ut est. Ut tortor ante, consectetur vitae fringilla non, sagittis ut elit. In efficitur a neque a placerat. Sed sit amet gravida ex. Aliquam laoreet purus nisi, nec congue tortor viverra in. Ut in metus et sem auctor semper nec at ex. Aliquam posuere lectus urna, quis cursus quam sagittis sagittis. Mauris luctus nec erat at tempus. Phasellus placerat turpis ornare magna lacinia, egestas euismod ligula pellentesque. Duis pellentesque velit at odio blandit rutrum. Etiam quis ultricies orci, eget facilisis lacus. Quisque blandit sem at ligula accumsan luctus. Nulla dignissim massa eros, ut pellentesque quam bibendum id. Tiam diam augue, placerat a eros vulputate, vehicula convallis lectus. Quisque luctus, nunc quis posuere pellentesque, odio purus elementum eros, sed tempus augue sem sit amet quam. Sed tristique, purus sit amet pretium laoreet, nisl ante malesuada nisl, quis elementum odio lectus eget diam.'
-	    }, {
-	      title: 'Chainsaw Gigan',
-	      url: 'http://www.kaijubattle.net/uploads/2/9/5/7/29570123/729181053.jpg',
-	      description: 'He\'s a ladies man...monster. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, purus nec ornare viverra, velit ipsum elementum orci, a tristique massa metus ut est. Ut tortor ante, consectetur vitae fringilla non, sagittis ut elit. In efficitur a neque a placerat. Sed sit amet gravida ex. Aliquam laoreet purus nisi, nec congue tortor viverra in. Ut in metus et sem auctor semper nec at ex. Aliquam posuere lectus urna, quis cursus quam sagittis sagittis. Mauris luctus nec erat at tempus. Phasellus placerat turpis ornare magna lacinia, egestas euismod ligula pellentesque. Duis pellentesque velit at odio blandit rutrum. Etiam quis ultricies orci, eget facilisis lacus. Quisque blandit sem at ligula accumsan luctus. Nulla dignissim massa eros, ut pellentesque quam bibendum id. Tiam diam augue, placerat a eros vulputate, vehicula convallis lectus. Quisque luctus, nunc quis posuere pellentesque, odio purus elementum eros, sed tempus augue sem sit amet quam. Sed tristique, purus sit amet pretium laoreet, nisl ante malesuada nisl, quis elementum odio lectus eget diam.'
-	    }, {
-	      title: 'King Ghidora',
-	      url: 'http://roberthood.net/blog/wp-content/uploads/2008/05/kingg-01.jpg',
-	      description: 'Three headed golden dragon. Pretty neat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, purus nec ornare viverra, velit ipsum elementum orci, a tristique massa metus ut est. Ut tortor ante, consectetur vitae fringilla non, sagittis ut elit. In efficitur a neque a placerat. Sed sit amet gravida ex. Aliquam laoreet purus nisi, nec congue tortor viverra in. Ut in metus et sem auctor semper nec at ex. Aliquam posuere lectus urna, quis cursus quam sagittis sagittis. Mauris luctus nec erat at tempus. Phasellus placerat turpis ornare magna lacinia, egestas euismod ligula pellentesque. Duis pellentesque velit at odio blandit rutrum. Etiam quis ultricies orci, eget facilisis lacus. Quisque blandit sem at ligula accumsan luctus. Nulla dignissim massa eros, ut pellentesque quam bibendum id. Tiam diam augue, placerat a eros vulputate, vehicula convallis lectus. Quisque luctus, nunc quis posuere pellentesque, odio purus elementum eros, sed tempus augue sem sit amet quam. Sed tristique, purus sit amet pretium laoreet, nisl ante malesuada nisl, quis elementum odio lectus eget diam.'
-	    }];
 	  }
 	};
 
@@ -32746,7 +32719,7 @@
 /* 28 */
 /***/ function(module, exports) {
 
-	module.exports = "<form class=\"toggler-form\">\r\n  <label ng-class=\"{selected: toggler.toggle === 'text'}\">\r\n    <input type=\"radio\" value=\"text\" ng-model=\"toggler.toggle\"/>\r\n    Text Only\r\n  </label>\r\n  <label ng-class=\"{selected: toggler.toggle === 'thumb'}\">\r\n    <input type=\"radio\"  value=\"thumb\" ng-model=\"toggler.toggle\"/>\r\n    Thumbnail\r\n  </label>\r\n  <label ng-class=\"{selected: toggler.toggle === 'full'}\">\r\n    <input type=\"radio\" value=\"full\" ng-model=\"toggler.toggle\"/>\r\n    Full Post\r\n  </label>\r\n</form>\r\n\r\n<ul class=\"viewer\">\r\n  <li ng-repeat=\"image in toggler.images\"\r\n      ng-class=\"toggler.toggle\">\r\n    <display-text post-title=\"image.title\"\r\n          source=\"image.url\"\r\n          description=\"image.description\"\r\n          ng-if=\"toggler.toggle === 'text'\">\r\n    </display-text>\r\n\r\n    <display-thumb source=\"image.url\"\r\n           post-title=\"image.title\"\r\n           ng-if=\"toggler.toggle === 'thumb'\">\r\n    </display-thumb>\r\n\r\n    <hr ng-if=\"toggler.toggle === 'text'\">\r\n\r\n    <display-full post-title=\"image.title\"\r\n          source=\"image.url\"\r\n          description=\"image.description\"\r\n          ng-if=\"toggler.toggle === 'full'\">\r\n    </display-full>\r\n  </li>\r\n</ul>";
+	module.exports = "<form class=\"toggler-form\">\r\n  <label ng-class=\"{selected: toggler.toggle === 'text'}\">\r\n    <input type=\"radio\" value=\"text\" ng-model=\"toggler.toggle\"/>\r\n    Text Only\r\n  </label>\r\n  <label ng-class=\"{selected: toggler.toggle === 'thumb'}\">\r\n    <input type=\"radio\"  value=\"thumb\" ng-model=\"toggler.toggle\"/>\r\n    Thumbnail\r\n  </label>\r\n  <label ng-class=\"{selected: toggler.toggle === 'full'}\">\r\n    <input type=\"radio\" value=\"full\" ng-model=\"toggler.toggle\"/>\r\n    Full Post\r\n  </label>\r\n</form>\r\n\r\n<viewer images=\"toggler.images\"\r\n        view-option=\"toggler.toggle\">\r\n</viewer>\r\n";
 
 /***/ },
 /* 29 */
@@ -32783,7 +32756,7 @@
 	
 	
 	// module
-	exports.push([module.id, "ul.viewer {\n  padding: 20px 8%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: center; }\n\nli {\n  list-style: none; }\n  li h3 {\n    color: #626262; }\n  li.full {\n    margin-bottom: 50px; }\n\n.toggler-form {\n  text-align: center; }\n  .toggler-form label {\n    padding: 6px 15px;\n    border: 1px solid #ddd;\n    background: #fff; }\n  .toggler-form label input[type=\"radio\"] {\n    position: absolute;\n    left: -9999px; }\n  .toggler-form label.selected {\n    background: #e28a66;\n    color: #fff;\n    border: 1px solid #e28a66; }\n", "", {"version":3,"sources":["/./src/app/src/components/toggler/toggler.scss","/./src/app/src/scss/includes/_colors.scss"],"names":[],"mappings":"AAEA;EACE,iBAAiB;EACjB,cAAc;EACd,oBAAoB;EACpB,gBAAgB;EAChB,wBAAwB,EACzB;;AAED;EACE,iBAAiB,EASlB;EAVD;IAII,eCZa,EDad;EALH;IAQI,oBAAoB,EACrB;;AAGH;EACE,mBAAmB,EAgBpB;EAjBD;IAII,kBAAkB;IAClB,uBAAuB;IACvB,iBAAiB,EAClB;EAPH;IASI,mBAAmB;IACnB,cAAc,EACf;EAXH;IAaI,oBCnCmB;IDoCnB,YAAY;IACZ,0BCrCmB,EDsCpB","file":"toggler.scss","sourcesContent":["@import 'colors';\r\n\r\nul.viewer {\r\n  padding: 20px 8%;\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  \r\n  h3 {\r\n    color: $h-color;\r\n  }\r\n\r\n  &.full {\r\n    margin-bottom: 50px;\r\n  }\r\n}\r\n\r\n.toggler-form {\r\n  text-align: center;\r\n\r\n  label {\r\n    padding: 6px 15px;\r\n    border: 1px solid #ddd;\r\n    background: #fff;\r\n  }\r\n  label input[type=\"radio\"] {\r\n    position: absolute;\r\n    left: -9999px;\r\n  }\r\n  label.selected {\r\n    background: $primary-color;\r\n    color: #fff;\r\n    border: 1px solid $primary-color;\r\n  }\r\n}\r\n\r\n","$primary-color: #e28a66;\r\n$accent-color: #477191; \r\n$h-color: #626262;\r\n$p-color: #626262;\r\n$a-color: #477191;\r\n\r\n$overlay-bg-color: rgba(0, 0, 0, 0.3);\r\n$overlay-text-color: #fff;\r\n\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, ".toggler-form {\n  text-align: center; }\n  .toggler-form label {\n    padding: 6px 15px;\n    border: 1px solid #ddd;\n    background: #fff; }\n  .toggler-form label input[type=\"radio\"] {\n    position: absolute;\n    left: -9999px; }\n  .toggler-form label.selected {\n    background: #e28a66;\n    color: #fff;\n    border: 1px solid #e28a66; }\n", "", {"version":3,"sources":["/./src/app/src/components/toggler/toggler.scss","/./src/app/src/scss/includes/_colors.scss"],"names":[],"mappings":"AAEA;EACE,mBAAmB,EAgBpB;EAjBD;IAII,kBAAkB;IAClB,uBAAuB;IACvB,iBAAiB,EAClB;EAPH;IASI,mBAAmB;IACnB,cAAc,EACf;EAXH;IAaI,oBCfmB;IDgBnB,YAAY;IACZ,0BCjBmB,EDkBpB","file":"toggler.scss","sourcesContent":["@import 'colors';\r\n\r\n.toggler-form {\r\n  text-align: center;\r\n\r\n  label {\r\n    padding: 6px 15px;\r\n    border: 1px solid #ddd;\r\n    background: #fff;\r\n  }\r\n  label input[type=\"radio\"] {\r\n    position: absolute;\r\n    left: -9999px;\r\n  }\r\n  label.selected {\r\n    background: $primary-color;\r\n    color: #fff;\r\n    border: 1px solid $primary-color;\r\n  }\r\n}\r\n\r\n","$primary-color: #e28a66;\r\n$accent-color: #477191; \r\n$h-color: #626262;\r\n$p-color: #626262;\r\n$a-color: #477191;\r\n\r\n$overlay-bg-color: rgba(0, 0, 0, 0.3);\r\n$overlay-text-color: #fff;\r\n\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -32792,12 +32765,92 @@
 /* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(32);
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _viewer = __webpack_require__(32);
+	
+	var _viewer2 = _interopRequireDefault(_viewer);
+	
+	var _viewer3 = __webpack_require__(33);
+	
+	var _viewer4 = _interopRequireDefault(_viewer3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _viewer2.default,
+	  controllerAs: 'viewer',
+	
+	  bindings: {
+	    images: '=',
+	    viewOption: '='
+	  },
+	  controller: function controller() {
+	
+	    this.style = _viewer4.default;
+	  }
+	};
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	module.exports = "<ul class=\"viewer\">\r\n  <li ng-repeat=\"image in viewer.images\"\r\n      ng-class=\"viewer.viewOption\">\r\n    <display-text post-title=\"image.title\"\r\n          source=\"image.url\"\r\n          description=\"image.description\"\r\n          ng-if=\"viewer.viewOption == 'text'\">\r\n    </display-text>\r\n\r\n    <display-thumb source=\"image.url\"\r\n           post-title=\"image.title\"\r\n           ng-if=\"viewer.viewOption == 'thumb'\">\r\n    </display-thumb>\r\n\r\n    <hr ng-if=\"viewer.viewOption == 'text'\">\r\n\r\n    <display-full post-title=\"image.title\"\r\n          source=\"image.url\"\r\n          description=\"image.description\"\r\n          ng-if=\"viewer.viewOption == 'full'\">\r\n    </display-full>\r\n  </li>\r\n</ul>";
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(34);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(16)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./viewer.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./viewer.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(15)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "ul.viewer {\n  padding: 20px 8%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: center; }\n\nli {\n  list-style: none; }\n  li h3 {\n    color: #626262; }\n  li.full {\n    margin-bottom: 50px; }\n", "", {"version":3,"sources":["/./src/app/src/components/viewer/viewer.scss","/./src/app/src/scss/includes/_colors.scss"],"names":[],"mappings":"AAEA;EACE,iBAAiB;EACjB,cAAc;EACd,oBAAoB;EACpB,gBAAgB;EAChB,wBAAwB,EACzB;;AAED;EACE,iBAAiB,EASlB;EAVD;IAII,eCZa,EDad;EALH;IAQI,oBAAoB,EACrB","file":"viewer.scss","sourcesContent":["@import 'colors';\r\n\r\nul.viewer {\r\n  padding: 20px 8%;\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  \r\n  h3 {\r\n    color: $h-color;\r\n  }\r\n\r\n  &.full {\r\n    margin-bottom: 50px;\r\n  }\r\n}","$primary-color: #e28a66;\r\n$accent-color: #477191; \r\n$h-color: #626262;\r\n$p-color: #626262;\r\n$a-color: #477191;\r\n\r\n$overlay-bg-color: rgba(0, 0, 0, 0.3);\r\n$overlay-text-color: #fff;\r\n\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(36);
 	module.exports = 'ngAnimate';
 
 
 /***/ },
-/* 32 */
+/* 36 */
 /***/ function(module, exports) {
 
 	/**
@@ -36949,13 +37002,13 @@
 
 
 /***/ },
-/* 33 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(34);
+	var content = __webpack_require__(38);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(16)(content, {});
@@ -36975,7 +37028,7 @@
 	}
 
 /***/ },
-/* 34 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(15)();
