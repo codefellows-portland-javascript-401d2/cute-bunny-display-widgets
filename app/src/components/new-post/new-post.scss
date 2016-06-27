@@ -1,0 +1,24 @@
+.form-container {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+
+  form {
+    input {
+      width: 100%;
+      border: 1px solid #e9e9e9;
+      height: 25px;
+      margin: 3px 0 3px 0;
+      padding: 2px 0 2px 5px;
+      font-size: 1em;
+    }
+    input[type="submit"] {
+      background: #fff;
+      color: #a5a5a5;
+      height: 35px;
+      width: 50%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

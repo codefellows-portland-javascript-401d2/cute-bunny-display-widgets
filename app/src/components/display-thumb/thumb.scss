@@ -1,0 +1,50 @@
+@import 'colors';
+
+$thumb-size: 200px;
+$delta: 500ms;
+$indent: 15px;
+
+:local(.thumb-container) {
+  width: $thumb-size;
+  height: $thumb-size;
+  overflow: hidden;
+  position: relative;
+  margin: 25px;
+}
+
+:local(.thumbnail) {
+  position: absolute;
+  left: -40%;
+  width: $thumb-size * 2;
+}
+
+div.thumb-overlay {
+  background: $overlay-bg-color;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity $delta ease;
+}
+div.thumb-overlay:hover {
+  opacity: 1;
+}
+
+span.thumb-overlay-text {
+  position: absolute;
+  width: $thumb-size - $indent;
+  z-index: 10;
+  color: $overlay-text-color;
+  font-size: 1.4em;
+  font-family: sans-serif;   
+  padding: 10px;
+  transition: left $delta * 0.75 ease;
+  left: -75px;
+}
+
+span.thumb-overlay-text-hover {
+  left: $indent;
+}
+
+
