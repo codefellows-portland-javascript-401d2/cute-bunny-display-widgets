@@ -1,0 +1,21 @@
+@import 'colors';
+
+.toggler-form {
+  text-align: center;
+
+  label {
+    padding: 6px 15px;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+  label input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+  }
+  label.selected {
+    background: $primary-color;
+    color: #fff;
+    border: 1px solid $primary-color;
+  }
+}
+

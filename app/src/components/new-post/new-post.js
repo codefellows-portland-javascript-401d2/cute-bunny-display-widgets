@@ -5,15 +5,15 @@ export default {
   template,
   controllerAs: 'newPost',
   bindings: {
-    data: '='
+    add: '&',
+
   },
   controller: function() {
     this.style = style;
 
-    this.addPost = (post) => {
-      console.log(post);
-      if (post && post.url) {
-        this.data.unshift(post);
+    this.submit = () => {
+      if (this.postData && this.postData.url) {
+        this.add({posted: this.postData});
         this.postData = {};
       }
     };
