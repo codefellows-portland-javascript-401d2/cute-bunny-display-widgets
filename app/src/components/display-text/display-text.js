@@ -3,6 +3,7 @@ import template from './display-text.html';
 export default {
   template,
   controllerAs: 'text',
+  transclude: true,
   bindings: {
     postTitle: '=',
     source: '=',

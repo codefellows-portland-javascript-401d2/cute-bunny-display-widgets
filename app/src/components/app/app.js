@@ -23,6 +23,12 @@ function controller(imageService) {
       .then(image => {
         this.images.unshift(image);
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        if (err.data.content.message == 'Monster validation failed') {
+          console.log('Image Needs a Title');
+        }
+
+      });
   };
 }

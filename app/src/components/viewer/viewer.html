@@ -5,6 +5,9 @@
           source="image.url"
           description="image.description"
           ng-if="viewer.viewOption == 'text'">
+
+      <button ng-click="viewer.alert(image.title)">X</button>
+        
     </display-text>
 
     <display-thumb source="image.url"
