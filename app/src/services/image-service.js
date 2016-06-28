@@ -5,6 +5,10 @@ export default function imageService($http, apiUrl) {
     get() {
       return $http.get(`${apiUrl}/monsters`)
         .then(list => list.data.content);
+    },
+    post(item) {
+      return $http.post(`${apiUrl}/monsters`, item)
+        .then(result => result.data.content);
     }
   };
 };

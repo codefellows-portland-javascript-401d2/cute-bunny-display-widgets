@@ -8,7 +8,7 @@ const monsterSchema = new Schema({
   },
   url: {
     type: String,
-    default: 'https://cdn.pastemagazine.com/www/blogs/lists/21-Godzilla-Kaiju-Gorosaurus.jpg'
+    default: 'http://static.vecteezy.com/system/resources/previews/000/100/978/original/godzilla-vector.jpg'
   },
   description: {
     type: String

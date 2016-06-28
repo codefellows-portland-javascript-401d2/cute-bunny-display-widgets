@@ -17,7 +17,12 @@ function controller(imageService) {
     })
     .catch(err => console.log('Error:', err));
 
-  this.addImage = (post) => {
-    this.images.unshift(post);
+  this.addImage = (image) => {
+    imageService
+      .post(image)
+      .then(image => {
+        this.images.unshift(image);
+      })
+      .catch(err => console.log(err));
   };
 }
