@@ -6,13 +6,11 @@ export default {
   controllerAs: 'cell',
   bindings: {
     pic: '=',
-    select: '&',
     display: '=',
-    isodd: '='
+    isodd: '=',
+    select: '&'
   },
   controller: function() {
-    var self = this;
-    self.mytemp = 'temp';
-    self.styles = styles;
+    this.styles = styles;
   }
 };
