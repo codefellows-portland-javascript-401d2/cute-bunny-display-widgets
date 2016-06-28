@@ -6,8 +6,12 @@ export default function imageService($http, apiUrl) {
       return $http.get(`${apiUrl}/monsters`)
         .then(list => list.data.content);
     },
-    post(item) {
-      return $http.post(`${apiUrl}/monsters`, item)
+    post(image) {
+      return $http.post(`${apiUrl}/monsters`, image)
+        .then(result => result.data.content);
+    },
+    del(imageId) {
+      return $http.delete(`${apiUrl}/monsters/${imageId}`)
         .then(result => result.data.content);
     }
   };

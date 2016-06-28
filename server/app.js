@@ -43,6 +43,19 @@ app.post('/api/monsters', bodyParser, (req, res) => {
     });
 });
 
+app.delete('/api/monsters/:id', (req, res) => {
+  Monster
+    .findByIdAndRemove(req.params.id)
+    .then(monster => {
+      res.status(200);
+      res.send({status: 'success', content: monster})
+    })
+    .catch(err => {
+      res.status(500);
+      res.send({status: 'error', content: err});
+    });
+});
+
 
 
 module.exports = app;

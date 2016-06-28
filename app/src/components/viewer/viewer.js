@@ -8,10 +8,10 @@ export default {
     images: '=',
     viewOption: '='
   },
+  require: {
+    app: '^^'
+  },
   controller: function() {
     this.style = style;
-    this.alert = function(i) {
-      alert(i);
-    };
   }
 };

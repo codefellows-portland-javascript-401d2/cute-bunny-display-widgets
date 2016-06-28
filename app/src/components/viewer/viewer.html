@@ -6,7 +6,7 @@
           description="image.description"
           ng-if="viewer.viewOption == 'text'">
 
-      <button ng-click="viewer.alert(image.title)">X</button>
+      <button ng-click="viewer.app.removeImage(image._id)">X</button>
         
     </display-text>
 

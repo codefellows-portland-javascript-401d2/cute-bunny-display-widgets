@@ -28,7 +28,16 @@ function controller(imageService) {
         if (err.data.content.message == 'Monster validation failed') {
           console.log('Image Needs a Title');
         }
+      });
+  };
 
+  this.removeImage = (imageId) => {
+    imageService
+      .del(imageId)
+      .then(removed => {
+        const index = this.images.findIndex(item => item._id == imageId);
+        this.images.splice(index, 1);
+        console.log(removed);
       });
   };
 }
