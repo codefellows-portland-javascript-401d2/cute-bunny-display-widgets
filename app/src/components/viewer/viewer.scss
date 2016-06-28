@@ -15,6 +15,10 @@ li {
     color: $h-color;
   }
 
+  &.text {
+    width: 100%;
+  }
+
   &.full {
     margin-bottom: 50px;
   }
