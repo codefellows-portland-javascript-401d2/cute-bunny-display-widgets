@@ -54,7 +54,7 @@
 	
 	var _cuteBunny2 = _interopRequireDefault(_cuteBunny);
 	
-	__webpack_require__(21);
+	__webpack_require__(23);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31566,9 +31566,13 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
+	var _services = __webpack_require__(21);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var app = _angular2.default.module('cuteApp', [_components2.default]);
+	var app = _angular2.default.module('cuteApp', [_components2.default, _services2.default]);
 	
 	exports.default = app.name;
 
@@ -32137,11 +32141,11 @@
 	    display: '='
 	  },
 	  controllerAs: 'album',
-	  controller: ['$location', '$anchorScroll', '$http', controller]
+	  controller: ['$location', '$anchorScroll', 'albumService', controller]
 	};
 	
 	
-	function controller($location, $anchorScroll, $http) {
+	function controller($location, $anchorScroll, albumService) {
 	  var _this = this;
 	
 	  this.select = function (myId) {
@@ -32152,8 +32156,8 @@
 	    $anchorScroll();
 	  }, this.styles = _album4.default;
 	
-	  $http.get('http://localhost:3000/api/bunnies').then(function (result) {
-	    _this.arrayOfPics = result.data;
+	  albumService.get().then(function (result) {
+	    _this.arrayOfPics = result;
 	  });
 	}
 
@@ -32207,10 +32211,54 @@
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _albumService = __webpack_require__(22);
+	
+	var _albumService2 = _interopRequireDefault(_albumService);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var services = _angular2.default.module('services', []).factory('albumService', _albumService2.default);
+	
+	module.exports = services.name;
+
+/***/ },
+/* 22 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = albumService;
+	albumService.$inject = ['$http'];
+	
+	function albumService($http) {
+	
+	  return {
+	    get: function get() {
+	      return $http.get('http://localhost:3000/api/bunnies').then(function (result) {
+	        return result.data;
+	      });
+	    },
+	    post: function post() {}
+	  };
+	}
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(22);
+	var content = __webpack_require__(24);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(10)(content, {});
@@ -32230,7 +32278,7 @@
 	}
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(9)();

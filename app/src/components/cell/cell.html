@@ -6,10 +6,10 @@
     'alt': cell.isodd === true && cell.display === 'desc'
   }">
 
-  <a id="{{cell.pic.id}}"></a>
+  <a id="{{cell.pic._id}}"></a>
 
   <h3
-    ng-click="cell.select({myId: cell.pic.id})"
+    ng-click="cell.select({myId: cell.pic._id})"
     ng-hide="cell.display === 'thumb'">{{cell.pic.title}}
   </h3>
 
@@ -21,7 +21,7 @@
 
   <img
   ng-src="{{cell.pic.url}}"
-  ng-click="cell.select({myId: cell.pic.id})"
+  ng-click="cell.select({myId: cell.pic._id})"
   ng-hide="cell.display === 'desc'">
 
 </span>

@@ -1,9 +1,11 @@
 import angular from 'angular';
 import components from './components';
+import services from './services';
 
 const app = angular.module('cuteApp', [
-  components
+  components,
+  services
 ]);
 
 
-export default app.name;
+export default app;

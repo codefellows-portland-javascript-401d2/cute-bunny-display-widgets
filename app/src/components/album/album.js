@@ -7,10 +7,10 @@ export default {
     display: '='
   },
   controllerAs: 'album',
-  controller: ['$location', '$anchorScroll', '$http', controller]
+  controller: ['$location', '$anchorScroll', 'albumService', controller]
 };
 
-function controller ($location, $anchorScroll, $http){
+function controller ($location, $anchorScroll, albumService){
 
   this.select = function(myId){
     // Switch to Full display
@@ -21,9 +21,9 @@ function controller ($location, $anchorScroll, $http){
   },
   this.styles = styles;
 
-  $http.get('http://localhost:3000/api/bunnies')
+  albumService.get()
   .then( result => {
-    this.arrayOfPics = result.data;
+    this.arrayOfPics = result;
   });
 
 }
