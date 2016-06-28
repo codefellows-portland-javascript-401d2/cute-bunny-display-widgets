@@ -31597,7 +31597,7 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _albumHead = __webpack_require__(14);
+	var _albumHead = __webpack_require__(13);
 	
 	var _albumHead2 = _interopRequireDefault(_albumHead);
 	
@@ -31615,7 +31615,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var albumModule = _angular2.default.module('components', []).component('app', _app2.default).component('albumHead', _albumHead2.default).component('albumList', _albumList2.default).component('albumTile', _albumTile2.default).component('albumFull', _albumFull2.default);
+	var albumModule = _angular2.default.module('album', []).component('app', _app2.default).component('albumHead', _albumHead2.default).component('albumList', _albumList2.default).component('albumTile', _albumTile2.default).component('albumFull', _albumFull2.default);
 	
 	exports.default = albumModule.name;
 
@@ -31637,26 +31637,36 @@
 	
 	var _appStyles2 = _interopRequireDefault(_appStyles);
 	
-	var _bunnies = __webpack_require__(13);
-	
-	var _bunnies2 = _interopRequireDefault(_bunnies);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function controller($http) {
+		var _this = this;
+	
+		this.styles = _appStyles2.default;
+		this.currentSection = 'list';
+		this.bunnies = [];
+		this.bunniesLoaded = false;
+	
+		$http.get('http://localhost:3000/api/bunnies').then(function (result) {
+			_this.bunnies = result.data;
+			_this.bunniesLoaded = true;
+		}).catch(function (err) {
+			console.error(err);
+		});
+	}
+	
+	controller.$inject = ['$http'];
 	
 	exports.default = {
 		template: _appView2.default,
-		controller: function controller() {
-			this.styles = _appStyles2.default;
-			this.currentSection = 'list';
-			this.bunnies = _bunnies2.default;
-		}
+		controller: controller
 	};
 
 /***/ },
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "<header ng-class=$ctrl.styles.header> <album-head current-section=$ctrl.currentSection></album-head> </header> <main ng-class=$ctrl.styles.main> <album-list ng-show=\"$ctrl.currentSection === 'list'\" bunnies=$ctrl.bunnies></album-list> <album-tile ng-show=\"$ctrl.currentSection === 'tile'\" bunnies=$ctrl.bunnies></album-tile> <album-full ng-show=\"$ctrl.currentSection === 'full'\" bunnies=$ctrl.bunnies></album-full> </main>";
+	module.exports = "<header ng-class=$ctrl.styles.header> <album-head current-section=$ctrl.currentSection></album-head> </header> <main ng-class=$ctrl.styles.main> <album-list ng-if=$ctrl.bunniesLoaded ng-show=\"$ctrl.currentSection === 'list'\" bunnies=$ctrl.bunnies></album-list> <album-tile ng-if=$ctrl.bunniesLoaded ng-show=\"$ctrl.currentSection === 'tile'\" bunnies=$ctrl.bunnies></album-tile> <album-full ng-if=$ctrl.bunniesLoaded ng-show=\"$ctrl.currentSection === 'full'\" bunnies=$ctrl.bunnies></album-full> </main>";
 
 /***/ },
 /* 11 */
@@ -31668,67 +31678,6 @@
 /***/ },
 /* 12 */,
 /* 13 */
-/***/ function(module, exports) {
-
-	module.exports = [
-		{
-			"title": "Calico Bunny",
-			"description": "Too cute to be real.",
-			"imageLink": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
-			"imageThumbWidth": 150,
-			"imageThumbHeight": 100,
-			"imageFullWidth": 504,
-			"imageFullHeight": 337
-		},
-		{
-			"title": "Little Brown Bunny",
-			"description": "Insane cuteness is always inspiring.",
-			"imageLink": "https://s-media-cache-ak0.pinimg.com/640x/40/94/74/409474b465c5f1f0d189881fb168cea1.jpg",
-			"imageThumbWidth": 100,
-			"imageThumbHeight": 100,
-			"imageFullWidth": 337,
-			"imageFullHeight": 337
-		},
-		{
-			"title": "White Fluffy Bunny",
-			"description": "If I stretch just so, my ears make me look taller.",
-			"imageLink": "https://s-media-cache-ak0.pinimg.com/564x/02/67/4b/02674bc406fb2927c7fa3d314cfae34b.jpg",
-			"imageThumbWidth": 100,
-			"imageThumbHeight": 100,
-			"imageFullWidth": 337,
-			"imageFullHeight": 337
-		},
-		{
-			"title": "Bunny in a Basket",
-			"description": "having a bad day.. just look at that.. i mean you just can't beat that..",
-			"imageLink": "https://s-media-cache-ak0.pinimg.com/564x/03/83/34/0383348ae51d018d1f3dce7d467fdf1f.jpg",
-			"imageThumbWidth": 134,
-			"imageThumbHeight": 100,
-			"imageFullWidth": 450,
-			"imageFullHeight": 337
-		},
-		{
-			"title": "Cute Bunny Tongue",
-			"description": "Cutest bunny sticking out their tongue.",
-			"imageLink": "http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-6.jpg",
-			"imageThumbWidth": 158,
-			"imageThumbHeight": 100,
-			"imageFullWidth": 554,
-			"imageFullHeight": 337
-		},
-		{
-			"title": "Bunny Stuck",
-			"description": "Awwww. Can they get any cuter?",
-			"imageLink": "https://s-media-cache-ak0.pinimg.com/564x/86/08/13/8608133093c74c5b895a1fa2f876cebd.jpg",
-			"imageThumbWidth": 125,
-			"imageThumbHeight": 100,
-			"imageFullWidth": 421,
-			"imageFullHeight": 337
-		}
-	];
-
-/***/ },
-/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31736,6 +31685,10 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _albumHeadData = __webpack_require__(14);
+	
+	var _albumHeadData2 = _interopRequireDefault(_albumHeadData);
 	
 	var _albumHeadView = __webpack_require__(15);
 	
@@ -31752,26 +31705,11 @@
 	  bindings: {
 	    currentSection: '='
 	  },
-	  require: {
-	    app: '^^'
-	  },
 	  controller: function controller() {
 	    var _this = this;
 	
 	    this.styles = _albumHeadStyles2.default;
-	    this.sections = [{
-	      name: 'list',
-	      text: 'List View',
-	      fa: 'list'
-	    }, {
-	      name: 'tile',
-	      text: 'Tile View',
-	      fa: 'th'
-	    }, {
-	      name: 'full',
-	      text: 'Full View',
-	      fa: 'image'
-	    }];
+	    this.sections = _albumHeadData2.default;
 	
 	    this.toggleNav = function ($event, sectionName) {
 	      $event.preventDefault();
@@ -31780,6 +31718,28 @@
 	    };
 	  }
 	};
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = [
+		{
+			"name": "list",
+			"text": "List View",
+			"fa": "list"
+		},
+		{
+			"name": "tile",
+			"text": "Tile View",
+			"fa": "th"
+		},
+		{
+			"name": "full",
+			"text": "Full View",
+			"fa": "image"
+		}
+	];
 
 /***/ },
 /* 15 */
@@ -31819,9 +31779,6 @@
 	  template: _albumListView2.default,
 	  bindings: {
 	    bunnies: '='
-	  },
-	  require: {
-	    app: '^^'
 	  },
 	  controller: function controller() {
 	    this.styles = _albumListStyles2.default;
@@ -31866,9 +31823,6 @@
 	  template: _albumTileView2.default,
 	  bindings: {
 	    bunnies: '='
-	  },
-	  require: {
-	    app: '^^'
 	  },
 	  controller: function controller() {
 	    var bunnies = [];
@@ -31927,9 +31881,6 @@
 	  bindings: {
 	    bunnies: '='
 	  },
-	  require: {
-	    app: '^^'
-	  },
 	  controller: function controller() {
 	    var _this = this;
 	
@@ -31937,7 +31888,7 @@
 	    this.bunniesIndex = 0;
 	    this.bunny = this.bunnies[this.bunniesIndex];
 	
-	    this.prevBtn = function () {
+	    this.prevImage = function () {
 	      if (_this.bunniesIndex !== 0) {
 	        _this.bunniesIndex -= 1;
 	      } else {
@@ -31947,7 +31898,7 @@
 	      _this.bunny = _this.bunnies[_this.bunniesIndex];
 	    };
 	
-	    this.nextBtn = function () {
+	    this.nextImage = function () {
 	      if (_this.bunniesIndex + 1 !== _this.bunnies.length) {
 	        _this.bunniesIndex += 1;
 	      } else {
@@ -31963,7 +31914,7 @@
 /* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "<section> <div class=\"row no-stacking-on-mobiles\"> <div class=\"twelve columns\"> <div ng-class=\"$ctrl.styles['gallery-info']\" ng-style=\"{'background-image': 'url('+$ctrl.bunny.imageLink+')'}\"> <h2>{{ $ctrl.bunny.title }}</h2> <p>{{ $ctrl.bunny.description }}</p> </div> <div ng-class=\"$ctrl.styles['gallery-nav']\"> <button type=button ng-click=$ctrl.prevBtn()> <i class=\"fa fa-chevron-left fa-2x\" aria-hidden=true></i> <span>Prev</span> </button> <button type=button ng-click=$ctrl.nextBtn()> <span>Next</span> <i class=\"fa fa-chevron-right fa-2x\" aria-hidden=true></i> </button> </div> </div> </div> </section>";
+	module.exports = "<section> <div class=\"row no-stacking-on-mobiles\"> <div class=\"twelve columns\"> <div ng-class=\"$ctrl.styles['gallery-info']\" ng-style=\"{'background-image': 'url('+$ctrl.bunny.imageLink+')'}\"> <h2>{{ $ctrl.bunny.title }}</h2> <p>{{ $ctrl.bunny.description }}</p> </div> <div ng-class=\"$ctrl.styles['gallery-nav']\"> <button type=button ng-click=$ctrl.prevImage()> <i class=\"fa fa-chevron-left fa-2x\" aria-hidden=true></i> <span>Prev</span> </button> <button type=button ng-click=$ctrl.nextImage()> <span>Next</span> <i class=\"fa fa-chevron-right fa-2x\" aria-hidden=true></i> </button> </div> </div> </div> </section>";
 
 /***/ },
 /* 28 */

@@ -6,7 +6,7 @@ import albumTileComponent from './album-tile/album-tile.component';
 import albumFullComponent from './album-full/album-full.component';
 
 const albumModule = ng
-  .module('components', [])
+  .module('album', [])
 	.component('app', appComponent)
   .component('albumHead', albumHeadComponent)
   .component('albumList', albumListComponent)
