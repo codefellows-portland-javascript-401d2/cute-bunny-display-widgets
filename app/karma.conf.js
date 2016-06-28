@@ -5,7 +5,7 @@ webpackConfig.entry = {};
 const testEntry = './src/components/app/app.module.js';
 
 module.exports = function (config) {
-	config.set({
+	let configuration = {
 		basePath: '',
 		frameworks: ['jasmine'],
 		files: [
@@ -33,7 +33,7 @@ module.exports = function (config) {
     },
 		singleRun: false,
 		concurrency: Infinity
-	});
+	};
 
 	if (process.env.TRAVIS) {
 		configuration.browsers = ['Chrome_travis_ci'];
