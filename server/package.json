@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "nodemon index.js",
+    "serve": "nodemon index.js",
     "test": "exit 0"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/jluangphasy/cute-bunny-display-widgets#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0"
   },
   "devDependencies": {

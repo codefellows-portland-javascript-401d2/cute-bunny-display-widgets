@@ -6,15 +6,12 @@ export default {
   bindings: {
     bunnies: '='
   },
-  require: {
-    app: '^^'
-  },
   controller() {
     this.styles = styles;
     this.bunniesIndex = 0;
     this.bunny = this.bunnies[this.bunniesIndex];
 
-    this.prevBtn = () => {
+    this.prevImage = () => {
       if (this.bunniesIndex !== 0) {
         this.bunniesIndex -= 1;
       } else {
@@ -24,7 +21,7 @@ export default {
       this.bunny = this.bunnies[this.bunniesIndex];
     };
 
-    this.nextBtn = () => {
+    this.nextImage = () => {
       if ((this.bunniesIndex + 1) !== this.bunnies.length) {
         this.bunniesIndex += 1;
       } else {
