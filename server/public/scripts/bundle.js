@@ -58,7 +58,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.bootstrap(document, [_app2.default]);
+	_app2.default.value('apiUrl', 'http://localhost:3000/api');
+	
+	_angular2.default.bootstrap(document, [_app2.default.name]);
 
 /***/ },
 /* 1 */
@@ -31573,11 +31575,15 @@
 	
 	var _album2 = _interopRequireDefault(_album);
 	
+	var _services = __webpack_require__(30);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var appModule = _angular2.default.module('app', [_album2.default]);
+	var appModule = _angular2.default.module('app', [_album2.default, _services2.default]);
 	
-	exports.default = appModule.name;
+	exports.default = appModule;
 
 /***/ },
 /* 8 */
@@ -31626,7 +31632,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _appView = __webpack_require__(10);
@@ -31639,27 +31645,27 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function controller($http) {
-		var _this = this;
+	function controller(albumsService) {
+	  var _this = this;
 	
-		this.styles = _appStyles2.default;
-		this.currentSection = 'list';
-		this.bunnies = [];
-		this.bunniesLoaded = false;
+	  this.styles = _appStyles2.default;
+	  this.currentSection = 'list';
+	  this.bunnies = [];
+	  this.bunniesLoaded = false;
 	
-		$http.get('http://localhost:3000/api/bunnies').then(function (result) {
-			_this.bunnies = result.data;
-			_this.bunniesLoaded = true;
-		}).catch(function (err) {
-			console.error(err);
-		});
+	  albumsService.getAlbums().then(function (data) {
+	    albumsService.getImages(data.result[0]._id).then(function (data) {
+	      _this.bunnies = data.result;
+	      _this.bunniesLoaded = true;
+	    });
+	  });
 	}
 	
-	controller.$inject = ['$http'];
+	controller.$inject = ['albumsService'];
 	
 	exports.default = {
-		template: _appView2.default,
-		controller: controller
+	  template: _appView2.default,
+	  controller: controller
 	};
 
 /***/ },
@@ -31922,6 +31928,78 @@
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"gallery-info":"BPtd3iwmLhrRJPRI21kSv","gallery-nav":"_2JsYh3xWEg2cAG_00skd0X"};
+
+/***/ },
+/* 29 */,
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _angular = __webpack_require__(5);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _albums = __webpack_require__(31);
+	
+	var _albums2 = _interopRequireDefault(_albums);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var services = _angular2.default.module('services', []).factory('albumsService', _albums2.default);
+	
+	exports.default = services.name;
+
+/***/ },
+/* 31 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = albumsService;
+	albumsService.$inject = ['$http', 'apiUrl'];
+	
+	function albumsService($http, apiUrl) {
+	  return {
+	    getAlbums: function getAlbums() {
+	      return $http.get(apiUrl + '/albums').then(function (result) {
+	        return result.data;
+	      });
+	    },
+	    addAlbum: function addAlbum() {
+	      return $http.post(apiUrl + '/albums').then(function (result) {
+	        return result.data;
+	      });
+	    },
+	    getAlbum: function getAlbum(albumId) {
+	      return $http.get(apiUrl + '/albums/' + albumId).then(function (result) {
+	        return result.data;
+	      });
+	    },
+	    getImages: function getImages(albumId) {
+	      return $http.get(apiUrl + '/albums/' + albumId + '/images').then(function (result) {
+	        return result.data;
+	      });
+	    },
+	    addImage: function addImage(albumId) {
+	      return $http.post(apiUrl + '/albums/' + albumId + '/images').then(function (result) {
+	        return result.data;
+	      });
+	    },
+	    getImage: function getImage(albumId, imageId) {
+	      return $http.get(apiUrl + '/albums/' + albumId + '/images/' + imageId).then(function (result) {
+	        return result.data;
+	      });
+	    }
+	  };
+	};
 
 /***/ }
 /******/ ]);
