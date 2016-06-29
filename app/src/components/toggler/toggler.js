@@ -4,10 +4,6 @@ import style from './toggler.scss';
 export default {
   template,
   controllerAs: 'toggler',
-
-  // bindings: {
-  //   images: '='
-  // },
   controller
 };
 
@@ -58,9 +54,6 @@ function controller(albumService, imageService) {
       })
       .catch(err => {
         console.log(err);
-        if (err.data.content.message == 'Monster validation failed') {
-          console.log('Image Needs a Title');
-        }
       });
   };
 

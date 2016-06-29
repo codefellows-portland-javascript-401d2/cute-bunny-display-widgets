@@ -9,9 +9,6 @@ export default {
     viewOption: '=',
     remove: '&'
   },
-  require: {
-    app: '^^'
-  },
   controller: function() {
     this.style = style;
   }
