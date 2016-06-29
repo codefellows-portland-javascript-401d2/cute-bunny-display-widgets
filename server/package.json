@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "dev": "nodemon index.js",
+    "dev": "env $(cat .env) nodemon index.js",
     "lint": "eslint ."
   },
   "author": "Dave Hanagan",
@@ -16,6 +16,8 @@
     "nodemon": "^1.9.2"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.2"
   }
 }

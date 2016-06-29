@@ -8,7 +8,8 @@ export default {
     pic: '=',
     display: '=',
     isodd: '=',
-    select: '&'
+    select: '&',
+    remove: '&'
   },
   controller: function() {
     this.styles = styles;

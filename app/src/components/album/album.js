@@ -7,11 +7,10 @@ export default {
     display: '='
   },
   controllerAs: 'album',
-  controller: ['$location', '$anchorScroll', '$http', controller]
+  controller: ['$location', '$anchorScroll', 'albumService', controller]
 };
 
-function controller ($location, $anchorScroll, $http){
-
+function controller ($location, $anchorScroll, albumService){
   this.select = function(myId){
     // Switch to Full display
     this.display = 'full';
@@ -19,11 +18,32 @@ function controller ($location, $anchorScroll, $http){
     $location.hash(myId);
     $anchorScroll();
   },
+  this.remove = function(myId){
+    albumService.remove(myId)
+    .then( () => {
+      const index = this.arrayOfPics.findIndex( pic => pic._id === myId);
+      if (index !== -1) this.arrayOfPics.splice(index, 1);
+    })
+    .catch( err => {
+      console.log(err);
+    });
+  },
+  this.addpic = function(newpic){
+    console.log('addpic fires');
+    console.log(newpic);
+    albumService.add(newpic)
+    .then( data => {
+      this.arrayOfPics.push(data);
+    })
+    .catch( err => {
+      console.log(err);
+    });
+  },
   this.styles = styles;
 
-  $http.get('http://localhost:3000/api/bunnies')
+  albumService.get()
   .then( result => {
-    this.arrayOfPics = result.data;
+    this.arrayOfPics = result;
   });
 
 }

@@ -54,13 +54,13 @@
 	
 	var _cuteBunny2 = _interopRequireDefault(_cuteBunny);
 	
-	__webpack_require__(21);
+	__webpack_require__(27);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// document.body.innerHTML = template;
-	_angular2.default.bootstrap(document, [_cuteBunny2.default]);
-	// import template from './index.html';
+	_cuteBunny2.default.value('apiUrl', 'http://localhost:3000/api/bunnies');
+	
+	_angular2.default.bootstrap(document, [_cuteBunny2.default.name]);
 
 /***/ },
 /* 1 */
@@ -31566,11 +31566,15 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
+	var _services = __webpack_require__(25);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var app = _angular2.default.module('cuteApp', [_components2.default]);
+	var app = _angular2.default.module('cuteApp', [_components2.default, _services2.default]);
 	
-	exports.default = app.name;
+	exports.default = app;
 
 /***/ },
 /* 4 */
@@ -31602,9 +31606,13 @@
 	
 	var _album2 = _interopRequireDefault(_album);
 	
+	var _addPic = __webpack_require__(21);
+	
+	var _addPic2 = _interopRequireDefault(_addPic);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var components = _angular2.default.module('components', []).component('app', _app2.default).component('picker', _picker2.default).component('cell', _cell2.default).component('album', _album2.default);
+	var components = _angular2.default.module('components', []).component('app', _app2.default).component('picker', _picker2.default).component('cell', _cell2.default).component('album', _album2.default).component('addPic', _addPic2.default);
 	
 	exports.default = components.name;
 
@@ -32054,7 +32062,8 @@
 	    pic: '=',
 	    display: '=',
 	    isodd: '=',
-	    select: '&'
+	    select: '&',
+	    remove: '&'
 	  },
 	  controller: function controller() {
 	    this.styles = _cell4.default;
@@ -32065,7 +32074,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "<span title=\"{{cell.pic.title}}\"\n  ng-class=\"{\n    '{{cell.styles.thumb}}': cell.display === 'thumb',\n    '{{cell.styles.desc}}': cell.display === 'desc',\n    '{{cell.styles.full}}': cell.display === 'full',\n    'alt': cell.isodd === true && cell.display === 'desc'\n  }\">\n\n  <a id=\"{{cell.pic.id}}\"></a>\n\n  <h3\n    ng-click=\"cell.select({myId: cell.pic.id})\"\n    ng-hide=\"cell.display === 'thumb'\">{{cell.pic.title}}\n  </h3>\n\n  <h4 ng-show=\"cell.display === 'desc'\">{{cell.pic.description}}\n  </h4>\n\n  <a href=\"{{cell.pic.url}}\" ng-show=\"cell.display === 'desc'\">{{cell.pic.url}}\n  </a>\n\n  <img\n  ng-src=\"{{cell.pic.url}}\"\n  ng-click=\"cell.select({myId: cell.pic.id})\"\n  ng-hide=\"cell.display === 'desc'\">\n\n</span>\n";
+	module.exports = "<span title=\"{{cell.pic.title}}\"\n  ng-class=\"{\n    '{{cell.styles.thumb}}': cell.display === 'thumb',\n    '{{cell.styles.desc}}': cell.display === 'desc',\n    '{{cell.styles.full}}': cell.display === 'full',\n    'alt': cell.isodd === true && cell.display === 'desc'\n  }\">\n\n  <a id=\"{{cell.pic._id}}\"></a>\n\n  <button\n    ng-click=\"cell.remove({myId: cell.pic._id})\"\n    ng-show=\"cell.display === 'desc'\">Remove\n  </button>\n\n  <h3\n    ng-click=\"cell.select({myId: cell.pic._id})\"\n    ng-hide=\"cell.display === 'thumb'\">{{cell.pic.title}}\n  </h3>\n\n  <h4 ng-show=\"cell.display === 'desc'\">{{cell.pic.description}}\n  </h4>\n\n  <a href=\"{{cell.pic.url}}\" ng-show=\"cell.display === 'desc'\">{{cell.pic.url}}\n  </a>\n\n  <img\n  ng-src=\"{{cell.pic.url}}\"\n  ng-click=\"cell.select({myId: cell.pic._id})\"\n  ng-hide=\"cell.display === 'desc'\">\n\n</span>\n";
 
 /***/ },
 /* 15 */
@@ -32102,7 +32111,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._26-GN_NK9AF--eaRHKNYJj img {\n  padding: 1em;\n  max-width: 100px;\n  max-height: 80px; }\n  ._26-GN_NK9AF--eaRHKNYJj img:hover {\n    cursor: pointer; }\n\n._2xzzrB678wMSO8p4Div_mo {\n  display: block;\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em; }\n  ._2xzzrB678wMSO8p4Div_mo a {\n    font-size: 80%;\n    color: rgba(0, 85, 102, 0.5);\n    margin-top: 0em;\n    margin-bottom: .25em; }\n  ._2xzzrB678wMSO8p4Div_mo h3:hover {\n    cursor: pointer; }\n  ._2xzzrB678wMSO8p4Div_mo h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: #005566; }\n\n.io4eyQ5KFnc0CnpQo5EdK {\n  display: block; }\n  .io4eyQ5KFnc0CnpQo5EdK img {\n    width: 100%; }\n", "", {"version":3,"sources":["/./src/app/src/components/cell/cell.scss"],"names":[],"mappings":"AAMA;EAEI,aAAa;EACb,iBAAiB;EACjB,iBAAiB,EAKlB;EATH;IAOM,gBAAgB,EACjB;;AAIL;EACE,eAAe;EAEf,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,kBAAkB,EAsBnB;EA5BD;IASI,eAAe;IACf,6BAAW;IACX,gBAAgB;IAChB,qBACD,EAAC;EAbJ;IAkBM,gBAAgB,EACjB;EAnBL;IAuBI,gBAAgB;IAChB,qBAAqB;IACrB,eAAW,EACZ;;AAIH;EACE,eAAe,EAKhB;EAND;IAII,YAAY,EACb","file":"cell.scss","sourcesContent":["@import 'colors';\n\n:local(.cell){\n\n}\n\n:local(.thumb){\n  img {\n    padding: 1em;\n    max-width: 100px;\n    max-height: 80px;\n\n    &:hover {\n      cursor: pointer;\n    }\n  }\n}\n\n:local(.desc){\n  display: block;\n\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em;\n\n  a {\n    font-size: 80%;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, .5);\n    margin-top: 0em;\n    margin-bottom: .25em\n  }\n\n  h3 {\n\n    &:hover{\n      cursor: pointer;\n    }\n  }\n\n  h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);\n  }\n\n}\n\n:local(.full){\n  display: block;\n\n  img {\n    width: 100%;\n  }\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._26-GN_NK9AF--eaRHKNYJj img {\n  padding: 1em;\n  max-width: 100px;\n  max-height: 80px; }\n  ._26-GN_NK9AF--eaRHKNYJj img:hover {\n    cursor: pointer; }\n\n._2xzzrB678wMSO8p4Div_mo {\n  display: block;\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em; }\n  ._2xzzrB678wMSO8p4Div_mo a {\n    font-size: 80%;\n    color: rgba(0, 85, 102, 0.5);\n    margin-top: 0em;\n    margin-bottom: .25em; }\n  ._2xzzrB678wMSO8p4Div_mo h3:hover {\n    cursor: pointer; }\n  ._2xzzrB678wMSO8p4Div_mo h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: #005566; }\n  ._2xzzrB678wMSO8p4Div_mo button {\n    float: right; }\n\n.io4eyQ5KFnc0CnpQo5EdK {\n  display: block; }\n  .io4eyQ5KFnc0CnpQo5EdK img {\n    width: 100%; }\n", "", {"version":3,"sources":["/./src/app/src/components/cell/cell.scss"],"names":[],"mappings":"AAMA;EAEI,aAAa;EACb,iBAAiB;EACjB,iBAAiB,EAKlB;EATH;IAOM,gBAAgB,EACjB;;AAIL;EACE,eAAe;EAEf,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,kBAAkB,EA0BnB;EAhCD;IASI,eAAe;IACf,6BAAW;IACX,gBAAgB;IAChB,qBACD,EAAC;EAbJ;IAkBM,gBAAgB,EACjB;EAnBL;IAuBI,gBAAgB;IAChB,qBAAqB;IACrB,eAAW,EACZ;EA1BH;IA6BI,aAAa,EACd;;AAIH;EACE,eAAe,EAKhB;EAND;IAII,YAAY,EACb","file":"cell.scss","sourcesContent":["@import 'colors';\n\n:local(.cell){\n\n}\n\n:local(.thumb){\n  img {\n    padding: 1em;\n    max-width: 100px;\n    max-height: 80px;\n\n    &:hover {\n      cursor: pointer;\n    }\n  }\n}\n\n:local(.desc){\n  display: block;\n\n  padding-left: 1em;\n  padding-right: 1em;\n  margin-left: 1em;\n  margin-right: 1em;\n\n  a {\n    font-size: 80%;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, .5);\n    margin-top: 0em;\n    margin-bottom: .25em\n  }\n\n  h3 {\n\n    &:hover{\n      cursor: pointer;\n    }\n  }\n\n  h4 {\n    margin-top: 0em;\n    margin-bottom: .25em;\n    color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);\n  }\n\n  button {\n    float: right;\n  }\n\n}\n\n:local(.full){\n  display: block;\n\n  img {\n    width: 100%;\n  }\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
@@ -32137,12 +32146,12 @@
 	    display: '='
 	  },
 	  controllerAs: 'album',
-	  controller: ['$location', '$anchorScroll', '$http', controller]
+	  controller: ['$location', '$anchorScroll', 'albumService', controller]
 	};
 	
 	
-	function controller($location, $anchorScroll, $http) {
-	  var _this = this;
+	function controller($location, $anchorScroll, albumService) {
+	  var _this3 = this;
 	
 	  this.select = function (myId) {
 	    // Switch to Full display
@@ -32150,10 +32159,31 @@
 	    // Go to anchor tab with ID
 	    $location.hash(myId);
 	    $anchorScroll();
+	  }, this.remove = function (myId) {
+	    var _this = this;
+	
+	    albumService.remove(myId).then(function () {
+	      var index = _this.arrayOfPics.findIndex(function (pic) {
+	        return pic._id === myId;
+	      });
+	      if (index !== -1) _this.arrayOfPics.splice(index, 1);
+	    }).catch(function (err) {
+	      console.log(err);
+	    });
+	  }, this.addpic = function (newpic) {
+	    var _this2 = this;
+	
+	    console.log('addpic fires');
+	    console.log(newpic);
+	    albumService.add(newpic).then(function (data) {
+	      _this2.arrayOfPics.push(data);
+	    }).catch(function (err) {
+	      console.log(err);
+	    });
 	  }, this.styles = _album4.default;
 	
-	  $http.get('http://localhost:3000/api/bunnies').then(function (result) {
-	    _this.arrayOfPics = result.data;
+	  albumService.get().then(function (result) {
+	    _this3.arrayOfPics = result;
 	  });
 	}
 
@@ -32161,7 +32191,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-show=\"album.display === album.display\">\n  <p ng-show=\"album.display === 'thumb'\"><em>Click on a thumbnail</em></p>\n  <span ng-repeat=\"pic in album.arrayOfPics\">\n    <cell pic=\"pic\" select=\"album.select(myId)\" display=\"album.display\" isodd=\"$odd\"></cell>\n  </span>\n</div>\n";
+	module.exports = "<div>\n  <add-pic add=\"album.addpic(newpic)\"></add-pic>\n  <p ng-show=\"album.display === 'thumb'\"><em>Click on a thumbnail</em></p>\n  <span ng-repeat=\"pic in album.arrayOfPics\">\n    <cell pic=\"pic\" select=\"album.select(myId)\" remove=\"album.remove(myId)\" display=\"album.display\" isodd=\"$odd\"></cell>\n  </span>\n</div>\n";
 
 /***/ },
 /* 19 */
@@ -32207,10 +32237,148 @@
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _addPic = __webpack_require__(22);
+	
+	var _addPic2 = _interopRequireDefault(_addPic);
+	
+	var _addPic3 = __webpack_require__(23);
+	
+	var _addPic4 = _interopRequireDefault(_addPic3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _addPic2.default,
+	  bindings: {
+	    add: '&'
+	  },
+	  controller: function controller() {
+	    this.styles = _addPic4.default;
+	    this.item = {};
+	    this.submit = function () {
+	      var item = this.item;
+	      this.add({ newpic: item });
+	      this.item = {};
+	    };
+	  }
+	};
+
+/***/ },
+/* 22 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class={{$ctrl.styles.addpic}}>\n  <h4>Add new pic</h4>\n  <input ng-model=\"$ctrl.item.title\" name=\"title\" placeholder=\"Name\"></input>\n  <input ng-model=\"$ctrl.item.description\" name=\"description\" placeholder=\"Description\"></input>\n  <input ng-model=\"$ctrl.item.url\" name=\"url\" placeholder=\"HTTP Url\"></input>\n  <button ng-click=\"$ctrl.submit(newpic)\">Submit</button>\n</div>\n";
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(22);
+	var content = __webpack_require__(24);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./add-pic.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./add-pic.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".OZLAgFSzXosdpUIyF9ukA h4 {\n  display: inline;\n  padding-right: 1em; }\n", "", {"version":3,"sources":["/./src/app/src/components/add-pic/add-pic.scss"],"names":[],"mappings":"AAEA;EAGI,gBAAgB;EAChB,mBAAmB,EACpB","file":"add-pic.scss","sourcesContent":["@import 'colors';\n\n:local(.addpic){\n\n  h4 {\n    display: inline;\n    padding-right: 1em;\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+	exports.locals = {
+		"addpic": "OZLAgFSzXosdpUIyF9ukA"
+	};
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _albumService = __webpack_require__(26);
+	
+	var _albumService2 = _interopRequireDefault(_albumService);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var services = _angular2.default.module('services', []).factory('albumService', _albumService2.default);
+	
+	module.exports = services.name;
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = albumService;
+	albumService.$inject = ['$http', 'apiUrl'];
+	
+	function albumService($http, apiUrl) {
+	
+	  return {
+	    get: function get() {
+	      return $http.get(apiUrl).then(function (result) {
+	        return result.data;
+	      });
+	    },
+	    add: function add(data) {
+	      return $http.post(apiUrl, data).then(function (result) {
+	        return result.data;
+	      });
+	    },
+	    remove: function remove(id) {
+	      var deleteUrl = apiUrl + '/' + id;
+	      return $http.delete(deleteUrl).then(function (result) {
+	        return result.data;
+	      });
+	    }
+	  };
+	}
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(28);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(10)(content, {});
@@ -32230,7 +32398,7 @@
 	}
 
 /***/ },
-/* 22 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(9)();
