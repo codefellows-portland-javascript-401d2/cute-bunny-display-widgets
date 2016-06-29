@@ -11,6 +11,8 @@ Bonus: Handle multiple albums **2pts**
 
 # Rubric
 Server API: 3pts
+
 Angular Services: 3pts
+
 Consume services in components: 4pts
   
