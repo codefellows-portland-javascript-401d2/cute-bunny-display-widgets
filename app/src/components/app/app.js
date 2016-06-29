@@ -3,19 +3,40 @@ import template from './app.html';
 export default {
   template,
   controllerAs: 'app',
+  controller
+};
 
-  controller: function($http) {
-    $http.get('http://localhost:3000/api/monsters')
-      .then(results => {
-        if (results.status === 200) {
-          this.images = JSON.parse(results.data.content);
-        } else {
-          console.error('500: Problem Retrieving Images');
+controller.$inject = ['imageService'];
+
+function controller(imageService) {
+
+  imageService
+    .get()
+    .then(images => {
+      this.images = images;
+    })
+    .catch(err => console.log('Error:', err));
+
+  this.addImage = (image) => {
+    imageService
+      .post(image)
+      .then(image => {
+        this.images.unshift(image);
+      })
+      .catch(err => {
+        console.log(err);
+        if (err.data.content.message == 'Monster validation failed') {
+          console.log('Image Needs a Title');
         }
       });
+  };
 
-    this.addImage = (post) => {
-      this.images.unshift(post);
-    };
-  }
-};
+  this.removeImage = (imageId) => {
+    imageService
+      .del(imageId)
+      .then(removed => {
+        const index = this.images.findIndex(item => item._id == imageId);
+        this.images.splice(index, 1);
+      });
+  };
+}

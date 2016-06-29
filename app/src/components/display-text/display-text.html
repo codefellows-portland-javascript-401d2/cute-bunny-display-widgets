@@ -1,3 +1,7 @@
-<h3>{{text.postTitle}}</h3>
-<a href={{text.source}}>Link to Image</a>
-<p>{{text.shorten(text.description)}}</p>
+<section class="display-text">
+  <h3>{{text.postTitle}}</h3>
+  <a href={{text.source}}>Link to Image</a>
+  <p>{{text.shorten(text.description)}}</p>
+  <ng-transclude></ng-transclude>
+  <hr>
+</section>
