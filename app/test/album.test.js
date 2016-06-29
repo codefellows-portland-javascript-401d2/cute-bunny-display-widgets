@@ -11,6 +11,17 @@ describe('album', () => {
   before(angular.mock.inject( ($rootScope, _$location_, _$componentController_) => {
     $component = (name, bindings) => _$componentController_(name, null, bindings);
     $location = _$location_;
+    $albumService = _$albumService_;
+
+    // mock = {alert: jasmine.createSpy()};
+    // module(function($provide) {
+    //   $provide.value('$window', mock);
+    // });
+    //
+    // inject(function($injector) {
+    //   notify = $injector.get('notify');
+    // });
+
   }));
 
   it('initializes with correct data', () => {

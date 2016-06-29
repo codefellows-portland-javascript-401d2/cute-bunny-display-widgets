@@ -10,7 +10,7 @@ module.exports = router
     res.send(data);
   })
   .catch( err => {
-    next({code: 505, error: 'Database failure', msg: err});
+    next({code: 500, error: 'Database failure', msg: err});
   });
 })
 
@@ -20,7 +20,7 @@ module.exports = router
     res.send(data);
   })
   .catch( err => {
-    next({code: 505, error: 'Database failure', msg: err});
+    next({code: 500, error: 'Database failure', msg: err});
   });
 })
 
@@ -30,7 +30,7 @@ module.exports = router
     res.send(data);
   })
   .catch( err => {
-    next({code: 505, error: 'Database failure', msg: err});
+    next({code: 500, error: 'Database failure', msg: err});
   });
 })
 
@@ -40,7 +40,7 @@ module.exports = router
     res.send(data);
   })
   .catch( err => {
-    next({code: 505, error: 'Database failure', msg: err});
+    next({code: 500, error: 'Database failure', msg: err});
   });
 
 });
