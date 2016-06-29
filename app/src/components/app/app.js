@@ -10,12 +10,12 @@ controller.$inject = ['imageService'];
 
 function controller(imageService) {
 
-  imageService
-    .get()
-    .then(images => {
-      this.images = images;
-    })
-    .catch(err => console.log('Error:', err));
+  // imageService
+  //   .get()
+  //   .then(images => {
+  //     this.images = images;
+  //   })
+  //   .catch(err => console.log('Error:', err));
 
   this.addImage = (image) => {
     imageService
@@ -34,7 +34,7 @@ function controller(imageService) {
   this.removeImage = (imageId) => {
     imageService
       .del(imageId)
-      .then(removed => {
+      .then(() => {
         const index = this.images.findIndex(item => item._id == imageId);
         this.images.splice(index, 1);
       });

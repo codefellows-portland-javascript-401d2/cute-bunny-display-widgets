@@ -26,7 +26,6 @@ function controller(albumService) {
     .get()
     .then(albums => {
       this.albums = albums;
-      console.log(albums);
     })
     .catch(err => console.log('error:', err));
 

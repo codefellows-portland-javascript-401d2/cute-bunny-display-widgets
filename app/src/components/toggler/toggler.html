@@ -13,6 +13,14 @@
   </label>
 </form>
 
-<viewer images="toggler.images"
+<select ng-model="toggler.albumSelect"
+        ng-options="album._id as album.title for album in toggler.albums track by album._id"
+        ng-change="toggler.getImages()">
+  <option value="">Show All</option>
+</select>
+
+
+<viewer ng-init="toggler.getImages()"
+        images="toggler.images"
         view-option="toggler.toggle">
 </viewer>
