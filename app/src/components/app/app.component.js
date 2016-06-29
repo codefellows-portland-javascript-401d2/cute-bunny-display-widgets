@@ -9,19 +9,14 @@ function controller(albumsService) {
 
   albumsService
     .getAlbums()
-    .then(result => {
-      console.log(result);
+    .then(data => {
+      albumsService
+        .getImages(data.result[0]._id)
+        .then(data => {
+          this.bunnies = data.result;
+    			this.bunniesLoaded = true;
+        });
     });
-
-	// $http
-	// 	.get('http://localhost:3000/api/bunnies')
-	// 	.then(result => {
-	// 		this.bunnies = result.data;
-	// 		this.bunniesLoaded = true;
-	// 	})
-  //   .catch(err => {
-  //     console.error(err)
-  //   });
 }
 
 controller.$inject = ['albumsService'];
