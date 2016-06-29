@@ -1,24 +1,25 @@
 import template from './app.view.html';
 import styles from './app.styles.scss';
 
-function controller($http) {
+function controller(albumsService) {
   this.styles = styles;
 	this.currentSection = 'list';
 	this.bunnies = [];
 	this.bunniesLoaded = false;
 
-	$http
-		.get('http://localhost:3000/api/bunnies')
-		.then(result => {
-			this.bunnies = result.data;
-			this.bunniesLoaded = true;
-		})
-    .catch(err => {
-      console.error(err)
+  albumsService
+    .getAlbums()
+    .then(data => {
+      albumsService
+        .getImages(data.result[0]._id)
+        .then(data => {
+          this.bunnies = data.result;
+    			this.bunniesLoaded = true;
+        });
     });
 }
 
-controller.$inject = ['$http'];
+controller.$inject = ['albumsService'];
 
 export default {
 	template,
