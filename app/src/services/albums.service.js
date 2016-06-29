@@ -12,7 +12,7 @@ export default function albumsService($http, apiUrl) {
         .post(`${apiUrl}/albums`)
         .then(result => result.data);
     },
-    getAlbum() {
+    getAlbum(albumId) {
       return $http
         .get(`${apiUrl}/albums/${albumId}`)
         .then(result => result.data);
