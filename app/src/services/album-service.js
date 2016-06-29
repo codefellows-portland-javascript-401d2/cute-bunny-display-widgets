@@ -8,9 +8,16 @@ export default function albumService($http, apiUrl){
       .get(apiUrl)
       .then( result => result.data);
     },
-    post(){
-
-
+    add(data){
+      return $http
+      .post(apiUrl, data)
+      .then( result => result.data);
+    },
+    remove(id){
+      const deleteUrl = apiUrl + '/' + id;
+      return $http
+      .delete(deleteUrl)
+      .then( result => result.data);
     }
 
   };

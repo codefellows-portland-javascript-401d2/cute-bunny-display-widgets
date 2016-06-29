@@ -44,6 +44,10 @@
     color: hsla($text-accent-hue, 100%, $text-primary-lightness, 1);
   }
 
+  button {
+    float: right;
+  }
+
 }
 
 :local(.full){
