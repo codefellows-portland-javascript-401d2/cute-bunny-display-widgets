@@ -26,7 +26,6 @@ function controller(albumService, imageService) {
     .catch(err => console.log('error:', err));
 
   this.getImages = function() {
-    console.log('changed called');
     if (this.albumSelect == 'all' || this.albumSelect == null) {
       imageService
         .get()
@@ -38,6 +37,31 @@ function controller(albumService, imageService) {
         .then(images => this.images = images)
         .catch(err => console.log('error:', err)); 
     }
+  };
+
+  this.removeImage = (imageId) => {
+    imageService
+      .del(imageId)
+      .then(() => {
+        const index = this.images.findIndex(item => item._id == imageId);
+        this.images.splice(index, 1);
+      });
+  };
+
+  this.addImage = (image) => {
+    imageService
+      .post(image)
+      .then(image => {
+        if (this.albumSelect === image.album || this.albumSelect === null || this.albumSelect === 'all') {
+          this.images.unshift(image);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        if (err.data.content.message == 'Monster validation failed') {
+          console.log('Image Needs a Title');
+        }
+      });
   };
 
 }

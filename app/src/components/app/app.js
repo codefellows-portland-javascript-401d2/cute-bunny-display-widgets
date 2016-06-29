@@ -17,26 +17,26 @@ function controller(imageService) {
   //   })
   //   .catch(err => console.log('Error:', err));
 
-  this.addImage = (image) => {
-    imageService
-      .post(image)
-      .then(image => {
-        this.images.unshift(image);
-      })
-      .catch(err => {
-        console.log(err);
-        if (err.data.content.message == 'Monster validation failed') {
-          console.log('Image Needs a Title');
-        }
-      });
-  };
+  // this.addImage = (image) => {
+  //   imageService
+  //     .post(image)
+  //     .then(image => {
+  //       this.images.unshift(image);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       if (err.data.content.message == 'Monster validation failed') {
+  //         console.log('Image Needs a Title');
+  //       }
+  //     });
+  // };
 
-  this.removeImage = (imageId) => {
-    imageService
-      .del(imageId)
-      .then(() => {
-        const index = this.images.findIndex(item => item._id == imageId);
-        this.images.splice(index, 1);
-      });
-  };
+  // this.removeImage = (imageId) => {
+  //   imageService
+  //     .del(imageId)
+  //     .then(() => {
+  //       const index = this.images.findIndex(item => item._id == imageId);
+  //       this.images.splice(index, 1);
+  //     });
+  // };
 }

@@ -1,3 +1,6 @@
+<new-post add="toggler.addImage(posted)">
+</new-post>
+
 <form class="toggler-form">
   <label ng-class="{selected: toggler.toggle === 'text'}">
     <input type="radio" value="text" ng-model="toggler.toggle"/>
@@ -22,5 +25,6 @@
 
 <viewer ng-init="toggler.getImages()"
         images="toggler.images"
-        view-option="toggler.toggle">
+        view-option="toggler.toggle"
+        remove="toggler.removeImage(imageId)">
 </viewer>
