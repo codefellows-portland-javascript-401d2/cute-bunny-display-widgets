@@ -47,7 +47,7 @@ div.thumb-overlay:hover {
 
 span.thumb-overlay-text {
   position: absolute;
-  width: $thumb-size - $indent;
+  width: $thumb-size - $indent - 10px;
   z-index: 10;
   color: $overlay-text-color;
   font-size: 1.4em;

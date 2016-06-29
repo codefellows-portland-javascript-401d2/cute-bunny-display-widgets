@@ -5,17 +5,29 @@ export default {
   template,
   controllerAs: 'newPost',
   bindings: {
-    add: '&',
-
+    add: '&'
   },
-  controller: function() {
-    this.style = style;
-
-    this.submit = () => {
-      if (this.postData && this.postData.url) {
-        this.add({posted: this.postData});
-        this.postData = {};
-      }
-    };
-  }
+  controller
 }; 
+
+controller.$inject = ['albumService'];
+
+function controller(albumService) {
+  this.style = style;
+
+  this.submit = () => {
+    if (this.postData && this.postData.url && this.postData.title) {
+      this.add({posted: this.postData});
+      this.postData = {};
+    }
+  };
+
+  albumService
+    .get()
+    .then(albums => {
+      this.albums = albums;
+      console.log(albums);
+    })
+    .catch(err => console.log('error:', err));
+
+}
