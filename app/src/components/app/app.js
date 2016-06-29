@@ -37,7 +37,6 @@ function controller(imageService) {
       .then(removed => {
         const index = this.images.findIndex(item => item._id == imageId);
         this.images.splice(index, 1);
-        console.log(removed);
       });
   };
 }

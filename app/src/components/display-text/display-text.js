@@ -1,4 +1,5 @@
 import template from './display-text.html';
+import style from './text.scss';
 
 export default {
   template,
@@ -10,6 +11,7 @@ export default {
     description: '='
   },
   controller: function() {
+    this.style = style;
     this.shorten = function(txt) {
       const cutoff = 30;
       if (!txt) return;
