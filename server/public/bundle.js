@@ -32173,8 +32173,6 @@
 	  }, this.addpic = function (newpic) {
 	    var _this2 = this;
 	
-	    console.log('addpic fires');
-	    console.log(newpic);
 	    albumService.add(newpic).then(function (data) {
 	      _this2.arrayOfPics.push(data);
 	    }).catch(function (err) {

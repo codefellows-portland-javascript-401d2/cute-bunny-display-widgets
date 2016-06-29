@@ -29,8 +29,6 @@ function controller ($location, $anchorScroll, albumService){
     });
   },
   this.addpic = function(newpic){
-    console.log('addpic fires');
-    console.log(newpic);
     albumService.add(newpic)
     .then( data => {
       this.arrayOfPics.push(data);
