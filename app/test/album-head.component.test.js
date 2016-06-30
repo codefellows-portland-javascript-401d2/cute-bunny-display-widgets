@@ -3,8 +3,6 @@ describe('album head component', () => {
 	let albumHeadComponent;
   let currentSection = 'list';
 
-	// angular.mock.module.sharedInjector();
-
 	beforeEach(angular.mock.module('app'));
 
 	beforeEach(angular.mock.inject($injector => {
