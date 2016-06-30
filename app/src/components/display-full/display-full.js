@@ -4,6 +4,7 @@ import style from './full.scss';
 export default {
   template,
   controllerAs: 'full',
+  transclude: true,
   bindings: {
     postTitle: '=',
     source: '=',

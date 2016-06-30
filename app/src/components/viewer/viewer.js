@@ -4,13 +4,12 @@ import style from './viewer.scss';
 export default {
   template,
   controllerAs: 'viewer',
-
   bindings: {
     images: '=',
-    viewOption: '='
+    viewOption: '=',
+    remove: '&'
   },
   controller: function() {
-
     this.style = style;
   }
 };

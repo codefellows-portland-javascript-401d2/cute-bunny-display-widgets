@@ -1,9 +1,18 @@
 const assert = chai.assert;
 
-describe('Component Unit Tests', () => {
+describe('Component Unit Testing', () => {
 
   angular.mock.module.sharedInjector();
-  before(angular.mock.module( 'displayApp' ) );
+  
+  before(angular.mock.module('components', ($provide) => {
+    $provide.service('albumService', function () {
+      return {
+        get() {
+          return Promise.resolve('nothing');
+        }
+      };
+    });
+  }));
 
   let $component;
   before(angular.mock.inject( ( $rootScope, _$componentController_ ) => {
@@ -30,7 +39,7 @@ describe('Component Unit Tests', () => {
     let postData = null;
     const add = ({posted}) => postData = posted;
     const newPost = $component('newPost', {add});
-    const expected = {url: 'foobar'};
+    const expected = {url: 'foobar', title: 'test'};
     newPost.postData = expected;
     newPost.submit();
     assert.deepEqual(postData, expected);

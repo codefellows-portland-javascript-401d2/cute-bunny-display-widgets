@@ -1,11 +1,14 @@
 <header>
-  <h1 class="site-title">Image Gallery</h1>
+  <a ui-sref="landing"><h1 class="site-title">Image Gallery</h1></a>
+  <nav>
+    <a ui-sref="gallery" ui-sref-active="active">Gallery</a>
+    <a ui-sref="newPost" ui-sref-active="active">Add Image</a>
+  </nav>
 </header>
-<new-post add="app.addImage(posted)">
-</new-post>
-<toggler images="app.images">
-</toggler>
-<br><br>
-<footer>
-  
-</footer>
+
+<div ui-view="main">
+  Loading...
+</div>
+
+
+<footer></footer>

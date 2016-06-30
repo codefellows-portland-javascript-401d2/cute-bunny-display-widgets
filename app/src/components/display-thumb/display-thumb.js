@@ -4,6 +4,7 @@ import style from './thumb.scss';
 export default {
   template,
   controllerAs: 'thumb',
+  transclude: true,
   bindings: {
     source: '=',
     postTitle: '='

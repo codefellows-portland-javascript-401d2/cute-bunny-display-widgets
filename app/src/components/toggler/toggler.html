@@ -1,3 +1,6 @@
+<!--<new-post add="toggler.addImage(posted)">
+</new-post>-->
+
 <form class="toggler-form">
   <label ng-class="{selected: toggler.toggle === 'text'}">
     <input type="radio" value="text" ng-model="toggler.toggle"/>
@@ -13,6 +16,15 @@
   </label>
 </form>
 
-<viewer images="toggler.images"
-        view-option="toggler.toggle">
+<select class="toggler-select"
+        ng-model="toggler.albumSelect"
+        ng-options="album._id as album.title for album in toggler.albums track by album._id"
+        ng-change="toggler.getImages()">
+  <option value="">Show All</option>
+</select>
+
+<viewer ng-init="toggler.getImages()"
+        images="toggler.images"
+        view-option="toggler.toggle"
+        remove="toggler.removeImage(imageId)">
 </viewer>

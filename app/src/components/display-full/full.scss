@@ -17,4 +17,13 @@
   img {
     width: 100%;
   }
+  ng-transclude button {
+    float: right;
+    background: none;
+    color: #ff5a5a;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
 }

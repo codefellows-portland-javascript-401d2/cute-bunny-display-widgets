@@ -1,7 +1,10 @@
+@import 'colors'; 
+
 .form-container {
   width: 300px;
   margin: 0 auto;
   text-align: center;
+  height: 79vh;
 
   form {
     input {
@@ -14,11 +17,26 @@
     }
     input[type="submit"] {
       background: #fff;
-      color: #a5a5a5;
+      color: $accent-color;
       height: 35px;
       width: 50%;
       display: block;
-      margin: 0 auto;
+      margin: 10px auto;
+      transition: background 300ms ease, color 300ms ease;
+    }
+    input[type="submit"]:hover {
+      background: $accent-color;
+      border: none;
+      color: #fff;
+    }
+    select {
+      width: 75%;
+      height: 35px;
+      font-size: 15px;
+      padding: 5px;
+      border: 1px solid #d8d8d8;
+      color: #7a7a7a;
+      margin: 25px 0;
     }
   }
 }

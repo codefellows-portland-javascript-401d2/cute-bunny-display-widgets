@@ -23,17 +23,31 @@ div.thumb-overlay {
   height: 100%;
   width: 100%;
   position: absolute;
-  z-index: 5;
+  z-index: 10;
   opacity: 0;
   transition: opacity $delta ease;
+
+  ng-transclude button {
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    background: none;
+    color: #ff5a5a;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
 }
-div.thumb-overlay:hover {
-  opacity: 1;
+div.thumb-overlay-hover {
+  opacity: 1 !important;
 }
 
 span.thumb-overlay-text {
   position: absolute;
-  width: $thumb-size - $indent;
+  width: $thumb-size - $indent - 10px;
   z-index: 10;
   color: $overlay-text-color;
   font-size: 1.4em;
