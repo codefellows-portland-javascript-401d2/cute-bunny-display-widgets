@@ -3,11 +3,11 @@ describe('album full component', () => {
 	let albumFullComponent;
 	let bunnies = [0, 1, 2, 3, 4, 5];
 
-	module.sharedInjector();
+	// angular.mock.module.sharedInjector();
 
-	beforeAll(module('app'));
+	beforeEach(angular.mock.module('app'));
 
-	beforeAll(inject($injector => {
+	beforeEach(angular.mock.inject($injector => {
 		$component = $injector.get('$componentController');
 	}));
 
