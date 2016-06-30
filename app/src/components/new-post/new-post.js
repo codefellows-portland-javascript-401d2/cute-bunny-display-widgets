@@ -12,10 +12,27 @@ controller.$inject = ['albumService', 'imageService'];
 function controller(albumService, imageService) {
   this.style = style;
 
+  this.newAlbumMode = false;
+
   this.submit = () => {
-    if (this.postData && this.postData.url && this.postData.title) {
-      this.addImage(this.postData);
-      this.postData = {};
+    if (this.postData.url && this.postData.title) {
+      if (!this.postData.newAlbum) {
+        this.addImage(this.postData);
+        this.postData = {};
+      }
+      else {
+        const postBody = JSON.stringify({title: this.postData.newAlbum});
+        albumService
+          .post(postBody)
+          .then(album => {
+            this.postData.album = album._id;
+            this.addImage(this.postData);
+            this.postData = {};
+          })
+          .catch(err => {
+            console.log('error', err);
+          });
+      }
     }
   };
 

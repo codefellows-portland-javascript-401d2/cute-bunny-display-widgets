@@ -20,7 +20,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       }
     })
     .state('newPost', {
-      url: '/newpost',
+      url: '/addimage',
       views: {
         main: {
           component: 'newPost'
