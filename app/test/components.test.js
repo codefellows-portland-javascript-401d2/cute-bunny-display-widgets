@@ -1,6 +1,6 @@
 const assert = chai.assert;
 
-describe('Component Unit Tests', () => {
+describe('Component Unit Testing', () => {
 
   angular.mock.module.sharedInjector();
   
@@ -38,7 +38,7 @@ describe('Component Unit Tests', () => {
   it('newPost.submit fires add() with url in postData', () => {
     let postData = null;
     const add = ({posted}) => postData = posted;
-    const newPost = $component('newPost', null, {add});
+    const newPost = $component('newPost', {add});
     const expected = {url: 'foobar', title: 'test'};
     newPost.postData = expected;
     newPost.submit();
