@@ -18,6 +18,7 @@
     </select>
     <input ng-model="newPost.postData.newAlbum"
            placeholder="Name of New Album"
+           class="new-album-input"
            ng-show="newPost.newAlbumMode === true" />
     <p ng-click="newPost.newAlbumMode = true;
                  newPost.postData.album = null;"

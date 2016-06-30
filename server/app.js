@@ -95,4 +95,21 @@ app.post('/api/albums', bodyParser, (req, res) => {
     });
 });
 
+app.delete('/api/albums/:id', (req, res) => {
+  Album
+    .findByIdAndRemove(req.params.id)
+    .then(album => {
+      Image
+        .remove({album: album._id})
+        .then(() => {
+          res.status(200);
+          res.send({status: 'success', content: 'removed all images'});
+        });
+    })
+    .catch(err => {
+      res.status(500);
+      res.send({status: 'error', content: err});
+    });
+});
+
 module.exports = app;

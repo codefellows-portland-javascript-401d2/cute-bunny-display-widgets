@@ -27,6 +27,14 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('albums', {
+      url: '/albums',
+      views: {
+        main: {
+          component: 'albumControl'
+        }
+      }
+    });
 
   $urlRouterProvider.otherwise( '/' );
 
