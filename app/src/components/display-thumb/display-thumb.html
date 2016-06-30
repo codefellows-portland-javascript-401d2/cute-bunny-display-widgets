@@ -1,8 +1,8 @@
 <div ng-class="thumb.style['thumb-container']"
     ng-mouseover="thumb.hoverOn = true"
     ng-mouseleave="thumb.hoverOn = false">  
-  <div ng-show="thumb.hoverOn === true"
-      class="thumb-overlay">
+  <div class="thumb-overlay"
+      ng-class="{'thumb-overlay-hover': thumb.hoverOn === true}">
     <ng-transclude></ng-transclude>
     <span class="thumb-overlay-text"
           ng-class="{'thumb-overlay-text-hover': thumb.hoverOn === true}">    

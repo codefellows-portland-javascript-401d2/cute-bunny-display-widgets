@@ -4,6 +4,7 @@
   width: 300px;
   margin: 0 auto;
   text-align: center;
+  height: 79vh;
 
   form {
     input {
@@ -16,7 +17,7 @@
     }
     input[type="submit"] {
       background: #fff;
-      color: #626262;
+      color: $accent-color;
       height: 35px;
       width: 50%;
       display: block;
@@ -24,7 +25,7 @@
       transition: background 300ms ease, color 300ms ease;
     }
     input[type="submit"]:hover {
-      background: $primary-color;
+      background: $accent-color;
       border: none;
       color: #fff;
     }

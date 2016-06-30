@@ -6,6 +6,9 @@ ul.viewer {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  overflow-y: scroll;
+  height: 76vh;
+  margin: 0;
 }
 
 li {
