@@ -44,43 +44,169 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-	__webpack_require__(1);
+	__webpack_require__(2);
 	
-	var _angular = __webpack_require__(5);
+	var _angular = __webpack_require__(6);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _app = __webpack_require__(7);
+	var _app = __webpack_require__(8);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_app2.default.value('apiUrl', 'http://localhost:3000/api');
+	_app2.default.value('apiUrl', process.env.API_URL);
 	
 	_angular2.default.bootstrap(document, [_app2.default.name]);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
+	// shim for using process in browser
+	
+	var process = module.exports = {};
+	
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+	
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+	
+	(function () {
+	  try {
+	    cachedSetTimeout = setTimeout;
+	  } catch (e) {
+	    cachedSetTimeout = function () {
+	      throw new Error('setTimeout is not defined');
+	    }
+	  }
+	  try {
+	    cachedClearTimeout = clearTimeout;
+	  } catch (e) {
+	    cachedClearTimeout = function () {
+	      throw new Error('clearTimeout is not defined');
+	    }
+	  }
+	} ())
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+	
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+	
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = cachedSetTimeout(cleanUpNextTick);
+	    draining = true;
+	
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    cachedClearTimeout(timeout);
+	}
+	
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        cachedSetTimeout(drainQueue, 0);
+	    }
+	};
+	
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+	
+	function noop() {}
+	
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+	
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+	
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(6);
+	__webpack_require__(7);
 	module.exports = angular;
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
 	/**
@@ -31558,34 +31684,6 @@
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _angular = __webpack_require__(5);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _album = __webpack_require__(8);
-	
-	var _album2 = _interopRequireDefault(_album);
-	
-	var _services = __webpack_require__(30);
-	
-	var _services2 = _interopRequireDefault(_services);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var appModule = _angular2.default.module('app', [_album2.default, _services2.default]);
-	
-	exports.default = appModule;
-
-/***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31595,35 +31693,23 @@
 	  value: true
 	});
 	
-	var _angular = __webpack_require__(5);
+	var _angular = __webpack_require__(6);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _app = __webpack_require__(9);
+	var _album = __webpack_require__(9);
 	
-	var _app2 = _interopRequireDefault(_app);
+	var _album2 = _interopRequireDefault(_album);
 	
-	var _albumHead = __webpack_require__(13);
+	var _services = __webpack_require__(31);
 	
-	var _albumHead2 = _interopRequireDefault(_albumHead);
-	
-	var _albumList = __webpack_require__(18);
-	
-	var _albumList2 = _interopRequireDefault(_albumList);
-	
-	var _albumTile = __webpack_require__(22);
-	
-	var _albumTile2 = _interopRequireDefault(_albumTile);
-	
-	var _albumFull = __webpack_require__(26);
-	
-	var _albumFull2 = _interopRequireDefault(_albumFull);
+	var _services2 = _interopRequireDefault(_services);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var albumModule = _angular2.default.module('album', []).component('app', _app2.default).component('albumHead', _albumHead2.default).component('albumList', _albumList2.default).component('albumTile', _albumTile2.default).component('albumFull', _albumFull2.default);
+	var appModule = _angular2.default.module('app', [_album2.default, _services2.default]);
 	
-	exports.default = albumModule.name;
+	exports.default = appModule;
 
 /***/ },
 /* 9 */
@@ -31635,11 +31721,51 @@
 	  value: true
 	});
 	
-	var _appView = __webpack_require__(10);
+	var _angular = __webpack_require__(6);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _app = __webpack_require__(10);
+	
+	var _app2 = _interopRequireDefault(_app);
+	
+	var _albumHead = __webpack_require__(14);
+	
+	var _albumHead2 = _interopRequireDefault(_albumHead);
+	
+	var _albumList = __webpack_require__(19);
+	
+	var _albumList2 = _interopRequireDefault(_albumList);
+	
+	var _albumTile = __webpack_require__(23);
+	
+	var _albumTile2 = _interopRequireDefault(_albumTile);
+	
+	var _albumFull = __webpack_require__(27);
+	
+	var _albumFull2 = _interopRequireDefault(_albumFull);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var albumModule = _angular2.default.module('album', []).component('app', _app2.default).component('albumHead', _albumHead2.default).component('albumList', _albumList2.default).component('albumTile', _albumTile2.default).component('albumFull', _albumFull2.default);
+	
+	exports.default = albumModule.name;
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _appView = __webpack_require__(11);
 	
 	var _appView2 = _interopRequireDefault(_appView);
 	
-	var _appStyles = __webpack_require__(11);
+	var _appStyles = __webpack_require__(12);
 	
 	var _appStyles2 = _interopRequireDefault(_appStyles);
 	
@@ -31669,21 +31795,21 @@
 	};
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports) {
 
 	module.exports = "<header ng-class=$ctrl.styles.header> <album-head current-section=$ctrl.currentSection></album-head> </header> <main ng-class=$ctrl.styles.main> <album-list ng-if=$ctrl.bunniesLoaded ng-show=\"$ctrl.currentSection === 'list'\" bunnies=$ctrl.bunnies></album-list> <album-tile ng-if=$ctrl.bunniesLoaded ng-show=\"$ctrl.currentSection === 'tile'\" bunnies=$ctrl.bunnies></album-tile> <album-full ng-if=$ctrl.bunniesLoaded ng-show=\"$ctrl.currentSection === 'full'\" bunnies=$ctrl.bunnies></album-full> </main>";
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"header":"_2_V8O27ldq2hyeDymS-Owh","main":"_2m7uWZd6aJ9c2wOUSygq3j"};
 
 /***/ },
-/* 12 */,
-/* 13 */
+/* 13 */,
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31692,15 +31818,15 @@
 	  value: true
 	});
 	
-	var _albumHeadData = __webpack_require__(14);
+	var _albumHeadData = __webpack_require__(15);
 	
 	var _albumHeadData2 = _interopRequireDefault(_albumHeadData);
 	
-	var _albumHeadView = __webpack_require__(15);
+	var _albumHeadView = __webpack_require__(16);
 	
 	var _albumHeadView2 = _interopRequireDefault(_albumHeadView);
 	
-	var _albumHeadStyles = __webpack_require__(16);
+	var _albumHeadStyles = __webpack_require__(17);
 	
 	var _albumHeadStyles2 = _interopRequireDefault(_albumHeadStyles);
 	
@@ -31726,7 +31852,7 @@
 	};
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -31748,21 +31874,21 @@
 	];
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=row> <div class=\"twelve columns\"> <div ng-class=$ctrl.styles.branding> <h1>Cute Bunny Album</h1> </div> <nav ng-class=$ctrl.styles.nav> <ul> <li ng-repeat=\"section in $ctrl.sections\"> <a href=\"#{{ section.name }}\" ng-click=\"$ctrl.toggleNav($event, section.name)\" title=\"{{ section.text }}\"> <i class=\"fa fa-{{ section.fa }} fa-lg\" aria-hidden=true></i> <span class=sr-only>{{ section.text }}</span> </a> </li> </ul> </nav> </div> </div>";
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"branding":"KsEp7qlXH9ZSDiJtuzJCX","nav":"_3MRYDjM0mEkJR0auLIoxIm"};
 
 /***/ },
-/* 17 */,
-/* 18 */
+/* 18 */,
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31771,11 +31897,11 @@
 	  value: true
 	});
 	
-	var _albumListView = __webpack_require__(19);
+	var _albumListView = __webpack_require__(20);
 	
 	var _albumListView2 = _interopRequireDefault(_albumListView);
 	
-	var _albumListStyles = __webpack_require__(20);
+	var _albumListStyles = __webpack_require__(21);
 	
 	var _albumListStyles2 = _interopRequireDefault(_albumListStyles);
 	
@@ -31792,21 +31918,21 @@
 	};
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = "<section> <div class=row ng-repeat=\"bunny in $ctrl.bunnies\"> <div class=\"twelve columns\"> <div ng-class=\"$ctrl.styles['list-item']\"> <h2>{{ bunny.title }} <a href=\"{{ bunny.imageLink }}\" target=_blank><i class=\"fa fa-external-link\" aria-hidden=true></i></a></h2> <p>{{ bunny.description }}</p> </div> </div> </div> </section>";
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"list-item":"_1K-Cr3HE2i_C3-3Bpkqb5F"};
 
 /***/ },
-/* 21 */,
-/* 22 */
+/* 22 */,
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31815,11 +31941,11 @@
 	  value: true
 	});
 	
-	var _albumTileView = __webpack_require__(23);
+	var _albumTileView = __webpack_require__(24);
 	
 	var _albumTileView2 = _interopRequireDefault(_albumTileView);
 	
-	var _albumTileStyles = __webpack_require__(24);
+	var _albumTileStyles = __webpack_require__(25);
 	
 	var _albumTileStyles2 = _interopRequireDefault(_albumTileStyles);
 	
@@ -31849,21 +31975,21 @@
 	};
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	module.exports = "<section> <div class=row ng-repeat=\"bunnies in $ctrl.bunniesGroup\"> <div class=\"column four\" ng-repeat=\"bunny in bunnies\"> <div ng-class=$ctrl.styles.thumbnail ng-style=\"{'background-image': 'url('+bunny.imageLink+')'}\" title=\"{{ bunny.description }}\"> <h2>{{ bunny.title }}</h2> </div> </div> </div> </section>";
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"thumbnail":"_3pp1ifTIaUD-6fgKmLVn04"};
 
 /***/ },
-/* 25 */,
-/* 26 */
+/* 26 */,
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31872,11 +31998,11 @@
 	  value: true
 	});
 	
-	var _albumFullView = __webpack_require__(27);
+	var _albumFullView = __webpack_require__(28);
 	
 	var _albumFullView2 = _interopRequireDefault(_albumFullView);
 	
-	var _albumFullStyles = __webpack_require__(28);
+	var _albumFullStyles = __webpack_require__(29);
 	
 	var _albumFullStyles2 = _interopRequireDefault(_albumFullStyles);
 	
@@ -31917,21 +32043,21 @@
 	};
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = "<section> <div class=\"row no-stacking-on-mobiles\"> <div class=\"twelve columns\"> <div ng-class=\"$ctrl.styles['gallery-info']\" ng-style=\"{'background-image': 'url('+$ctrl.bunny.imageLink+')'}\"> <h2>{{ $ctrl.bunny.title }}</h2> <p>{{ $ctrl.bunny.description }}</p> </div> <div ng-class=\"$ctrl.styles['gallery-nav']\"> <button type=button ng-click=$ctrl.prevImage()> <i class=\"fa fa-chevron-left fa-2x\" aria-hidden=true></i> <span>Prev</span> </button> <button type=button ng-click=$ctrl.nextImage()> <span>Next</span> <i class=\"fa fa-chevron-right fa-2x\" aria-hidden=true></i> </button> </div> </div> </div> </section>";
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"gallery-info":"BPtd3iwmLhrRJPRI21kSv","gallery-nav":"_2JsYh3xWEg2cAG_00skd0X"};
 
 /***/ },
-/* 29 */,
-/* 30 */
+/* 30 */,
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31940,11 +32066,11 @@
 	  value: true
 	});
 	
-	var _angular = __webpack_require__(5);
+	var _angular = __webpack_require__(6);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _albums = __webpack_require__(31);
+	var _albums = __webpack_require__(32);
 	
 	var _albums2 = _interopRequireDefault(_albums);
 	
@@ -31955,7 +32081,7 @@
 	exports.default = services.name;
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31973,8 +32099,8 @@
 	        return result.data;
 	      });
 	    },
-	    addAlbum: function addAlbum() {
-	      return $http.post(apiUrl + '/albums').then(function (result) {
+	    addAlbum: function addAlbum(album) {
+	      return $http.post(apiUrl + '/albums', album).then(function (result) {
 	        return result.data;
 	      });
 	    },
@@ -31988,8 +32114,8 @@
 	        return result.data;
 	      });
 	    },
-	    addImage: function addImage(albumId) {
-	      return $http.post(apiUrl + '/albums/' + albumId + '/images').then(function (result) {
+	    addImage: function addImage(albumId, image) {
+	      return $http.post(apiUrl + '/albums/' + albumId + '/images', image).then(function (result) {
 	        return result.data;
 	      });
 	    },

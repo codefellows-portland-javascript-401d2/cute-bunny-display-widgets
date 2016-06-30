@@ -2,8 +2,6 @@ describe('album list component', () => {
 	let $component;
 	let albumListComponent;
 
-	// angular.mock.module.sharedInjector();
-
 	beforeEach(angular.mock.module('app'));
 
 	beforeEach(angular.mock.inject($injector => {
