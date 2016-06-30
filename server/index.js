@@ -6,5 +6,5 @@ app.listen(process.env.PORT, process.env.HOST, err => {
 
   console.log(`Magic happens at: http://${process.env.HOST}:${process.env.PORT}`);
 
-  database.connect(mongodb_uri);
+  database.connect(process.env.MONGODB_URI);
 });
