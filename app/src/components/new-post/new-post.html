@@ -11,6 +11,10 @@
     <input ng-model="newPost.postData.description"
            placeholder="Description" />
     <br>
+    <select ng-model="newPost.postData.album"
+            ng-options="album._id as album.title for album in newPost.albums track by album._id">
+      <option value="">--Select an Album--</option>
+    </select>
     <input type="submit" value="Add Image"/>
   </form>
 </div>

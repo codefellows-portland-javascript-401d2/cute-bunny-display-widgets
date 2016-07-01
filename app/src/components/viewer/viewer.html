@@ -6,15 +6,14 @@
           description="image.description"
           ng-if="viewer.viewOption == 'text'">
 
-      <button ng-click="viewer.app.removeImage(image._id)">Delete</button>
-        
+      <button ng-click="viewer.remove({imageId: image._id})">Delete</button>  
     </display-text>
 
     <display-thumb source="image.url"
            post-title="image.title"
            ng-if="viewer.viewOption == 'thumb'">
 
-      <button ng-click="viewer.app.removeImage(image._id)">X</button>
+      <button ng-click="viewer.remove({imageId: image._id})">X</button>
     </display-thumb>
 
     <display-full post-title="image.title"
@@ -22,7 +21,7 @@
           description="image.description"
           ng-if="viewer.viewOption == 'full'">
 
-      <button ng-click="viewer.app.removeImage(image._id)">Delete</button>
+      <button ng-click="viewer.remove({imageId: image._id})">Delete</button>
     </display-full>
   </li>
 </ul>

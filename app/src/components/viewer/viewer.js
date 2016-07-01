@@ -6,10 +6,8 @@ export default {
   controllerAs: 'viewer',
   bindings: {
     images: '=',
-    viewOption: '='
-  },
-  require: {
-    app: '^^'
+    viewOption: '=',
+    remove: '&'
   },
   controller: function() {
     this.style = style;

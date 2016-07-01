@@ -13,9 +13,18 @@
     left: -9999px;
   }
   label.selected {
-    background: $primary-color;
+    background: $accent-color;
     color: #fff;
-    border: 1px solid $primary-color;
+    border: 1px solid $accent-color;
   }
+}
+
+.toggler-select {
+  text-align: center;
+  display: block;
+  margin: 50px auto;
+  width: 200px;
+  height: 35px;
+  font-size: 18px;
 }
 

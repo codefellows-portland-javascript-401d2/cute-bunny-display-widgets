@@ -1,11 +1,11 @@
 const express = require( 'express' );
 const app = express();
 const bodyParser = require('body-parser').json();
-const monsters = require('./store/monsters');
-const Monster = require('./models/monster');
+const Image = require('./models/image');
+const Album = require('./models/album');
 const db = require('./database');
 
-db.connect('mongodb://localhost/monsters'); // Connect to DB
+db.connect('mongodb://localhost/image_gallery'); // Connect to DB
 
 app.use( express.static( __dirname + '/public' ) );
 
@@ -18,24 +18,25 @@ app.use( ( req, res, next ) => {
   next();
 });
 
-app.get('/api/monsters', (req, res) => {
-  Monster
+// =========================================== Images
+app.get('/api/images', (req, res) => {
+  Image
     .find()
-    .then(monsters => {
+    .then(images => {
       res.status(200);
-      res.send({status: 'success', content: monsters});
+      res.send({status: 'success', content: images});
     })
     .catch(err => {
       res.send({status: 'error', content: err});
     });
 });
 
-app.post('/api/monsters', bodyParser, (req, res) => {
-  new Monster(req.body)
+app.post('/api/images', bodyParser, (req, res) => {
+  new Image(req.body)
     .save()
-    .then(monster => {
+    .then(image => {
       res.status(200);
-      res.send({status: 'success', content: monster})
+      res.send({status: 'success', content: image});
     })
     .catch(err => {
       res.status(500);
@@ -43,12 +44,12 @@ app.post('/api/monsters', bodyParser, (req, res) => {
     });
 });
 
-app.delete('/api/monsters/:id', (req, res) => {
-  Monster
+app.delete('/api/images/:id', (req, res) => {
+  Image
     .findByIdAndRemove(req.params.id)
-    .then(monster => {
+    .then(image => {
       res.status(200);
-      res.send({status: 'success', content: monster})
+      res.send({status: 'success', content: image});
     })
     .catch(err => {
       res.status(500);
@@ -56,6 +57,42 @@ app.delete('/api/monsters/:id', (req, res) => {
     });
 });
 
+// =========================================== Albums
+app.get('/api/albums', (req, res) => {
+  Album
+    .find()
+    .then(albums => {
+      res.status(200);
+      res.send({status: 'success', content: albums});
+    })
+    .catch(err => {
+      res.send({status: 'error', content: err});
+    });
+});
 
+app.get('/api/albums/:albumId', (req, res) => {
+  Image
+    .find({album: req.params.albumId})
+    .then(images => {
+      res.status(200);
+      res.send({status: 'success', content: images});
+    })
+    .catch(err => {
+      res.send({status: 'error', content: err});
+    });
+});
+
+app.post('/api/albums', bodyParser, (req, res) => {
+  new Album(req.body)
+    .save()
+    .then(album => {
+      res.status(200);
+      res.send({status: 'success', content: album});
+    })
+    .catch(err => {
+      res.status(500);
+      res.send({status: 'error', content: err});
+    });
+});
 
 module.exports = app;

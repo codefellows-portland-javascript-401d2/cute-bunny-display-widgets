@@ -1,3 +1,5 @@
+@import 'colors'; 
+
 .form-container {
   width: 300px;
   margin: 0 auto;
@@ -14,11 +16,22 @@
     }
     input[type="submit"] {
       background: #fff;
-      color: #a5a5a5;
+      color: #626262;
       height: 35px;
       width: 50%;
       display: block;
-      margin: 0 auto;
+      margin: 10px auto;
+      transition: background 300ms ease, color 300ms ease;
+    }
+    input[type="submit"]:hover {
+      background: $primary-color;
+      border: none;
+      color: #fff;
+    }
+    select {
+      width: 75%;
+      height: 35px;
+      font-size: 15px;
     }
   }
 }

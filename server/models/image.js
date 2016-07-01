@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const monsterSchema = new Schema({
+const imageSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -12,9 +12,14 @@ const monsterSchema = new Schema({
   },
   description: {
     type: String
+  },
+  album: {
+    type: Schema.Types.ObjectId,
+    ref: 'Album',
+    required: true
   }
 });
 
-const monsterModel = mongoose.model('Monster', monsterSchema);
+const imageModel = mongoose.model('Image', imageSchema);
 
-module.exports = monsterModel;
+module.exports = imageModel;
