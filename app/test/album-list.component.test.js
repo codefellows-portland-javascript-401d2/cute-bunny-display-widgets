@@ -2,11 +2,9 @@ describe('album list component', () => {
 	let $component;
 	let albumListComponent;
 
-	module.sharedInjector();
+	beforeEach(angular.mock.module('app'));
 
-	beforeAll(module('app'));
-
-	beforeAll(inject($injector => {
+	beforeEach(angular.mock.inject($injector => {
 		$component = $injector.get('$componentController');
 	}));
 

@@ -7,9 +7,9 @@ export default function albumsService($http, apiUrl) {
         .get(`${apiUrl}/albums`)
         .then(result => result.data);
     },
-    addAlbum() {
+    addAlbum(album) {
       return $http
-        .post(`${apiUrl}/albums`)
+        .post(`${apiUrl}/albums`, album)
         .then(result => result.data);
     },
     getAlbum(albumId) {
@@ -22,9 +22,9 @@ export default function albumsService($http, apiUrl) {
         .get(`${apiUrl}/albums/${albumId}/images`)
         .then(result => result.data);
     },
-    addImage(albumId) {
+    addImage(albumId, image) {
       return $http
-        .post(`${apiUrl}/albums/${albumId}/images`)
+        .post(`${apiUrl}/albums/${albumId}/images`, image)
         .then(result => result.data);
     },
     getImage(albumId, imageId) {

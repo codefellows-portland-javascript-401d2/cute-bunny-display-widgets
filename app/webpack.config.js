@@ -1,3 +1,4 @@
+const EnvironmentPlugin = require('webpack').EnvironmentPlugin;
 const HtmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -40,6 +41,7 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
+    new EnvironmentPlugin(['API_URL']),
     new HtmlPlugin({template: './src/index.html'}),
     new ExtractTextPlugin('styles/bundle.css')
   ],

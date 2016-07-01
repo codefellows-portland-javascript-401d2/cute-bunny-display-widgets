@@ -1,14 +1,10 @@
 const app = require('./lib/app');
 const database = require('./lib/database');
 
-const port = process.env.PORT || 3000;
-const host = process.env.HOST || 'localhost';
-const mongodb_uri = process.env.MONGODB_URI || 'mongodb://localhost/jluangphasy';
-
-app.listen(port, host, err => {
+app.listen(process.env.PORT, process.env.HOST, err => {
   if (err) return console.error(err);
 
-  console.log(`Magic happens at: http://${host}:${port}`);
+  console.log(`Magic happens at: http://${process.env.HOST}:${process.env.PORT}`);
 
-  database.connect(mongodb_uri);
+  database.connect(process.env.MONGODB_URI);
 });

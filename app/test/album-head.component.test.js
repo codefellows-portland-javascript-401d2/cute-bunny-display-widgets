@@ -3,11 +3,9 @@ describe('album head component', () => {
 	let albumHeadComponent;
   let currentSection = 'list';
 
-	module.sharedInjector();
+	beforeEach(angular.mock.module('app'));
 
-	beforeAll(module('app'));
-
-	beforeAll(inject($injector => {
+	beforeEach(angular.mock.inject($injector => {
 		$component = $injector.get('$componentController');
 	}));
 
@@ -18,6 +16,8 @@ describe('album head component', () => {
 	});
 
   it('toggles the display nav', () => {
+		albumHeadComponent = $component('albumHead', null, {currentSection});
+
     let $event = {
       preventDefault() {
         return true;
