@@ -19,7 +19,5 @@ export default function albumService($http, apiUrl){
       .delete(deleteUrl)
       .then( result => result.data);
     }
-
   };
-
 }

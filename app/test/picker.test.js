@@ -17,5 +17,4 @@ describe('picker', () => {
     assert.equal(picker.display, 'thumb');
   });
 
-
 });
