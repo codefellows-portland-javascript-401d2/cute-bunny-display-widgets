@@ -1,0 +1,10 @@
+<app-header ng-class="$ctrl.style.header">
+  <header current-section="$ctrl.currentSection"></header>
+</app-header>
+<app-main>
+  <main ng-class="$ctrl.style.main">
+    <display-list ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'list'" bunnies="$ctrl.bunnies"></display-list>
+    <display-tile ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'tile'" bunnies="$ctrl.bunnies"></display-tile>
+    <display-gallery ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'gallery'" bunnies="$ctrl.bunnies"></display-gallery>
+  </main>
+<app-main>
