@@ -1,0 +1,21 @@
+@import 'colors';
+
+:local(.albumpicker){
+
+  .selection{
+
+    margin-bottom: 1em;
+
+    div {
+      display: inline;
+      font-family: arial, sans-serif;
+      padding-left: 1em;
+      padding-right: 1em;
+      margin-left: 1em;
+      margin-right: 1em;
+      background-color: hsla($background-hue, 100%, $text-bright-lightness, 1);
+    }
+
+  }
+
+}

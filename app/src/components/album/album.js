@@ -4,13 +4,19 @@ import styles from './album.scss';
 export default {
   template,
   bindings: {
-    display: '='
+    display: '<',
+    animal: '<'
   },
   controllerAs: 'album',
-  controller: ['$location', '$anchorScroll', 'albumService', controller]
+  controller: ['$location', '$anchorScroll', 'albumService', '$scope', controller]
 };
 
-function controller ($location, $anchorScroll, albumService){
+function controller ($location, $anchorScroll, albumService, $scope){
+  $scope.$watch('album.animal', function(newValue) {
+    console.log(`album receives new animal of ${newValue}`);
+  });
+
+
   this.select = function(myId){
     // Switch to Full display
     this.display = 'full';
@@ -37,11 +43,16 @@ function controller ($location, $anchorScroll, albumService){
       console.log(err);
     });
   },
+  this.get = function(albumId){
+    albumService.get(albumId)
+    .then( data => {
+      this.arrayOfPics = data;
+    });
+  };
   this.styles = styles;
 
-  albumService.get()
-  .then( result => {
-    this.arrayOfPics = result;
-  });
+  // Initial pics loading
+
+  this.get('577576fd2cf646f53a23a7e0');
 
 }

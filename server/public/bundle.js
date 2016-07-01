@@ -58,7 +58,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_cuteBunny2.default.value('apiUrl', 'http://localhost:3000/api/bunnies');
+	_cuteBunny2.default.value('apiUrl', 'http://localhost:3000/api/photos');
 	
 	_angular2.default.bootstrap(document, [_cuteBunny2.default.name]);
 
@@ -32271,7 +32271,7 @@
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class={{$ctrl.styles.addpic}}>\n  <h4>Add new pic</h4>\n  <input ng-model=\"$ctrl.item.title\" name=\"title\" placeholder=\"Name\"></input>\n  <input ng-model=\"$ctrl.item.description\" name=\"description\" placeholder=\"Description\"></input>\n  <input ng-model=\"$ctrl.item.url\" name=\"url\" placeholder=\"HTTP Url\"></input>\n  <button ng-click=\"$ctrl.submit(newpic)\">Submit</button>\n</div>\n";
+	module.exports = "<div class={{$ctrl.styles.addpic}}>\n  <h4>Add new pic</h4>\n  <input ng-model=\"$ctrl.item.title\" name=\"title\" placeholder=\"Name\"></input>\n  <input ng-model=\"$ctrl.item.description\" name=\"description\" placeholder=\"Description\" size=\"30\"></input>\n  <input ng-model=\"$ctrl.item.url\" name=\"url\" placeholder=\"HTTP Url\" size=\"40\"></input>\n  <button ng-click=\"$ctrl.submit(newpic)\">Submit</button>\n</div>\n";
 
 /***/ },
 /* 23 */

@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const albumSchema = new Schema({
 
   name: {
-    type: String
-    // require: true
+    type: String,
+    require: true
   }
 
 });

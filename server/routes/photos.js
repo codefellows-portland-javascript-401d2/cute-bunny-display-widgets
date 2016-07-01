@@ -4,16 +4,19 @@ const jsonBody = require('body-parser').json();
 
 module.exports = router
 
-.get('/', (req, res, next)=> {
-  Photo.find()
-  .then( data => res.send(data) )
-  .catch( err => {
-    next({code: 500, error: 'Database failure', msg: err});
-  });
-})
+// .getAll('/', (req, res, next)=> {
+//   Photo.find()
+//   .then( data => res.send(data) )
+//   .catch( err => {
+//     next({code: 500, error: 'Database failure', msg: err});
+//   });
+// })
 
 .get('/:id', (req, res, next) => {
-  Photo.find({_id: req.params.id})
+  console.log(req.params.id);
+  const id = req.params.id;
+  // Photo.find({title: 'Roz'})
+  Photo.find({album: id})
   .then(data => res.send(data) )
   .catch( err => {
     next({code: 500, error: 'Database failure', msg: err});

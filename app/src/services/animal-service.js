@@ -1,22 +1,22 @@
-albumService.$inject = ['$http', 'apiUrl'];
+animalService.$inject = ['$http', 'apiUrl'];
 
-export default function albumService($http, apiUrl){
+export default function animalService($http, apiUrl){
 
-  const photoUrl = apiUrl + '/photos';
+  const albumUrl = apiUrl + '/albums';
 
   return {
-    get(albumId){
+    get(){
       return $http
-      .get(photoUrl + '/' + albumId)
+      .get(albumUrl)
       .then( result => result.data);
     },
     add(data){
       return $http
-      .post(photoUrl, data)
+      .post(albumUrl, data)
       .then( result => result.data);
     },
     remove(id){
-      const deleteUrl = photoUrl + '/' + id;
+      const deleteUrl = albumUrl + '/' + id;
       return $http
       .delete(deleteUrl)
       .then( result => result.data);

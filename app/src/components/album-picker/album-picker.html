@@ -1,0 +1,7 @@
+<div class={{$ctrl.styles.albumpicker}}>
+  <h4>animal id is: {{$ctrl.animal}}</h4>
+  <div class="selection">
+    <div ng-repeat="animal in $ctrl.arrayOfAnimals" ng-click="$ctrl.animalselect(animal._id)">{{animal.name}}</div>
+  </div>
+  <add-album animal="$ctrl.animal"></add-album>
+</div>

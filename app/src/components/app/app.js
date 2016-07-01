@@ -9,5 +9,7 @@ export default {
   },
   controller: function(){
     this.styles = styles;
+    this.animal = '';
+    this.display = 'thumb';
   }
 };
