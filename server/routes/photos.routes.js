@@ -1,19 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const AlbumModel = require('../models/album.model');
+const PhotoModel = require('../models/photo.model');
 
 const router = express.Router();
 const jsonParser = bodyParser.json();
 
 router
   .get('/', (req, res) => {
-    AlbumModel
+    PhotoModel
       .find()
-      .then(albums => {
+      // .find({
+      //   albums: {
+      //     $in: [req.params.albumId]
+      //   }
+      // })
+      .then(photos => {
         res
           .json({
             status: 'success',
-            result: albums
+            result: photos
           });
       })
       .catch(err => {
@@ -26,32 +31,37 @@ router
       });
   })
   .post('/', jsonParser, (req, res) => {
-    new AlbumModel(req.body)
+    new PhotoModel(req.body)
       .save()
-      .then(album => {
+      .then(photo => {
         res
           .json({
             status: 'success',
-            result: album
+            result: photo
           });
       })
       .catch(err => {
         res
           .json({
             status: 'error',
-            result: 'Server error',
+            result: 'Serve error',
             error: err
           });
       });
   })
-  .get('/:albumId', (req, res) => {
-    AlbumModel
-      .findById(req.params.albumId)
-      .then(album => {
+  .get('/:photoId', (req, res) => {
+    PhotoModel
+      .find({
+        _id: req.params.photoId
+        // albums: {
+        //   $in: [req.body.albumId]
+        // }
+      })
+      .then(images => {
         res
           .json({
             status: 'success',
-            result: album
+            result: images
           });
       })
       .catch(err => {
