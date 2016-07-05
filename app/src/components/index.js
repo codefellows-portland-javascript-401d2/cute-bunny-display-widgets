@@ -1,6 +1,6 @@
 import angular from 'angular';
 import app from './app/app';
-import displayPicker from './display-picker/display-picker';
+import displayPicker from './album/display-picker/display-picker';
 import cell from './album/cell/cell';
 import album from './album/album';
 import addPic from './album/add-pic/add-pic';

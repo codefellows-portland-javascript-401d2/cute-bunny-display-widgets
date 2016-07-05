@@ -30,7 +30,6 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
         }
       }
     });
-
   $urlRouterProvider.otherwise('/');
 
 }
