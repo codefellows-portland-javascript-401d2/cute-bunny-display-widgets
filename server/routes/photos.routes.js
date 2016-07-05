@@ -7,13 +7,16 @@ const jsonParser = bodyParser.json();
 
 router
   .get('/', (req, res) => {
+    let findObj = {};
+
+    if (req.params.albumId) {
+      findObj.albums = {
+        $in: [req.params.albumId]
+      };
+    }
+
     PhotoModel
-      .find()
-      // .find({
-      //   albums: {
-      //     $in: [req.params.albumId]
-      //   }
-      // })
+      .find(findObj)
       .then(photos => {
         res
           .json({
@@ -51,12 +54,7 @@ router
   })
   .get('/:photoId', (req, res) => {
     PhotoModel
-      .find({
-        _id: req.params.photoId
-        // albums: {
-        //   $in: [req.body.albumId]
-        // }
-      })
+      .findById(req.params.photoId)
       .then(images => {
         res
           .json({

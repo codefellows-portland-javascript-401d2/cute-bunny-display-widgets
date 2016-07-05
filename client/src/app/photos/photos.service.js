@@ -17,9 +17,15 @@ export default function photosService($http, apiUrl) {
         .get(`${apiUrl}/photos/${photoId}`)
         .then(result => result.data);
     },
-    readPhotos() {
+    readPhotos(albumId = '') {
+      let url = `${apiUrl}/photos`;
+
+      if (albumId) {
+        url += `?albumId=${albumId}`;
+      }
+
       return $http
-        .get(`${apiUrl}/photos`)
+        .get(url)
         .then(result => result.data);
     },
     updatePhoto(photoId, photo) {

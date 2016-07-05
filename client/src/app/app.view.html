@@ -1,10 +1,24 @@
-<app-header ng-class="$ctrl.style.header">
-  <header current-section="$ctrl.currentSection"></header>
-</app-header>
-<app-main>
-  <main ng-class="$ctrl.style.main">
-    <display-list ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'list'" bunnies="$ctrl.bunnies"></display-list>
-    <display-tile ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'tile'" bunnies="$ctrl.bunnies"></display-tile>
-    <display-gallery ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'gallery'" bunnies="$ctrl.bunnies"></display-gallery>
-  </main>
-<app-main>
+<ui-view name="header" current-section="$ctrl.currentSection"></ui-view>
+<ui-view name="main"></ui-view>
+
+<!--
+<div class="row">
+  <div class="twelve columns">
+    <nav ng-class="$ctrl.style['nav-displays']">
+      <ul>
+        <li ng-repeat="display in $ctrl.displays">
+          <a href="#{{ display.name }}" ng-click="$ctrl.toggleNav($event, display.name)" title="{{ display.text }}">
+            <i class="fa fa-{{ display.fa }} fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">{{ display.text }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<main ng-class="$ctrl.style.main">
+  <ui-view name="display-list" ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'list'" bunnies="$ctrl.bunnies"></ui-view>
+  <ui-view name="display-tile" ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'tile'" bunnies="$ctrl.bunnies"></ui-view>
+  <ui-view name="display-gallery" ng-if="$ctrl.bunniesLoaded" ng-show="$ctrl.currentSection === 'gallery'" bunnies="$ctrl.bunnies"></ui-view>
+<main>
+-->

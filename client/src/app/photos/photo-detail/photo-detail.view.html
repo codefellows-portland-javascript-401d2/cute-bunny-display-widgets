@@ -1,0 +1,12 @@
+<main>
+  <section>
+    <div class="row no-stacking-on-mobiles">
+      <div class="twelve columns">
+        <div ng-class="$ctrl.style['photo-detail']" ng-style="{'background-image': 'url('+$ctrl.photo.photoLink+')'}">
+          <h2>{{ $ctrl.photo.title }}</h2>
+          <p>{{ $ctrl.photo.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

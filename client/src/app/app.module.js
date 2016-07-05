@@ -1,14 +1,16 @@
 import angular from 'angular';
+import router from 'angular-ui-router';
 import components from './app.components';
-// import routes from './app.routes';
+import routes from './app.routes';
 import services from './app.services'
 
-const appModule = angular
-  // .config(routes)
+const app = angular
   .module('app', [
+    router,
     components.name,
     services.name
   ])
+  .config(routes)
   .value('apiUrl', process.env.API_URL);
 
-export default appModule;
+export default app;
