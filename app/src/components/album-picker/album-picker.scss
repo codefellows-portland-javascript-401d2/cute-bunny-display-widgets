@@ -8,11 +8,26 @@
 
     div {
       display: inline;
+    }
+
+    .animal{
       font-family: arial, sans-serif;
       padding-left: 1em;
       padding-right: 1em;
       margin-left: 1em;
+      background-color: hsla($background-hue, 100%, 50%, 1);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    a {
+      font-size: 70%;
       margin-right: 1em;
+    }
+
+    .selected {
       background-color: hsla($background-hue, 100%, $text-bright-lightness, 1);
     }
 

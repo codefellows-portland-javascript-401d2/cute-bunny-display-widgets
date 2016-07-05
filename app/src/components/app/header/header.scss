@@ -1,0 +1,21 @@
+@import 'colors';
+
+:local(.header){
+
+  float: right;
+
+  div {
+    display: inline;
+    font-family: arial, sans-serif;
+    padding-left: .5em;
+    padding-right: .5em;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .selected {
+    background-color: hsla($background-hue, 100%, $text-bright-lightness, 1);
+  }
+}

@@ -4,18 +4,24 @@ import styles from './album.scss';
 export default {
   template,
   bindings: {
-    display: '<',
     animal: '<'
   },
   controllerAs: 'album',
-  controller: ['$location', '$anchorScroll', 'albumService', '$scope', controller]
+  controller: ['$location', '$anchorScroll', 'albumService', 'animalService', '$scope', controller]
 };
 
-function controller ($location, $anchorScroll, albumService, $scope){
-  $scope.$watch('album.animal', function(newValue) {
-    console.log(`album receives new animal of ${newValue}`);
+function controller ($location, $anchorScroll, albumService, animalService, $scope){
+
+  $scope.$watch('album.animal', (newValue) => {
+    if (this.animal) {
+      this.get(newValue);
+    }
   });
 
+  this.animalName = '';
+  this.arrayOfAnimals = [];
+
+  this.display = 'thumb';
 
   this.select = function(myId){
     // Switch to Full display
@@ -35,6 +41,7 @@ function controller ($location, $anchorScroll, albumService, $scope){
     });
   },
   this.addpic = function(newpic){
+    newpic.album = this.animal;
     albumService.add(newpic)
     .then( data => {
       this.arrayOfPics.push(data);
@@ -51,8 +58,12 @@ function controller ($location, $anchorScroll, albumService, $scope){
   };
   this.styles = styles;
 
-  // Initial pics loading
-
-  this.get('577576fd2cf646f53a23a7e0');
+  animalService.get()
+    .then( data => {
+      this.arrayOfAnimals = data;
+      const index = this.arrayOfAnimals.findIndex( animalObj => animalObj._id === this.animal);
+      if (index !== -1) this.animalname = this.arrayOfAnimals[index].name;
+    })
+    .catch();
 
 }

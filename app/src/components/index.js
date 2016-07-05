@@ -6,6 +6,7 @@ import album from './album/album';
 import addPic from './album/add-pic/add-pic';
 import albumPicker from './album-picker/album-picker';
 import addAlbum from './album-picker/add-album/add-album';
+import header from './app/header/header';
 
 const components = angular.module('components', [])
 .component('app', app)
@@ -14,6 +15,7 @@ const components = angular.module('components', [])
 .component('album', album)
 .component('addPic', addPic)
 .component('albumPicker', albumPicker)
-.component('addAlbum', addAlbum);
+.component('addAlbum', addAlbum)
+.component('header', header);
 
 export default components.name;

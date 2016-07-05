@@ -10,9 +10,10 @@ export default {
   controller: function(){
     this.styles = styles;
     this.item = {};
-    this.submit = function(){
+    this.submit = () => {
+      if (!this.item.name) return;
       const item = this.item;
-      this.add({newalbum: item});
+      this.add({newanimal: item});
       this.item = {};
     };
   }
