@@ -15,3 +15,36 @@ Promise.all([
 })
 
 ```
+
+## Auth
+
+Service auth-interceptor
+  inject $window and $q
+
+app/app.js -> app.config(routes); check!
+              app.config(http) <-<-<
+
+      also
+
+          app.run( auth );  initializes
+
+new file config-http.js  // rename?
+    inject $httpProvider
+
+    export default function configHttp(httpProvider) => {
+      $httpProvider.interceptors.push(interceptor);
+
+      interceptor.$inject = [$window]
+
+      function interceptor($window) {
+        return {
+          request( config) {
+
+          },
+          response(config) {
+
+          }
+        };
+      }
+    }
+

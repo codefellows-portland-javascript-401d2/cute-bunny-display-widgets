@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const bcrpyt = require('bcrpytjs');
 
-const albumSchema = new Schema({
-  title: {
+const userSchema = new Schema({
+  username: {
     type: String,
     required: true
   }
@@ -13,6 +14,6 @@ userSchema.methods.generateHash = function() {
 
 };
 
-const albumModel = mongoose.model('Album', albumSchema);
+const userModel = mongoose.model('User', userSchema);
 
-module.exports = albumModel;
+module.exports = userModel;

@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   width: 70%;
   margin: 0 auto;
+  white-space: nowrap;
 }
 
 .toggler-form {
@@ -15,6 +16,9 @@
     padding: 6px 15px;
     border: 1px solid #ddd;
     background: #fff;
+  }
+  label:hover {
+    background: #efefef;
   }
   label input[type="radio"] {
     position: absolute;

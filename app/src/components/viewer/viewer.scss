@@ -7,7 +7,7 @@ ul.viewer {
   justify-content: center;
   align-content: flex-start;
   overflow-y: scroll;
-  height: 76vh;
+  height: 90vh;
   margin: 0;
   padding: 0;
 }
@@ -20,10 +20,10 @@ li {
   }
 
   &.text {
-    width: 100%;
+    width: 80%;
   }
 
   &.full {
-    margin-bottom: 50px;
+    margin: 10px 50px;
   }
 }
