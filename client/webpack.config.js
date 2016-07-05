@@ -46,6 +46,6 @@ module.exports = {
     new ExtractTextPlugin('/styles/bundle.css')
   ],
   sassLoader: {
-    includePaths: ['./src/styles/includes']
+    includePaths: ['./src/styles']
 	}
 };

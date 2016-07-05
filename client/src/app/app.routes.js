@@ -1,22 +1,13 @@
-import homeRoutes from './home/home.routes';
-import albumsRoutes from './albums/albums.routes';
-import photosRoutes from './photos/photos.routes';
+import home from './home/home.routes';
+import albums from './albums/albums.routes';
+import photos from './photos/photos.routes';
 
 routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export default function routes($stateProvider, $urlRouterProvider) {
-	$stateProvider
-		.state('home', {
-				url: '/',
-				// views: {
-				// 	header: {
-				// 	  component: 'homeHeader'
-				// 	},
-				// 	main: {
-				// 	  template: '<p>welcome to our todo app</p>'
-				// 	}
-			  // }
-		});
+	[].concat(home, albums, photos).forEach(route => {
+		$stateProvider.state(route.name, route.config)
+	});
 
 	$urlRouterProvider.otherwise('/');
 }

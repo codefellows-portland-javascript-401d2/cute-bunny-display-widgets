@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const AlbumModel = require('../models/album.model');
+const PhotoModel = require('../models/photo.model');
 
 const router = express.Router();
 const jsonParser = bodyParser.json();

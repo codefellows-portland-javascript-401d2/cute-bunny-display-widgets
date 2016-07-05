@@ -1,0 +1,36 @@
+{
+  "pages": [
+    {
+      "name": "home",
+      "text": "Home",
+      "link": "/"
+    },
+    {
+      "name": "album-list",
+      "text": "Albums",
+      "link": "/albums"
+    },
+    {
+      "name": "photo-list",
+      "text": "Photos",
+      "link": "/photos"
+    }
+  ],
+  "displays": [
+    {
+      "name": "list",
+      "text": "List View",
+      "fa": "list"
+    },
+    {
+      "name": "tile",
+      "text": "Tile View",
+      "fa": "th"
+    },
+    {
+      "name": "gallery",
+      "text": "Gallery View",
+      "fa": "image"
+    }
+  ]
+}

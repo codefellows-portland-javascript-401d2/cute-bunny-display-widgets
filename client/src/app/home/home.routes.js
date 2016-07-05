@@ -1,11 +1,16 @@
-export default {
-    url: '/'
-    // views: {
-    // 	header: {
-    // 	  component: 'homeHeader'
-    // 	},
-    // 	main: {
-    // 	  template: '<p>welcome to our todo app</p>'
-    // 	}
-    // }
-};
+export default [
+  {
+    name: 'home',
+    config: {
+  		url: '/',
+  		views: {
+        header: {
+          component: 'headerDefault'
+        },
+  			main: {
+  				component: 'home'
+  			}
+  	  }
+    }
+	}
+];
