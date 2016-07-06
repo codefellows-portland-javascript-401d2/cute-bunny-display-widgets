@@ -27,6 +27,18 @@ function controller (animalService){
     });
   },
 
+  this.removealbum = function(albumId){
+    console.log('remove album fires in app');
+    console.log(albumId);
+    animalService.remove(albumId)
+    .then( () => {
+      const index = this.arrayOfAnimals.findIndex( album => album._id === albumId);
+      if (index !== -1) this.arrayOfAnimals.splice(index, 1);
+      this.animal = null;
+    })
+    .catch();
+  };
+
   animalService.get()
     .then( data => {
       this.arrayOfAnimals = data;

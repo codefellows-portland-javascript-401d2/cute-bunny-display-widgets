@@ -1,7 +1,11 @@
-<div>
+<div class={{picker.styles.display}}>
   <p>
-    <input type="radio" name="display" ng-model="picker.display" value="desc">Description
+    <!-- <input type="radio" name="display" ng-model="picker.display" value="desc">Description
     <input type="radio" name="display" ng-model="picker.display" value="thumb">Thumbnail
-    <input type="radio" name="display" ng-model="picker.display" value="full">Full Size
+    <input type="radio" name="display" ng-model="picker.display" value="full">Full Size -->
+
+    <span ui-sref="album({ display: 'desc' })" ui-sref-active="selected">Description</span>
+    <span ui-sref="album({ display: 'thumb' })" ui-sref-active="selected">Thumbnail</span>
+    <span ui-sref="album({ display: 'full' })" ui-sref-active="selected">Full</span>
   </p>
 </div>

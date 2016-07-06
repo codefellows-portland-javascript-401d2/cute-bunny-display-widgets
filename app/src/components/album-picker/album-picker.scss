@@ -6,8 +6,12 @@
 
     margin-bottom: 1em;
 
-    div {
-      display: inline;
+    .animalrow {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      background-color: hsla($background-hue, 80%, 65, 1);
     }
 
     .animal{
@@ -15,16 +19,21 @@
       padding-left: 1em;
       padding-right: 1em;
       margin-left: 1em;
-      background-color: hsla($background-hue, 100%, 50%, 1);
+      float: left;
+      width: 200px;
 
       &:hover {
         cursor: pointer;
       }
     }
 
-    a {
+    .remove{
       font-size: 70%;
-      margin-right: 1em;
+      color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .selected {

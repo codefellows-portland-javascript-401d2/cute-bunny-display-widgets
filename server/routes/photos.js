@@ -13,7 +13,6 @@ module.exports = router
 // })
 
 .get('/:id', (req, res, next) => {
-  console.log(req.params.id);
   const id = req.params.id;
   // Photo.find({title: 'Roz'})
   Photo.find({album: id})

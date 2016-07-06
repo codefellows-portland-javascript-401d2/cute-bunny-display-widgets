@@ -20,9 +20,11 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
       }
     })
     .state( 'album', {
-      url: '/album/:albumId',
+      url: '/album/?albumId?display?picId',
       resolve: {
-        animal: [ '$stateParams', ( params ) => params.albumId ],
+        animal: [ '$stateParams', ( params ) => params.albumId || '577576fd2cf646f53a23a7e0' ],
+        display: [ '$stateParams', ( params ) => params.display || 'thumb' ],
+        picId: [ '$stateParams', ( params ) => params.picId ]
       },
       views: {
         pics:{
@@ -30,6 +32,7 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
         }
       }
     });
+
   $urlRouterProvider.otherwise('/');
 
 }

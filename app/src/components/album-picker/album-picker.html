@@ -1,10 +1,10 @@
 <div class={{$ctrl.styles.albumpicker}}>
   <div class="selection">
     <div
-    ng-repeat="animal in $ctrl.arrayOfAnimals"
-    ui-sref="album({ albumId: animal._id })">
-      <span class="animal">{{animal.name}}</span>
-      <!-- <a href="#">Remove</a> -->
+    class="animalrow"
+    ng-repeat="animal in $ctrl.arrayOfAnimals">
+      <span class="animal" ui-sref="album({ albumId: animal._id, display: 'thumb'})">{{animal.name}}</span>
+      <span class="remove" ng-click="$ctrl.removealbum(animal._id)">Remove</span>
     </div>
   </div>
   <add-album animal="$ctrl.animal" add="$ctrl.addanimal(newanimal)"></add-album>

@@ -1,4 +1,5 @@
 import template from './display-picker.html';
+import styles from './display-picker.scss';
 
 export default {
   template,
@@ -7,7 +8,7 @@ export default {
     display: '='
   },
   controller: function() {
-
+    this.styles = styles;
     // Initial radio button selection
     // this.display = 'thumb';
   }

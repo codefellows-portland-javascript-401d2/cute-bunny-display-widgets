@@ -9,7 +9,7 @@
   <a id="{{cell.pic._id}}"></a>
 
   <h3
-    ng-click="cell.select({myId: cell.pic._id})"
+    ui-sref="album({display: 'full', picId: cell.pic._id})"
     ng-hide="cell.display === 'thumb'">{{cell.pic.title}}
   </h3>
 
@@ -26,7 +26,7 @@
 
   <img
   ng-src="{{cell.pic.url}}"
-  ng-click="cell.select({myId: cell.pic._id})"
+  ui-sref="album({display: 'full', picId: cell.pic._id})"
   ng-hide="cell.display === 'desc'">
 
 </span>

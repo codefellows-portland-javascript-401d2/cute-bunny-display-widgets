@@ -4,13 +4,19 @@ import styles from './album.scss';
 export default {
   template,
   bindings: {
-    animal: '<'
+    animal: '<',
+    display: '<',
+    picId: '<'
   },
   controllerAs: 'album',
-  controller: ['$location', '$anchorScroll', 'albumService', 'animalService', '$scope', controller]
+  controller: ['$location', '$anchorScroll', 'albumService', 'animalService', '$scope', '$state', '$timeout', controller]
 };
 
-function controller ($location, $anchorScroll, albumService, animalService, $scope){
+function controller ($location, $anchorScroll, albumService, animalService, $scope, $state, $timeout){
+
+  this.styles = styles;
+  this.animalName = '';
+  this.arrayOfAnimals = [];
 
   $scope.$watch('album.animal', (newValue) => {
     if (this.animal) {
@@ -18,18 +24,24 @@ function controller ($location, $anchorScroll, albumService, animalService, $sco
     }
   });
 
-  this.animalName = '';
-  this.arrayOfAnimals = [];
+  $scope.$watch('critter', (newValue) => {
+    if (newValue){
+      $state.go('album', {'albumId': newValue});
+    }
+  });
 
-  this.display = 'thumb';
+  $scope.$watch('album.picId', (newValue) => {
+    if (newValue) {
+      console.log(newValue);
+      $timeout(() => {
+        $location.hash(newValue);
+        $anchorScroll();
+        // $location.hash('');
+      }, 100);
 
-  this.select = function(myId){
-    // Switch to Full display
-    this.display = 'full';
-    // Go to anchor tab with ID
-    $location.hash(myId);
-    $anchorScroll();
-  },
+    }
+  });
+
   this.remove = function(myId){
     albumService.remove(myId)
     .then( () => {
@@ -56,14 +68,15 @@ function controller ($location, $anchorScroll, albumService, animalService, $sco
       this.arrayOfPics = data;
     });
   };
-  this.styles = styles;
 
   animalService.get()
     .then( data => {
       this.arrayOfAnimals = data;
       const index = this.arrayOfAnimals.findIndex( animalObj => animalObj._id === this.animal);
-      if (index !== -1) this.animalname = this.arrayOfAnimals[index].name;
+      if (index !== -1) {
+        this.animalname = this.arrayOfAnimals[index].name;
+        $scope.critter = this.arrayOfAnimals[index]._id;
+      }
     })
     .catch();
-
 }
