@@ -12,13 +12,8 @@ router.post('/signup', jsonparser, (req, res, next) => {
     if (obj){
       res.status(500).json({error: 'That username already exists'});
     }
-    // console.log(req.body);
     const user = new User(req.body);
-
-    // console.log(user);
     user.generateHash(password);
-    // console.log(user);
-
     return user.save()
     .then(newUser => token.sign(newUser))
     .then(token => res.json(token));
@@ -31,18 +26,15 @@ router.post('/signup', jsonparser, (req, res, next) => {
 router.post('/signin', jsonparser, (req, res, next) => {
   const {username, password} = req.body;
   delete req.body;
-
   User.findOne({username})
-    .then( obj => {
-      if (!obj){
+    .then( user => {
+      if (!user){
         res.status(400).json({error: 'Authentication failed'});
       }
-
-      if (!User.compareHash(password)){
+      if (!user.authenticateHash(password)){
         res.status(400).json({error: 'Authentication failed'});
       }
-
-      token.sign(obj).then( token => res.json({ token }));
+      token.sign(user).then( token => res.json({ token }));
     })
     .catch( err => {
       next({code: 500, error: 'Database failure', msg: err});

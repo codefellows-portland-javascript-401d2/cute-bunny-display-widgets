@@ -3,7 +3,6 @@ const appSecret = process.env.APP_SECRET || 'thompsontwins';
 
 module.exports = {
   sign(user){
-    console.log(user);
     return new Promise( (resolve, reject) => {
 
       jwt.sign({
