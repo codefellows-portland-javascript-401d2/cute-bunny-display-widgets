@@ -38,7 +38,7 @@ router.post('/signup', jsonParser, ( req, res ) => {
 		});
 });
 
-router.post('/signin', jsonParser, ( req, res ) => {
+router.post('/login', jsonParser, ( req, res ) => {
   const { username, password } = req.body;
   delete req.body;
 
