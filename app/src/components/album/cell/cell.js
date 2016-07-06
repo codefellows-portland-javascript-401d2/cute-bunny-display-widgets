@@ -5,9 +5,9 @@ export default {
   template,
   controllerAs: 'cell',
   bindings: {
-    pic: '=',
-    display: '=',
-    isodd: '=',
+    pic: '<',
+    display: '<',
+    isodd: '<',
     select: '&',
     remove: '&'
   },

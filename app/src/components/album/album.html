@@ -1,25 +1,22 @@
-<div class={{album.styles.album}}>
+<div class={{$ctrl.styles.album}}>
 
-  <!-- <display-picker display="album.display">
-  </display-picker> -->
-  <display-picker>
-  </display-picker>
+  <display-picker></display-picker>
 
-  <h2>Album title: {{album.animalname}}</h2>
+  <h2>Album title: {{$ctrl.animalname}}</h2>
 
   <select
     ng-model="critter"
-    ng-options="animal._id as animal.name for animal in album.arrayOfAnimals">
+    ng-options="animal._id as animal.name for animal in $ctrl.arrayOfAnimals">
   </select>
 
-  <add-pic add="album.addpic(newpic)"></add-pic>
+  <add-pic add="$ctrl.addpic(newpic)"></add-pic>
 
-  <span ng-repeat="pic in album.arrayOfPics">
+  <span ng-repeat="pic in $ctrl.arrayOfPics">
     <cell
       pic="pic"
-      select="album.select(myId)"
-      remove="album.remove(myId)"
-      display="album.display"
+      select="$ctrl.select(myId)"
+      remove="$ctrl.remove(myId)"
+      display="$ctrl.display"
       isodd="$odd"></cell>
   </span>
 </div>

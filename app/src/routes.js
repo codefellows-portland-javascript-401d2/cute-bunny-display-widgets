@@ -13,6 +13,11 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
     })
     .state( 'animals', {
       url: '/animal',
+      resolve: {
+        arrayOfAnimals: [ 'animalService', (animalService) => {
+          return animalService.get();
+        }]
+      },
       views: {
         main: {
           component: 'albumPicker'
@@ -20,19 +25,33 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
       }
     })
     .state( 'album', {
-      url: '/album/?albumId?display?picId',
+      url: '/album/?albumId?display?picId?animalname',
       resolve: {
         animal: [ '$stateParams', ( params ) => params.albumId || '577576fd2cf646f53a23a7e0' ],
+        arrayOfPics: [ 'albumService', '$stateParams', (albumService, params) => {
+          let myAlbum = params.albumId || '577576fd2cf646f53a23a7e0';
+          return albumService.get(myAlbum);
+        }],
+        animalname: [ '$stateParams', (params) => params.animalname || 'George of the Jungle'],
         display: [ '$stateParams', ( params ) => params.display || 'thumb' ],
-        picId: [ '$stateParams', ( params ) => params.picId ]
+        picId: [ '$stateParams', '$timeout', '$anchorScroll', ( params, $timeout, $anchorScroll ) => {
+          if (params.picId){
+            $timeout(() => {
+              $anchorScroll(params.picId);
+            }, 400);
+          }
+          return params.picId;
+        }],
+        arrayOfAnimals: [ 'animalService', (animalService) => {
+          return animalService.get();
+        }]
       },
       views: {
-        pics:{
+        main: {
           component: 'album'
         }
       }
     });
-
   $urlRouterProvider.otherwise('/');
 
 }

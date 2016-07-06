@@ -5,40 +5,27 @@ export default {
   template,
   bindings: {
     animal: '<',
+    animalname: '<',
     display: '<',
-    picId: '<'
+    picId: '<',
+    arrayOfAnimals: '<',
+    arrayOfPics: '<'
   },
-  controllerAs: 'album',
-  controller: ['$location', '$anchorScroll', 'albumService', 'animalService', '$scope', '$state', '$timeout', controller]
+  controller: ['albumService', '$scope', '$state', controller]
 };
 
-function controller ($location, $anchorScroll, albumService, animalService, $scope, $state, $timeout){
-
+function controller (albumService, $scope, $state){
   this.styles = styles;
-  this.animalName = '';
-  this.arrayOfAnimals = [];
 
-  $scope.$watch('album.animal', (newValue) => {
+  $scope.$watch('$ctrl.animal', () => {
     if (this.animal) {
-      this.get(newValue);
+      $scope.critter = this.animal;
     }
   });
 
   $scope.$watch('critter', (newValue) => {
     if (newValue){
       $state.go('album', {'albumId': newValue});
-    }
-  });
-
-  $scope.$watch('album.picId', (newValue) => {
-    if (newValue) {
-      console.log(newValue);
-      $timeout(() => {
-        $location.hash(newValue);
-        $anchorScroll();
-        // $location.hash('');
-      }, 100);
-
     }
   });
 
@@ -68,15 +55,4 @@ function controller ($location, $anchorScroll, albumService, animalService, $sco
       this.arrayOfPics = data;
     });
   };
-
-  animalService.get()
-    .then( data => {
-      this.arrayOfAnimals = data;
-      const index = this.arrayOfAnimals.findIndex( animalObj => animalObj._id === this.animal);
-      if (index !== -1) {
-        this.animalname = this.arrayOfAnimals[index].name;
-        $scope.critter = this.arrayOfAnimals[index]._id;
-      }
-    })
-    .catch();
 }

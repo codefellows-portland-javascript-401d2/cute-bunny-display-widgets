@@ -4,7 +4,6 @@ import styles from './album-picker.scss';
 export default {
   template,
   bindings: {
-    animal: '=',
     arrayOfAnimals: '='
   },
   controller: ['animalService', controller]
@@ -12,11 +11,11 @@ export default {
 
 function controller (animalService){
   this.styles = styles;
+  this.animal;
 
   this.animalselect = function(animalObj){
     this.animal = animalObj;
-  };
-
+  },
   this.addanimal = function(newanimal) {
     animalService.add(newanimal)
     .then( data => {
@@ -26,7 +25,6 @@ function controller (animalService){
       console.log(err);
     });
   },
-
   this.removealbum = function(albumId){
     console.log('remove album fires in app');
     console.log(albumId);
@@ -38,13 +36,4 @@ function controller (animalService){
     })
     .catch();
   };
-
-  animalService.get()
-    .then( data => {
-      this.arrayOfAnimals = data;
-    })
-    .catch();
-
-
-
 }
