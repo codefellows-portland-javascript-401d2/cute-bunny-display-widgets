@@ -8,7 +8,8 @@ export default {
   bindings: {
     postTitle: '=',
     source: '=',
-    description: '='
+    description: '=',
+    album: '='
   },
   controller: function() {
     this.style = style;

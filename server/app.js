@@ -22,6 +22,7 @@ app.use( ( req, res, next ) => {
 app.get('/api/images', (req, res) => {
   Image
     .find()
+    .populate('album')
     .then(images => {
       res.status(200);
       res.send({status: 'success', content: images});
@@ -61,7 +62,7 @@ app.delete('/api/images/:id', (req, res) => {
 app.get('/api/albums', (req, res) => {
   Album
     .find()
-    .then(albums => {
+    .then((albums) => {
       res.status(200);
       res.send({status: 'success', content: albums});
     })
@@ -73,6 +74,7 @@ app.get('/api/albums', (req, res) => {
 app.get('/api/albums/:albumId', (req, res) => {
   Image
     .find({album: req.params.albumId})
+    .populate('album')
     .then(images => {
       res.status(200);
       res.send({status: 'success', content: images});
