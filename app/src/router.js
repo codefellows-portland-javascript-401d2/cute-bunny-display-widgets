@@ -7,7 +7,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/',
       views: {
         main: {
-          template: '<p>Welcome User</p>'
+          template: '<h3>Welcome User</h3>'
         }
       }
     })

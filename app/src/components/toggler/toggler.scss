@@ -1,8 +1,15 @@
 @import 'colors';
 
+.toggler-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: 0 auto;
+}
+
 .toggler-form {
-  text-align: center;
-  margin: 15px 0;
+  margin-bottom: 20px;
 
   label {
     padding: 6px 15px;
@@ -21,11 +28,14 @@
 }
 
 .toggler-select {
-  text-align: center;
-  display: block;
-  margin: 20px auto;
-  width: 360px;
-  height: 35px;
-  font-size: 18px;
+    text-align: center;
+    display: block;
+    margin: -7px 0;
+    width: 360px;
+    height: 38px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    color: #626262;
+    
 }
 

@@ -6,8 +6,8 @@ body {
   font-family: $body-font;
   color: $p-color;
   overflow-x: hidden;
-  // background: url('../../images/cream_pixels.png');
-  // background-repeat: repeat;
+  // background: url('./app/images/cream_pixels.png');
+  background-repeat: repeat;
 }
 
 a {
@@ -33,6 +33,10 @@ header {
   display: inline;
 }
 
+h3 {
+  text-align: center;
+}
+
 .form-container {
   margin-bottom: 50px;
 }
@@ -47,16 +51,17 @@ footer {
 }
 
 nav {
-    position: absolute;
-    right: 10%;
-    top: 13px;
-    display: inline;
+  position: absolute;
+  right: 10%;
+  top: 13px;
+  display: inline;
 
-    a {
-      padding: 0 25px;
+  a {
+    padding: 0 10px;
+    font-size: 0.75em;
 
-      &.active {
-        color: $accent-color;
-      }
+    &.active {
+      color: $accent-color;
     }
+  }
 }
