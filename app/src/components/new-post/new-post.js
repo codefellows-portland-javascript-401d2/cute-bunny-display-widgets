@@ -40,6 +40,7 @@ function controller(albumService, imageService) {
     imageService
       .post(image)
       .then((result) => {
+        // Print message here or reroute etc.
         console.log(`${result} saved!`);
       })
       .catch(err => {

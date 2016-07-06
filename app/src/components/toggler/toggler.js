@@ -4,15 +4,22 @@ import style from './toggler.scss';
 export default {
   template,
   controllerAs: 'toggler',
+  bindings: {
+    viewOption: '<',
+    images: '<',
+    albumSelect: '<'
+  },
   controller
 };
 
-controller.$inject = ['albumService', 'imageService'];
+controller.$inject = ['albumService', 'imageService', '$state'];
 
-function controller(albumService, imageService) {
-  this.toggle = 'thumb';
+function controller(albumService, imageService, $state) {
   this.style = style;
-  this.albumSelect = 'all';
+
+  this.uiOnParamsChanged = params => {
+    this.viewOption = params.view || this.viewOption;
+  };
 
   albumService
     .get()
@@ -20,20 +27,6 @@ function controller(albumService, imageService) {
       this.albums = list;
     })
     .catch(err => console.log('error:', err));
-
-  this.getImages = function() {
-    if (this.albumSelect == 'all' || this.albumSelect == null) {
-      imageService
-        .get()
-        .then(images => this.images = images)
-        .catch(err => console.log('Error:', err));
-    } else {
-      imageService
-        .getByAlbum(this.albumSelect)
-        .then(images => this.images = images)
-        .catch(err => console.log('error:', err)); 
-    }
-  };
 
   this.removeImage = (imageId) => {
     imageService
@@ -55,6 +48,14 @@ function controller(albumService, imageService) {
       .catch(err => {
         console.log(err);
       });
+  };
+
+  this.change = () => {
+    $state.go($state.current.name, {
+      view: this.viewOption,
+      album: this.albumSelect
+    });
+
   };
 
 }

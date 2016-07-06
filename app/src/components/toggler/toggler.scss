@@ -5,7 +5,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   width: 70%;
-  margin: 0 auto;
+  margin: 15px auto;
   white-space: nowrap;
 }
 
@@ -16,6 +16,7 @@
     padding: 6px 15px;
     border: 1px solid #ddd;
     background: #fff;
+    font-size: 0.85em;
   }
   label:hover {
     background: #efefef;
@@ -34,10 +35,10 @@
 .toggler-select {
     text-align: center;
     display: block;
-    margin: -7px 0;
-    width: 360px;
-    height: 38px;
-    font-size: 18px;
+    margin: -5px 0;
+    width: 280px;
+    height: 36px;
+    font-size: 0.85em;
     border: 1px solid #ddd;
     color: #626262;
     
