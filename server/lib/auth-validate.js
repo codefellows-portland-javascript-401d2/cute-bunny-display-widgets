@@ -1,6 +1,6 @@
-import tokenCheck from './token-check';
+const tokenCheck = require('./token-check');
 
-export default function authValidate(req, res, next) {
+module.exports = function authValidate(req, res, next) {
   if (req.method === 'OPTIONS') return next();
 
   const authHead = req.headers.authorization;

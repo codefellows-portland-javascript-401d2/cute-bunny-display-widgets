@@ -3,7 +3,6 @@ const jsonParser = require('body-parser').json();
 const Image = require('../models/image');
 
 router.get('/', (req, res) => {
-  console.log('get to images');
   Image
     .find()
     .populate('album')

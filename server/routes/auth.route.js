@@ -1,8 +1,8 @@
 const router = require( 'express' ).Router();
 const jsonParser = require( 'body-parser' ).json();
 const User = require( '../models/user' );
-const token = require( '../lib/token' );
-const ensureAuth = require( '../lib/ensureAuth' );
+const token = require( '../lib/token-check' );
+const ensureAuth = require( '../lib/auth-validate' );
 
 router.post('/signup', jsonParser, ( req, res ) => {
   const { username, password } = req.body;
@@ -34,7 +34,7 @@ router.post('/signup', jsonParser, ( req, res ) => {
       res.status(500).json({
         msg: 'didn\'t work',
         reason: err
-		  });
+      });
 		});
 });
 
