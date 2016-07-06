@@ -16,8 +16,10 @@
     "nodemon": "^1.9.2"
   },
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.0.1",
     "mongoose": "^4.5.2"
   }
 }

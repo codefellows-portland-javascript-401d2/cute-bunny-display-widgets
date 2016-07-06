@@ -4,7 +4,10 @@ import styles from './album-picker.scss';
 export default {
   template,
   bindings: {
-    arrayOfAnimals: '='
+    arrayOfAnimals: '=',
+    display: '<',
+    albumId: '<',
+    animalname: '<'
   },
   controller: ['animalService', controller]
 };

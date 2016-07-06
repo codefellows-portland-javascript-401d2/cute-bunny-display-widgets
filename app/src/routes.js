@@ -4,16 +4,27 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state( 'home', {
-      url: '/',
+      url: '/?display?albumId?animalname',
+      resolve: {
+        display: [ '$stateParams', params => params.display],
+        animal: [ '$stateParams', ( params ) => params.albumId],
+        animalname: [ '$stateParams', (params) => params.animalname || 'Choose an album']
+      },
       views: {
         main: {
           template: '<p>Welcome. Here you will find photos of adorable animals.</p>'
+        },
+        header: {
+          component: 'header'
         }
       }
     })
     .state( 'animals', {
-      url: '/animal',
+      url: '/animal?display?albumId?animalname',
       resolve: {
+        display: ['$stateParams', params => params.display],
+        animal: [ '$stateParams', ( params ) => params.albumId],
+        animalname: [ '$stateParams', (params) => params.animalname || 'Choose an album'],
         arrayOfAnimals: [ 'animalService', (animalService) => {
           return animalService.get();
         }]
@@ -21,19 +32,26 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
       views: {
         main: {
           component: 'albumPicker'
+        },
+        header: {
+          component: 'header'
         }
       }
     })
     .state( 'album', {
-      url: '/album/?albumId?display?picId?animalname',
+      url: '/album/?display?albumId?animalname?picId',
       resolve: {
-        animal: [ '$stateParams', ( params ) => params.albumId || '577576fd2cf646f53a23a7e0' ],
-        arrayOfPics: [ 'albumService', '$stateParams', (albumService, params) => {
-          let myAlbum = params.albumId || '577576fd2cf646f53a23a7e0';
-          return albumService.get(myAlbum);
-        }],
-        animalname: [ '$stateParams', (params) => params.animalname || 'George of the Jungle'],
         display: [ '$stateParams', ( params ) => params.display || 'thumb' ],
+        animal: [ '$stateParams', ( params ) => params.albumId],
+        animalname: [ '$stateParams', (params) => params.animalname || 'Choose an album'],
+        arrayOfPics: [ 'albumService', '$stateParams', (albumService, params) => {
+          if (params.albumId){
+            let myAlbum = params.albumId;
+            return albumService.get(myAlbum);
+          }else{
+            return [];
+          }
+        }],
         picId: [ '$stateParams', '$timeout', '$anchorScroll', ( params, $timeout, $anchorScroll ) => {
           if (params.picId){
             $timeout(() => {
@@ -49,6 +67,9 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
       views: {
         main: {
           component: 'album'
+        },
+        header: {
+          component: 'header'
         }
       }
     });

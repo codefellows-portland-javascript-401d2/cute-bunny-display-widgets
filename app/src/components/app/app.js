@@ -4,6 +4,8 @@ import styles from './app.scss';
 
 export default {
   template: template,
+  bindings: {
+  },
   controller: function(){
     this.styles = styles;
   }

@@ -3,7 +3,7 @@
     <div
     class="animalrow"
     ng-repeat="animal in $ctrl.arrayOfAnimals">
-      <span class="animal" ui-sref="album({ albumId: animal._id, display: 'thumb', animalname: animal.name })">{{animal.name}}</span>
+      <span class="animal" ui-sref="album({ albumId: animal._id, display: $ctrl.display, animalname: animal.name })">{{animal.name}}</span>
       <span class="remove" ng-click="$ctrl.removealbum(animal._id)">Remove</span>
     </div>
   </div>
