@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
-const schema = new Schema({
+const userSchema = new Schema({
 
   username: {
     type: String,
@@ -20,12 +20,13 @@ const schema = new Schema({
   }
 });
 
-schema.methods.generateHash = function(pw) {
-  return this.password = bcyrpt.hashSync(pw, 8);
+userSchema.methods.generateHash = function(pw) {
+  this.password = bcrypt.hashSync(pw, 8);
+  return this.password;
 };
 
-schema.methods.authenticateHash = function(pw){
+userSchema.methods.authenticateHash = function(pw){
   return bcrypt.compareSync(pw, this.password);
 };
 
-module.exports = mongoose.model('User', schema);
+module.exports = mongoose.model('User', userSchema);

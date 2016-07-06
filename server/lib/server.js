@@ -3,12 +3,15 @@ const app = express();
 const cors = require('./cors')();
 const photos = require('../routes/photos');
 const albums = require('../routes/albums');
+const auth = require('../routes/auth');
+const ensureAuth = require('./ensureAuth');
 
 app.use(express.static(__dirname + './../public'));
 
 app.use(cors);
 
-app.use('/api/photos', photos);
+app.use('/api', auth);
+app.use('/api/photos', ensureAuth, photos);
 app.use('/api/albums', albums);
 
 app.use( (err, req, res, next) => {

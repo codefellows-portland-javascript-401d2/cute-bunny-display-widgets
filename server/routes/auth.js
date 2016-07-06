@@ -1,20 +1,24 @@
 const router = require('express').Router();
-const jsonparser = require('body-parser').json;
+const jsonparser = require('body-parser').json();
 const User = require('../models/user');
 const token = require('../lib/token');
 
 router.post('/signup', jsonparser, (req, res, next) => {
   const {username, password} = req.body;
-  delete req.body;
+  delete req.body.password;
 
   User.findOne({username})
   .then( obj => {
     if (obj){
       res.status(500).json({error: 'That username already exists'});
     }
+    // console.log(req.body);
+    const user = new User(req.body);
 
-    const user = new User({username, password});
+    // console.log(user);
     user.generateHash(password);
+    // console.log(user);
+
     return user.save()
     .then(newUser => token.sign(newUser))
     .then(token => res.json(token));

@@ -23,8 +23,8 @@ function controller (albumService, $scope, $state){
     }
   });
 
-  $scope.$watch('critter', (newValue) => {
-    if (newValue){
+  $scope.$watch('critter', (newValue, oldValue) => {
+    if (newValue !== oldValue){
       const index = this.arrayOfAnimals.findIndex(item => item._id === newValue);
       const animalname = (index !== -1) ? this.arrayOfAnimals[index].name : 'Hector Spektor';
       $state.go('album', {'albumId': newValue, 'animalname': animalname});
