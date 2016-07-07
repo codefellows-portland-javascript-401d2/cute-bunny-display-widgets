@@ -1,16 +1,17 @@
-<main>
-  <div class="row">
-    <div class="twelve columns">
-      <section>
-        <div class="row" ng-repeat="album in $ctrl.albums">
-          <div class="twelve columns">
-            <div ng-class="$ctrl.style['list-item']">
-              <h2><a ui-sref="album-detail({ albumId: album._id })">{{ album.name }}</a></h2>
-              <p>{{ album.description }}</p>
-            </div>
+<div class="row">
+  <div class="twelve columns">
+    <section>
+      <h2>Albums</h2>
+      <div class="row" ng-repeat="album in $ctrl.albums">
+        <div class="twelve columns">
+          <div ng-class="$ctrl.style['list-item']">
+            <h3><a ui-sref="album-detail({albumId: album._id})">{{ album.title }}</a></h3>
+            <p>{{ album.description }}</p>
+            <button type="button" ng-click="$ctrl.deleteAlbum(album._id)">Remove</button>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+    <add-album albums="$ctrl.albums"></add-album>
   </div>
-</main>
+</div>

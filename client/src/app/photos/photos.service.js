@@ -5,33 +5,27 @@ export default function photosService($http, apiUrl) {
     createPhoto(photo) {
       return $http
         .post(`${apiUrl}/photos`, photo)
-        .then(result => result.data);
+        .then(res => res.data.result);
     },
     deletePhoto(photoId) {
       return $http
         .delete(`${apiUrl}/photos/${photoId}`)
-        .then(result => result.data);
+        .then(res => res.data.result);
     },
-    readPhoto(photoId) {
+    retrievePhoto(photoId) {
       return $http
         .get(`${apiUrl}/photos/${photoId}`)
-        .then(result => result.data);
+        .then(res => res.data.result);
     },
-    readPhotos(albumId = '') {
-      let url = `${apiUrl}/photos`;
-
-      if (albumId) {
-        url += `?albumId=${albumId}`;
-      }
-
+    retrievePhotos() {
       return $http
         .get(url)
-        .then(result => result.data);
+        .then(res => res.data.result);
     },
     updatePhoto(photoId, photo) {
       return $http
         .put(`${apiUrl}/photos/${photoId}`, photo)
-        .then(result => result.data);
+        .then(res => res.data.result);
     }
   }
 };

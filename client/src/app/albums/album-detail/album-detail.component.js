@@ -3,8 +3,7 @@ import template from './album-detail.view.html';
 
 export default {
 	bindings: {
-		album: '<',
-		photos: '<'
+		data: '<'
 	},
 	controller,
 	template

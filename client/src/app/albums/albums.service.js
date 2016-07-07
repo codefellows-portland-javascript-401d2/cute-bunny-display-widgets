@@ -5,27 +5,27 @@ export default function albumsService($http, apiUrl) {
     createAlbum(album) {
       return $http
         .post(`${apiUrl}/albums`, album)
-        .then(result => result.data);
+        .then(res => res.data.result);
     },
     deleteAlbum(albumId) {
       return $http
         .delete(`${apiUrl}/albums/${albumId}`)
-        .then(result => result.data);
+        .then(res => res.data.result);
     },
-    readAlbum(albumId) {
+    retrieveAlbum(albumId) {
       return $http
         .get(`${apiUrl}/albums/${albumId}`)
-        .then(result => result.data);
+        .then(res => res.data.result);
     },
-    readAlbums() {
+    retrieveAlbums() {
       return $http
         .get(`${apiUrl}/albums`)
-        .then(result => result.data);
+        .then(res => res.data.result);
     },
     updateAlbum(albumId, album) {
       return $http
         .put(`${apiUrl}/albums/${albumId}`, album)
-        .then(result => result.data);
+        .then(res => res.data.result);
     }
   }
 };

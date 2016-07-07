@@ -6,10 +6,7 @@ export default [
       resolve: {
 				photos: [
           'photosService',
-          '$stateParams',
-          photosService => photosService
-            .readPhotos()
-            .then(data => data.result)
+          photosService => photosService.retrievePhotos()
         ]
 			},
   		views: {
@@ -30,9 +27,7 @@ export default [
         photo: [
           'photosService',
           '$stateParams',
-          (photosService, params) => photosService
-            .readPhoto(params.photoId)
-            .then(data => data.result)
+          (photosService, params) => photosService.retrievePhoto(params.photoId)
         ]
       },
   		views: {
