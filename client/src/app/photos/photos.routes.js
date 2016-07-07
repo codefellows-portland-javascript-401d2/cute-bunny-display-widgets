@@ -2,27 +2,27 @@ export default [
   {
     name: 'photo-list',
     config: {
-  		url: '/photos',
+      url: '/photos',
       resolve: {
-				photos: [
+        photos: [
           'photosService',
           photosService => photosService.retrievePhotos()
         ]
-			},
-  		views: {
+      },
+      views: {
         header: {
           component: 'headerDefault'
         },
-  			main: {
-  				component: 'photoList'
-  			}
-  	  }
+        main: {
+          component: 'photoList'
+        }
+      }
     }
-	},
+  },
   {
     name: 'photo-detail',
     config: {
-  		url: '/photos/:photoId',
+      url: '/photos/:photoId',
       resolve: {
         photo: [
           'photosService',
@@ -30,14 +30,14 @@ export default [
           (photosService, params) => photosService.retrievePhoto(params.photoId)
         ]
       },
-  		views: {
+      views: {
         header: {
           component: 'headerDefault'
         },
-  			main: {
-  				component: 'photoDetail'
-  			}
-  	  }
+        main: {
+          component: 'photoDetail'
+        }
+      }
     }
-	}
+  }
 ];

@@ -1,5 +1,3 @@
-import style from './album-list.style.scss';
-
 albumListController.$inject = ['albumsService'];
 
 export default function albumListController(albumsService) {
