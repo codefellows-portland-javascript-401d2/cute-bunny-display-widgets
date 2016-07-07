@@ -7,16 +7,8 @@ const jsonParser = bodyParser.json();
 
 router
   .get('/', (req, res) => {
-    let findObj = {};
-
-    if (req.params.albumId) {
-      findObj.albums = {
-        $in: [req.params.albumId]
-      };
-    }
-
     PhotoModel
-      .find(findObj)
+      .find()
       .then(photos => {
         res
           .json({
@@ -60,6 +52,25 @@ router
           .json({
             status: 'success',
             result: images
+          });
+      })
+      .catch(err => {
+        res
+          .json({
+            status: 'error',
+            result: 'Server error',
+            error: err
+          });
+      });
+  })
+  .delete('/:photoId', (req, res) => {
+    PhotoModel
+      .findByIdAndRemove(req.params.photoId)
+      .then(photo => {
+        res
+          .json({
+            status: 'success',
+            result: photo
           });
       })
       .catch(err => {

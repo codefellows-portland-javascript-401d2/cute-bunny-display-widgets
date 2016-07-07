@@ -1,11 +1,9 @@
-<main>
-  <section>
-    <!-- <div class="row" ng-repeat="photos in $ctrl.photosGroup"> -->
-      <div class="column four" ng-repeat="photo in $ctrl.photos">
-        <a ui-sref="photo-detail({photoId: photo._id})" ng-class="$ctrl.style.thumbnail" ng-style="{'background-image': 'url('+photo.photoLink+')'}" title="{{ photo.description }}">
-          <h2>{{ photo.title }}</h2>
-        </a>
-      </div>
-    <!-- </div> -->
-  </section>
-</main>
+<section>
+  <!-- <div class="row" ng-repeat="photos in $ctrl.photosGroup"> -->
+    <div class="column four" ng-repeat="photo in $ctrl.photos">
+      <a ui-sref="photo-detail({photoId: photo._id})" ng-class="$ctrl.style.thumbnail" ng-style="{'background-image': 'url('+photo.photoLink+')'}" title="{{ photo.description }}">
+        <h2>{{ photo.title }}</h2>
+      </a>
+    </div>
+  <!-- </div> -->
+</section>

@@ -6,10 +6,7 @@ export default [
       resolve: {
 				albums: [
           'albumsService',
-          '$stateParams',
-          albumsService => albumsService
-            .readAlbums()
-            .then(data => data.result)
+          albumsService => albumsService.retrieveAlbums()
         ]
 			},
   		views: {
@@ -18,7 +15,10 @@ export default [
         },
   			main: {
   				component: 'albumList'
-  			}
+  			},
+        addAlbum: {
+          component: 'addAlbum'
+        }
   	  }
     }
 	},
@@ -27,19 +27,10 @@ export default [
     config: {
   		url: '/albums/:albumId',
       resolve: {
-				album: [
+				data: [
           'albumsService',
           '$stateParams',
-          (albumsService, params) => albumsService
-            .readAlbum(params.albumId)
-            .then(data => data.result)
-        ],
-        photos: [
-          'photosService',
-          '$stateParams',
-          (photosService, params) => photosService
-            .readPhotos(params.albumId)
-            .then(data => data.result)
+          (albumsService, params) => albumsService.retrieveAlbum(params.albumId)
         ]
 			},
   		views: {

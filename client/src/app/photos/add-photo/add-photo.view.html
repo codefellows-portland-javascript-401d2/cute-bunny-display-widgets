@@ -1,0 +1,48 @@
+<section>
+  <h2>Add Photo</h2>
+  <div class="row">
+    <div class="six columns">
+      <form ng-submit="$ctrl.addPhoto($event)">
+        <div class="form-group">
+          <label for="add-photo-title">Title<label>
+          <input type="text" class="form-input" id="add-photo-title" ng-model="$ctrl.newPhoto.title" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+          <label for="add-photo-description">Description<label>
+          <textarea class="form-input" id="add-photo-description" ng-model="$ctrl.newPhoto.description" autocomplete="off" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="add-photo-link">Link<label>
+          <input type="text" class="form-input" id="add-photo-link" ng-model="$ctrl.newPhoto.photoLink" autocomplete="off" required>
+        </div>
+        <div class="form-group row">
+          <div class="five columns">
+            <label for="add-thumb-width">Thumb Width<label>
+            <input type="number" class="form-input" id="add-photo-thumb-width" ng-model="$ctrl.newPhoto.photoThumbWidth" autocomplete="off" required min="1">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="five columns">
+            <label for="add-thumb-height">Thumb Height<label>
+            <input type="number" class="form-input" id="add-photo-thumb-height" ng-model="$ctrl.newPhoto.photoThumbHeight" autocomplete="off" required min="1">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="five columns">
+            <label for="add-full-width">Full Width<label>
+            <input type="number" class="form-input" id="add-photo-full-width" ng-model="$ctrl.newPhoto.photoFullWidth" autocomplete="off" required min="1">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="five columns">
+            <label for="add-full-height">Full Height<label>
+            <input type="number" class="form-input" id="add-photo-full-height" ng-model="$ctrl.newPhoto.photoFullHeight" autocomplete="off" required min="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -9,11 +9,6 @@
       "name": "album-list",
       "text": "Albums",
       "link": "/albums"
-    },
-    {
-      "name": "photo-list",
-      "text": "Photos",
-      "link": "/photos"
     }
   ],
   "displays": [
