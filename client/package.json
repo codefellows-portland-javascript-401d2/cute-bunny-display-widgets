@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "env $(cat .env) webpack-dev-server --inline",
-    "build": "webpack",
+    "build": "env $(cat .env) webpack",
     "test": "karma start"
   },
   "repository": {
