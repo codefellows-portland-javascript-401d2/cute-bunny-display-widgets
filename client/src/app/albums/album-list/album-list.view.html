@@ -5,9 +5,10 @@
       <p ng-if="$ctrl.albums.length < 1">No albums, add one.</p>
       <div class="row" ng-repeat="album in $ctrl.albums">
         <div class="twelve columns">
-          <div>
+          <edit-album ng-if="album.updateAlbum === true" album="album"></edit-album>
+          <div ng-if="album.updateAlbum === false">
             <h3><a ui-sref="album-detail({albumId: album._id})">{{ album.title }}</a></h3>
-            <p>{{ album.description }}</p>
+            <button type="button" ng-click="album.updateAlbum = true">Edit</button>
             <button type="button" ng-click="$ctrl.deleteAlbum(album._id)">Remove</button>
           </div>
         </div>

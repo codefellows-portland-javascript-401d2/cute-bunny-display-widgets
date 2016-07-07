@@ -3,6 +3,7 @@ import style from './photo-detail.style.scss';
 photoDetailController.$inject = ['$state', 'photosService'];
 
 export default function photoDetailController($state, photosService) {
+  this.photo.updatePhoto = false;
   this.style = style;
 
   this.deletePhoto = photoId => {

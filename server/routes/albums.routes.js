@@ -75,6 +75,31 @@ router
           });
       });
   })
+  .put('/:albumId', jsonParser, (req, res) => {
+    AlbumModel
+      .update({
+        _id: req.params.albumId
+      }, {
+        $set: {
+          title: req.body.title
+        }
+      })
+      .then(album => {
+        res
+          .json({
+            status: 'success',
+            result: album
+          });
+      })
+      .catch(err => {
+        res
+          .json({
+            status: 'error',
+            result: 'Server error',
+            error: err
+          });
+      });
+  })
   .delete('/:albumId', (req, res) => {
     AlbumModel
       .findByIdAndRemove(req.params.albumId)

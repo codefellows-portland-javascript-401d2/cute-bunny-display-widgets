@@ -9,6 +9,8 @@ export default function addPhotoController(photosService) {
     photosService
       .createPhoto(this.newPhoto)
       .then(photo => {
+        photo.updatePhoto = false;
+
         let photosLength = this.photos.length;
         let photosGroupLast = photosLength - 1;
         let photosGroupLength = photosGroupLast >= 0 ? this.photos[photosGroupLast].length : 0;
