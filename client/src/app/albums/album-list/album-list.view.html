@@ -2,9 +2,10 @@
   <div class="twelve columns">
     <section>
       <h2>Albums</h2>
+      <p ng-if="$ctrl.albums.length < 1">No albums, add one.</p>
       <div class="row" ng-repeat="album in $ctrl.albums">
         <div class="twelve columns">
-          <div ng-class="$ctrl.style['list-item']">
+          <div>
             <h3><a ui-sref="album-detail({albumId: album._id})">{{ album.title }}</a></h3>
             <p>{{ album.description }}</p>
             <button type="button" ng-click="$ctrl.deleteAlbum(album._id)">Remove</button>

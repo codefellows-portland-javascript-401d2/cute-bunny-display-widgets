@@ -1,8 +1,6 @@
 addAlbumController.$inject = ['albumsService'];
 
 export default function addAlbumController(albumsService) {
-  this.style = style;
-
   this.addAlbum = ($event) => {
     albumsService
       .createAlbum({

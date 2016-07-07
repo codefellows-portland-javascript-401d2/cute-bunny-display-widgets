@@ -1,7 +1,8 @@
 <div class="row">
   <div class="twelve columns">
     <section>
-      <h2>{{ $ctrl.data.album.title }}</h2>
+      <h2>Album: {{ $ctrl.data.album.title }}</h2>
+      <p ng-if="$ctrl.data.photos.length < 1">No photos, add one.</p>
       <div class="row" ng-repeat="photos in $ctrl.data.photos">
         <div class="column four" ng-repeat="photo in photos">
           <a ui-sref="photo-detail({photoId: photo._id})" ng-class="$ctrl.style.thumbnail" ng-style="{'background-image': 'url('+photo.photoLink+')'}" title="{{ photo.description }}">

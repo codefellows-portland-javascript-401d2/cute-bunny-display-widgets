@@ -1,9 +1,0 @@
-<section>
-  <div class="row" ng-repeat="bunnies in $ctrl.bunniesGroup">
-    <div class="column four" ng-repeat="bunny in bunnies">
-      <div ng-class="$ctrl.style.thumbnail" ng-style="{'background-image': 'url('+bunny.imageLink+')'}" title="{{ bunny.description }}">
-        <h2>{{ bunny.title }}</h2>
-      </div>
-    </div>
-  </div>
-</section>
