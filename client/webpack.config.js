@@ -18,13 +18,13 @@ module.exports = {
     ],
     loaders: [
       {
-  			test: /\.html$/,
-  			loader: 'html?minimize',
-  		},
+        test: /\.html$/,
+        loader: 'html?minimize',
+      },
       {
-  			test: /\.scss$/,
-  			loader: ExtractTextPlugin.extract('style!', 'css?minimize&sourceMap!sass?sourceMap')
-  		},
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style!', 'css?minimize&sourceMap!sass?sourceMap')
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -47,5 +47,5 @@ module.exports = {
   ],
   sassLoader: {
     includePaths: ['./src/styles']
-	}
+  }
 };

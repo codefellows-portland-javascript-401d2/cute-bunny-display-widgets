@@ -1,9 +1,6 @@
-import style from './add-photo.style.scss';
-
 addPhotoController.$inject = ['photosService'];
 
 export default function addPhotoController(photosService) {
-  this.style = style;
   this.newPhoto = {
     albums: [this.album._id]
   };

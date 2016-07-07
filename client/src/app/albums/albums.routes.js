@@ -2,45 +2,45 @@ export default [
   {
     name: 'album-list',
     config: {
-  		url: '/albums',
+      url: '/albums',
       resolve: {
-				albums: [
+        albums: [
           'albumsService',
           albumsService => albumsService.retrieveAlbums()
         ]
-			},
-  		views: {
+      },
+      views: {
         header: {
           component: 'headerDefault'
         },
-  			main: {
-  				component: 'albumList'
-  			},
+        main: {
+          component: 'albumList'
+        },
         addAlbum: {
           component: 'addAlbum'
         }
-  	  }
+      }
     }
-	},
+  },
   {
     name: 'album-detail',
     config: {
-  		url: '/albums/:albumId',
+      url: '/albums/:albumId',
       resolve: {
-				data: [
+        data: [
           'albumsService',
           '$stateParams',
           (albumsService, params) => albumsService.retrieveAlbum(params.albumId)
         ]
-			},
-  		views: {
+      },
+      views: {
         header: {
           component: 'headerDefault'
         },
-  			main: {
-  				component: 'albumDetail'
-  			}
-  	  }
+        main: {
+          component: 'albumDetail'
+        }
+      }
     }
-	}
+  }
 ];
