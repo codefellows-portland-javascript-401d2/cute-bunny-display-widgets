@@ -63,6 +63,37 @@ router
           });
       });
   })
+  .put('/:photoId', jsonParser, (req, res) => {
+    PhotoModel
+      .update({
+        _id: req.params.photoId
+      }, {
+        $set: {
+          title: req.body.title,
+          description: req.body.description,
+          photoLink: req.body.photoLink,
+          photoThumbWidth: req.body.photoThumbWidth,
+          photoThumbHeight: req.body.photoThumbHeight,
+          photoFullWidth: req.body.photoFullWidth,
+          photoFullHeight: req.body.photoFullHeight
+        }
+      })
+      .then(photo => {
+        res
+          .json({
+            status: 'success',
+            result: photo
+          });
+      })
+      .catch(err => {
+        res
+          .json({
+            status: 'error',
+            result: 'Server error',
+            error: err
+          });
+      });
+  })
   .delete('/:photoId', (req, res) => {
     PhotoModel
       .findByIdAndRemove(req.params.photoId)

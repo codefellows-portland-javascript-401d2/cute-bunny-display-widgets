@@ -7,6 +7,8 @@ export default function addAlbumController(albumsService) {
         title: this.albumTitle
       })
       .then(album => {
+        album.updateAlbum = false;
+
         this.albums.push(album);
 
         $event.target.reset();

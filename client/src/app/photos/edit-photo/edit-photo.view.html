@@ -1,0 +1,33 @@
+<form ng-submit="$ctrl.updatePhoto()">
+  <div class="form-group">
+    <label for="edit-photo-title">Title</label>
+    <input type="text" class="form-input" id="edit-photo-title" ng-model="$ctrl.photoTitle" autocomplete="off" required>
+  </div>
+  <div class="form-group">
+    <label for="edit-photo-description">Description</label>
+    <textarea class="form-input" id="edit-photo-description" ng-model="$ctrl.photoDescription" rows="3" autocomplete="off" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="edit-photo-link">Link</label>
+    <input type="text" class="form-input" id="edit-photo-link" ng-model="$ctrl.photoLink" autocomplete="off" required>
+  </div>
+  <div class="form-group">
+    <label for="edit-photo-thumb-width">Thumb Width</label>
+    <input type="number" class="form-input" id="edit-photo-thumb-width" ng-model="$ctrl.photoThumbWidth" autocomplete="off" required min="1">
+  </div>
+  <div class="form-group">
+    <label for="edit-photo-thumb-height">Thumb Height</label>
+    <input type="number" class="form-input" id="edit-photo-thumb-height" ng-model="$ctrl.photoThumbHeight" autocomplete="off" required min="1">
+  </div>
+  <div class="form-group">
+    <label for="edit-photo-full-width">Full Width</label>
+    <input type="number" class="form-input" id="edit-photo-full-width" ng-model="$ctrl.photoFullWidth" autocomplete="off" required min="1">
+  </div>
+  <div class="form-group">
+    <label for="edit-photo-full-height">Full Height</label>
+    <input type="number" class="form-input" id="edit-photo-full-height" ng-model="$ctrl.photoFullHeight" autocomplete="off" required min="1">
+  </div>
+  <div class="form-group">
+    <button type="submit">Save</button>
+  </div>
+</form>
