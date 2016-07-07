@@ -16,6 +16,7 @@ export default function userService(tokenSvc, $http, apiUrl) {
 
     logout() {
       tokenSvc.destroy();
+      console.log('logout!');
     },
 
     login(credentials) {

@@ -2,7 +2,7 @@ import angular from 'angular';
 import displayApp from './app';
 import router from './router';
 import auth from './auth';
-import oauth from './oauth';
+import http from './config-http';
 
 import './scss/main.scss';
 

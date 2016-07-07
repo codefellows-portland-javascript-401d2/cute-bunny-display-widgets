@@ -4,7 +4,7 @@ const TOKEN_NAME = 'token';
 
 export default function tokenService($window) {
   return {
-    retrive() {
+    retrieve() {
       return $window.localStorage.getItem(TOKEN_NAME);
     },
     destroy() {

@@ -1,10 +1,14 @@
-<!--<header ng-style="{'background-image':'url(/images/'+ 'cream_pixels.png' +')'}">-->
 <header>
   <a ui-sref="landing"><h1 class="site-title">Image Gallery</h1></a>
   <nav>
     <a ui-sref="newPost" ui-sref-active="active">Add Image</a>
     <a ui-sref="gallery({album: ''})" ng-class="{active: app.$state.includes('gallery')}">Gallery</a>
     <a ui-sref="albums" ui-sref-active="active">Manage Albums</a>
+    <a ng-click="app.logout()" 
+       ui-sref="landing"
+       ng-show="app.isAuth() === true">
+       Logout
+    </a>
   </nav>
 </header>
 
