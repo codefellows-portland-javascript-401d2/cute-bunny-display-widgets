@@ -15,9 +15,11 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  text-align: left;
 }
 
 :local(.items) {
+  display: list-item;
   font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
 
