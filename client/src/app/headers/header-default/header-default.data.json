@@ -3,12 +3,32 @@
     {
       "name": "home",
       "text": "Home",
-      "link": "/"
+      "link": "/",
+      "isPrivate": false
     },
     {
       "name": "album-list",
       "text": "Albums",
-      "link": "/albums"
+      "link": "/albums",
+      "isPrivate": true
+    },
+    {
+      "name": "signup",
+      "text": "Sign Up",
+      "link": "/signup",
+      "isPrivate": false
+    },
+    {
+      "name": "signin",
+      "text": "Sign In",
+      "link": "/signin",
+      "isPrivate": false
+    },
+    {
+      "name": "signout",
+      "text": "Sign Out",
+      "link": "/signout",
+      "isPrivate": true
     }
   ],
   "displays": [

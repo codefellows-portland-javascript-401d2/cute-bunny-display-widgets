@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const token = {};
 
-token.sign = (user) => {
+token.sign = user => {
   return new Promise((resolve, reject) => {
     jwt.sign(
       {
@@ -19,7 +19,7 @@ token.sign = (user) => {
   });
 };
 
-token.verify = (token) => {
+token.verify = token => {
   return new Promise((resolve, reject) => {
     jwt.verify(
       token,

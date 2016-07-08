@@ -9,6 +9,9 @@ import editAlbum from './albums/edit-album/edit-album.component';
 import photoDetail from './photos/photo-detail/photo-detail.component';
 import addPhoto from './photos/add-photo/add-photo.component';
 import editPhoto from './photos/edit-photo/edit-photo.component';
+import signin from './auth/signin/signin.component';
+import signout from './auth/signout/signout.component';
+import signup from './auth/signup/signup.component';
 
 const components = angular
   .module('components', [])
@@ -21,6 +24,9 @@ const components = angular
   .component('editAlbum', editAlbum)
   .component('photoDetail', photoDetail)
   .component('addPhoto', addPhoto)
-  .component('editPhoto', editPhoto);
+  .component('editPhoto', editPhoto)
+  .component('signin', signin)
+  .component('signout', signout)
+  .component('signup', signup);
 
 export default components;

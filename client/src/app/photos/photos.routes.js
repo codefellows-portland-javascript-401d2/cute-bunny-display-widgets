@@ -3,6 +3,9 @@ export default [
     name: 'photo-detail',
     config: {
       url: '/photos/:photoId',
+      data: {
+        requireAuth: true
+      },
       resolve: {
         photo: [
           'photosService',

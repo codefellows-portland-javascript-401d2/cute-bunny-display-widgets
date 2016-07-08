@@ -6,7 +6,7 @@
       </div>
       <nav ng-class="$ctrl.style['nav-pages']">
         <ul>
-          <li ng-repeat="page in $ctrl.pages">
+          <li ng-repeat="page in $ctrl.pages" ng-if="page.isPrivate === $ctrl.isPrivate">
             <a ui-sref="{{ page.name }}">{{ page.text }}</a>
           </li>
         </ul>
