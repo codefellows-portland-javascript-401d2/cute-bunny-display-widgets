@@ -11,6 +11,7 @@ module.exports = router
         next({code: 500, error: 'Database failure', msg: err});
       });
   })
+
   .post('/', jsonBody, (req, res, next) => {
     new Album(req.body).save()
     .then( data => res.send(data) )
@@ -18,6 +19,7 @@ module.exports = router
       next({code: 500, error: 'Database failure', msg: err});
     });
   })
+  
   .delete('/:id', (req, res, next) => {
     Album.findByIdAndRemove(req.params.id)
       .then( data => res.send(data) )

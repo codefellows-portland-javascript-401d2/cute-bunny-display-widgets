@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const cors = require('./cors')();
+const cors = require('./cors')('*');
 const photos = require('../routes/photos');
 const albums = require('../routes/albums');
 const auth = require('../routes/auth');
@@ -11,8 +11,9 @@ app.use(express.static(__dirname + './../public'));
 app.use(cors);
 
 app.use('/api', auth);
+app.use('/api/albums', ensureAuth, albums);
 app.use('/api/photos', ensureAuth, photos);
-app.use('/api/albums', albums);
+
 
 app.use( (err, req, res, next) => {
   next.beQuietLint = true;

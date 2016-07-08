@@ -7,6 +7,9 @@ import addPic from './album/add-pic/add-pic';
 import albumPicker from './album-picker/album-picker';
 import addAlbum from './album-picker/add-album/add-album';
 import header from './app/header/header';
+import userAuth from './user-auth/user-auth';
+import signin from './user-auth/signin/signin';
+import signup from './user-auth/signup/signup';
 
 const components = angular.module('components', [])
 .component('app', app)
@@ -16,6 +19,10 @@ const components = angular.module('components', [])
 .component('addPic', addPic)
 .component('albumPicker', albumPicker)
 .component('addAlbum', addAlbum)
-.component('header', header);
+.component('header', header)
+.component('userAuth', userAuth)
+.component('signin', signin)
+.component('signup', signup);
+
 
 export default components.name;

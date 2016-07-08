@@ -2,6 +2,7 @@
   <div ui-sref="home({display: $ctrl.display, albumId: $ctrl.animal, animalname: $ctrl.animalname})" ui-sref-active="selected">Welcome</div>
   <div ui-sref="animals({display: $ctrl.display, albumId: $ctrl.animal, animalname: $ctrl.animalname})" ui-sref-active="selected">Albums</div>
   <div ui-sref="album({display: $ctrl.display, albumId: $ctrl.animal, animalname: $ctrl.animalname})" ui-sref-active="selected">Photos</div>
+  <div ui-sref="home({display: $ctrl.display, albumId: $ctrl.animal, animalname: $ctrl.animalname})" ng-click="$ctrl.logout()">Logout</div>
 </div>
 
 <!-- albumId: '577576fd2cf646f53a23a7e0',  -->

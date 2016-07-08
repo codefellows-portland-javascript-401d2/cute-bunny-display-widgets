@@ -8,7 +8,8 @@ export default {
     animal: '<',
     animalname: '<'
   },
-  controller: function(){
+  controller: ['userService', function(userService){
     this.styles = styles;
-  }
+    this.logout = () => userService.logout();
+  }]
 };

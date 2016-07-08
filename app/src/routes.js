@@ -5,10 +5,11 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
   $stateProvider
     .state( 'home', {
       url: '/?display?albumId?animalname',
+      data: { requiresAuth: false },
       resolve: {
         display: [ '$stateParams', params => params.display],
         animal: [ '$stateParams', ( params ) => params.albumId],
-        animalname: [ '$stateParams', (params) => params.animalname || 'Choose an album']
+        animalname: [ '$stateParams', (params) => params.animalname || 'Choose']
       },
       views: {
         main: {
@@ -21,10 +22,11 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
     })
     .state( 'animals', {
       url: '/animal?display?albumId?animalname',
+      data: { requiresAuth: true },
       resolve: {
         display: ['$stateParams', params => params.display],
         animal: [ '$stateParams', ( params ) => params.albumId],
-        animalname: [ '$stateParams', (params) => params.animalname || 'Choose an album'],
+        animalname: [ '$stateParams', (params) => params.animalname || 'Choose'],
         arrayOfAnimals: [ 'animalService', (animalService) => {
           return animalService.get();
         }]
@@ -40,10 +42,11 @@ export default function configRoutes( $stateProvider, $urlRouterProvider) {
     })
     .state( 'album', {
       url: '/album/?display?albumId?animalname?picId',
+      data: { requiresAuth: true },
       resolve: {
         display: [ '$stateParams', ( params ) => params.display || 'thumb' ],
         animal: [ '$stateParams', ( params ) => params.albumId],
-        animalname: [ '$stateParams', (params) => params.animalname || 'Choose an album'],
+        animalname: [ '$stateParams', (params) => params.animalname || 'Choose'],
         arrayOfPics: [ 'albumService', '$stateParams', (albumService, params) => {
           if (params.albumId){
             let myAlbum = params.albumId;
