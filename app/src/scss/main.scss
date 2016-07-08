@@ -8,6 +8,8 @@ body {
   overflow-x: hidden;
 }
 
+*:focus {outline:none !important}
+
 a {
   text-decoration: none;
   color: $a-color;

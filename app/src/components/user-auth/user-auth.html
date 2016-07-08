@@ -1,0 +1,13 @@
+<section>
+  <p>Login</p>
+  <p class="error">{{$ctrl.error}}</p>
+  <form ng-submit="$ctrl.tryLogin()">
+    <input ng-model="$ctrl.form.username"
+          placeholder="Username" />
+    <br>
+    <input ng-model="$ctrl.form.password"
+          placeholder="Password" />
+    <br>
+    <input type="submit" value="Submit" />
+  </form>
+</section>

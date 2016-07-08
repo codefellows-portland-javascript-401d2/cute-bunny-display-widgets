@@ -16,7 +16,6 @@ export default function userService(tokenSvc, $http, apiUrl) {
 
     logout() {
       tokenSvc.destroy();
-      console.log('logout!');
     },
 
     login(credentials) {
@@ -25,7 +24,7 @@ export default function userService(tokenSvc, $http, apiUrl) {
           tokenSvc.set(result.data.token);
         })
         .catch(err => {
-          throw err.data; 
+          // throw err.data; 
         });
     },
 
@@ -35,7 +34,7 @@ export default function userService(tokenSvc, $http, apiUrl) {
           tokenSvc.set(result.data.token);
         })
         .catch(err => {
-          throw err.data; 
+          // throw err.data; 
         });
     }
 

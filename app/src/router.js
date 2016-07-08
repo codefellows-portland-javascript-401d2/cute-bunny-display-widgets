@@ -5,6 +5,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('landing', {
       url: '/',
+      data: {requiresAuth: false},
       views: {
         main: {
           template: '<h2>Welcome User</h2>'
@@ -13,6 +14,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('gallery', {
       url: '/gallery/:album?view',
+      data: {requiresAuth: true},
       params: {
         view: {dynamic: true}
       },
@@ -36,6 +38,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('newPost', {
       url: '/addimage',
+      data: {requiresAuth: true},
       views: {
         main: {
           component: 'newPost'
@@ -44,6 +47,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('albums', {
       url: '/albums',
+      data: {requiresAuth: true},
       views: {
         main: {
           component: 'albumControl'

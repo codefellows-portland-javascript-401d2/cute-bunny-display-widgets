@@ -9,21 +9,21 @@ interceptor.$inject = ['tokenService', '$state'];
 function interceptor(tokenSvc, $state) {
 
   return {
-    request( config ) {
+    request(config) {
       config.headers = config.headers || {};
       const token = tokenSvc.retrieve();
-      if ( token ) {
+      if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }	   
       return config;
     },
 
-    responseError( response ) {
-      if ( response.status >= 400 && response.status < 500 ) {
+    responseError(response) {
+      if (response.status >= 400 && response.status < 500) {
         tokenSvc.destroy();
-        $state.go( 'landing' );
+        $state.go('landing');
       }
-      return Promise.reject( response );
+      return Promise.reject(response);
     }
   };
 }
