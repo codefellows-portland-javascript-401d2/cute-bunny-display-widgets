@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: '../server/public',
-    filename: '/scripts/bundle.js'
+    filename: 'scripts/bundle.js'
   },
   module: {
     preLoaders: [
@@ -41,9 +41,9 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new EnvironmentPlugin(['API_URL']),
+    new EnvironmentPlugin(['API_URL', 'TOKEN_NAME']),
     new HtmlPlugin({template: './src/index.html'}),
-    new ExtractTextPlugin('/styles/bundle.css')
+    new ExtractTextPlugin('styles/bundle.css')
   ],
   sassLoader: {
     includePaths: ['./src/styles']

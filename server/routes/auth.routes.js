@@ -51,7 +51,13 @@ router
         return user
           .save()
           .then(user => token.sign(user))
-          .then(token => res.json({token}));
+          .then(token => {
+            res
+              .json({
+                status: 'success',
+                result: token
+              });
+          });
       })
       .catch(err => {
         res
@@ -69,7 +75,7 @@ router
 
     delete req.body;
 
-    User
+    UserModel
       .findOne({
         username
       })
@@ -94,7 +100,14 @@ router
 
         token
           .sign(user)
-          .then(token => res.json({token}));
+          .then(token => {
+            res
+              .status(200)
+              .json({
+                status: 'success',
+                result: token
+              });
+          });
       })
       .catch(err => {
         res

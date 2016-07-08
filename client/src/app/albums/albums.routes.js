@@ -3,6 +3,9 @@ export default [
     name: 'album-list',
     config: {
       url: '/albums',
+      data: {
+        requireAuth: true
+      },
       resolve: {
         albums: [
           'albumsService',
@@ -26,6 +29,9 @@ export default [
     name: 'album-detail',
     config: {
       url: '/albums/:albumId',
+      data: {
+        requireAuth: true
+      },
       resolve: {
         data: [
           'albumsService',
