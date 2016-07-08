@@ -34,6 +34,4 @@ const photoSchema = new mongoose.Schema({
   timestamps: true
 });
 
-const photoModel = mongoose.model('Photo', photoSchema);
-
-module.exports = photoModel;
+module.exports = mongoose.model('Photo', photoSchema);
