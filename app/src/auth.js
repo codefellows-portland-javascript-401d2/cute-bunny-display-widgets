@@ -11,12 +11,12 @@ export default function auth($rootScope, userSvc, ngDialog, $state) {
       const dialog = ngDialog.open({ 
         template: '<user-auth success="success()"></user-auth>',
         plain: true,
-        controller: ['$scope', function($scope) {
+        controller: function($scope) {
           $scope.success = function() {
             dialog.close();
             return $state.go(toState.name, toParams);
           };
-        }]
+        }
       });
       
       dialog.closePromise
