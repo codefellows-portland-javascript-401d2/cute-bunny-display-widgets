@@ -1,77 +1,91 @@
-const router = require( 'express' ).Router();
-const jsonParser = require( 'body-parser' ).json();
-const User = require( '../models/user' );
-const token = require( '../lib/token-check' );
-const ensureAuth = require( '../lib/auth-validate' );
+const router = require('express').Router();
+const jsonParser = require('body-parser').json();
+const User = require('../models/user');
+const token = require('../lib/token-check');
+const authValidate = require('../lib/auth-validate');
 
-router.post('/signup', jsonParser, ( req, res ) => {
-  const { username, password } = req.body;
+router.post('/signup', jsonParser, (req, res) => {
+  const {username, password} = req.body;
   delete req.body.password;
 	
-  if ( !password ) {
+  if (!username) {
     return res.status(400).json({
-      msg: 'You probably want to include a password!'
+      message: 'Username Required'
     });
   }
 
-  User.findOne({ username })
-    .then( existing => {
-      if ( existing ) {
+  if (!password) {
+    return res.status(400).json({
+      message: 'Password Required'
+    });
+  }
+
+  User.findOne({username})
+    .then(existing => {
+      if (existing) {
         return res.status(500).json({
-          msg: 'didn\'t work',
-          reason: 'username already exists'
+          message: 'Username Not Available'
         });
       }
 			
-      const user = new User( req.body );
-      user.generateHash( password );
+      const user = new User(req.body);
+      user.generateHash(password);
       return user.save()
-        .then( user => token.sign( user ) )
-        .then( token => res.json({ token }) );
+        .then(user => token.sign(user))
+        .then(token => res.json({token}));
         
     })
-		.catch( err => {
+		.catch(err => {
       res.status(500).json({
-        msg: 'didn\'t work',
-        reason: err
+        message: 'Server Error: ' + err
       });
 		});
 });
 
-router.post('/login', jsonParser, ( req, res ) => {
-  const { username, password } = req.body;
+router.post('/login', jsonParser, (req, res) => {
+  const {username, password} = req.body;
   delete req.body;
 
-  User.findOne({ username })
-    .then( user => {
+  if (!username) {
+    return res.status(400).json({
+      message: 'Username Required'
+    });
+  }
+
+  if (!password) {
+    return res.status(400).json({
+      message: 'Password Required'
+    });
+  }
+
+  User.findOne({username})
+    .then(user => {
       
-      if ( !user ) {
+      if (!user) {
         return res.status(400).json({
-          msg: 'authentication sez no!',
-          reason: 'no user ' + username
+          message: 'No User Found'
         });
       }
+
 			
-      if ( !user.compareHash( password ) ) {
+      if (!user.compareHash(password)) {
         return res.status(400).json({
-          msg: 'authentication sez no!',
-          reason: 'password doesn\'t match!'
+          message: 'Invalid Username and/or Password'
         });
       }
       
-      token.sign( user ).then( token => res.json({ token }) );
+      token.sign(user).then(token => res.json({token}));
     })
-		.catch( err => {
+		.catch(err => {
       res.status(500).json({
-        msg: 'didn\'t work',
-        reason: err
+        message: 'Server Error: ' + err
       });
 		});
 	
 });
 
-router.get('/verify', ensureAuth, ( req, res ) => {
-  res.status( 200 ).send( { success: true } );
+router.get('/verify', authValidate, (req, res) => {
+  res.status(200).send({success: true});
 });
 
 module.exports = router;

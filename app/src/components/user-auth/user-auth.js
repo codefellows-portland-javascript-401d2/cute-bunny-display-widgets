@@ -12,15 +12,16 @@ export default {
     this.registerForm = {};
 
     this.tryLogin = function() {
+
       userService.login(this.loginForm)
         .then(() => this.success())
-        .catch(err => this.error = err.reason);
+        .catch(err => this.error = err.data.message);
     };
 
     this.tryRegister = function() {
       userService.signup(this.registerForm)
         .then(() => this.success())
-        .catch(err => this.error = err.reason);
+        .catch(err => this.error = err.data.message);
     };
   }
 };

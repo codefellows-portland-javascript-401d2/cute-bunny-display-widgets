@@ -22,9 +22,6 @@ export default function userService(tokenSvc, $http, apiUrl) {
       return $http.post(`${apiUrl}/auth/login`, credentials)
         .then( result => {
           tokenSvc.set(result.data.token);
-        })
-        .catch(err => {
-          // throw err.data; 
         });
     },
 
@@ -32,9 +29,6 @@ export default function userService(tokenSvc, $http, apiUrl) {
       return $http.post(`${apiUrl}/auth/signup`, credentials)
         .then(result => {
           tokenSvc.set(result.data.token);
-        })
-        .catch(err => {
-          // throw err.data; 
         });
     }
 

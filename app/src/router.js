@@ -8,7 +8,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       data: {requiresAuth: false},
       views: {
         main: {
-          template: '<h2>Welcome User</h2>'
+          template: '<h2 class="welcome">Welcome</h2><h2 class="reflection">Welcome</h2>' 
         }
       }
     })
