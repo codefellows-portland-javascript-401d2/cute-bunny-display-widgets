@@ -43,7 +43,7 @@ module.exports = {
         loader: 'html'
       },
       { 
-        test: /\.(jpe?g|png|gif|svg)$/i, 
+        test: /\.(jpg|png|gif|svg)$/i, 
         loader: 'url-loader?limit=10000' 
       }
     ]

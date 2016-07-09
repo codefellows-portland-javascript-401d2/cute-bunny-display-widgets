@@ -8,15 +8,19 @@ export default {
   },
   controller: function(userService) {
     this.style = style;
-    this.form = {};
+    this.loginForm = {};
+    this.registerForm = {};
+
     this.tryLogin = function() {
-      userService.login(this.form)
-      .then(() => {
-        this.success();
-      })
-      .catch(err => {
-        this.error = err.reason;
-      });
+      userService.login(this.loginForm)
+        .then(() => this.success())
+        .catch(err => this.error = err.reason);
+    };
+
+    this.tryRegister = function() {
+      userService.signup(this.registerForm)
+        .then(() => this.success())
+        .catch(err => this.error = err.reason);
     };
   }
 };

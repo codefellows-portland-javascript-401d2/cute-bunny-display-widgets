@@ -1,3 +1,41 @@
+@import 'colors';
+
 .error {
   color: orangered;
+}
+
+section.credentials {
+  text-align: center;
+
+  form {
+
+    input {
+      height: 25px;
+      width: 180px;
+    }
+  
+    input[type="submit"] {
+          background: #fff;
+          color: $accent-color;
+          height: 35px;
+          width: 50px;
+          display: block;
+          margin: 10px auto;
+          transition: background 300ms ease, color 300ms ease;
+          border: 1px solid $accent-color;
+          font-size: 0.7em;
+          width: 90px;
+          height: 25px;
+          font-family: 'Roboto';
+          cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+          background: $accent-color;
+          border: none;
+          color: #fff;
+    }
+
+  }
+
 }
