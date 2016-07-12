@@ -9,6 +9,10 @@ export default function albumService($http, apiUrl) {
     post(newAlbum) {
       return $http.post(`${apiUrl}/albums`, newAlbum)
         .then(result => result.data.content);
+    },
+    del(albumId) {
+      return $http.delete(`${apiUrl}/albums/${albumId}`)
+        .then(result => result.data.content);
     }
   };
 };

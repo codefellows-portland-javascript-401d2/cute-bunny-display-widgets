@@ -14,7 +14,9 @@
     "mongoose": "^4.5.2"
   },
   "devDependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
-    "json-loader": "^0.5.4"
+    "json-loader": "^0.5.4",
+    "jsonwebtoken": "^7.0.1"
   }
 }

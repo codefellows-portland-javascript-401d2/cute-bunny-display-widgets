@@ -35,8 +35,16 @@ module.exports = {
         loader: 'style!css?sourceMap!sass?sourceMap'
       },
       {
+        test: /\.css$/,
+        loader: 'style!css'
+      },
+      {
         test: /\.html$/,
         loader: 'html'
+      },
+      { 
+        test: /\.(jpg|png|gif|svg)$/i, 
+        loader: 'url-loader?limit=10000' 
       }
     ]
   },

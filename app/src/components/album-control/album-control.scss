@@ -1,0 +1,24 @@
+@import 'colors';
+
+:local(.main) {
+  margin: 30px auto;
+  width: 70%;
+
+  li {
+    margin: 5px 0;
+    
+    hr {
+      border-top: 1px solid #efefef;
+      border-left: none;
+    }
+    p {
+
+      span{
+        float: right;
+        color: $accent-color;  
+        cursor: pointer;
+      }
+
+    }
+  }
+}

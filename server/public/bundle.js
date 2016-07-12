@@ -32074,8 +32074,19 @@
 	  controllerAs: 'app',
 	
 	  controller: function controller($http) {
-	    // this.images =
+	    var _this = this;
 	
+	    $http.get('http://localhost:3000/api/monsters').then(function (results) {
+	      if (results.status === 200) {
+	        _this.images = JSON.parse(results.data.content);
+	      } else {
+	        console.error('500: Problem Retrieving Images');
+	      }
+	    });
+	
+	    this.addImage = function (post) {
+	      _this.images.unshift(post);
+	    };
 	  }
 	};
 
@@ -32083,7 +32094,7 @@
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "<header>\r\n  <h1 class=\"site-title\">Image Gallery</h1>\r\n</header>\r\n<new-post data=\"app.images\">\r\n</new-post>\r\n<toggler images=\"app.images\">\r\n</toggler>\r\n<br><br>\r\n<footer>\r\n  \r\n</footer>\r\n";
+	module.exports = "<header>\r\n  <h1 class=\"site-title\">Image Gallery</h1>\r\n</header>\r\n<new-post add=\"app.addImage(posted)\">\r\n</new-post>\r\n<toggler images=\"app.images\">\r\n</toggler>\r\n<br><br>\r\n<footer>\r\n  \r\n</footer>\r\n";
 
 /***/ },
 /* 11 */
@@ -32619,17 +32630,17 @@
 	  template: _newPost2.default,
 	  controllerAs: 'newPost',
 	  bindings: {
-	    data: '='
+	    add: '&'
+	
 	  },
 	  controller: function controller() {
 	    var _this = this;
 	
 	    this.style = _newPost4.default;
 	
-	    this.addPost = function (post) {
-	      console.log(post);
-	      if (post && post.url) {
-	        _this.data.unshift(post);
+	    this.submit = function () {
+	      if (_this.postData && _this.postData.url) {
+	        _this.add({ posted: _this.postData });
 	        _this.postData = {};
 	      }
 	    };
@@ -32640,7 +32651,7 @@
 /* 24 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-container\">  \r\n  <h4>Add New Image</h4>\r\n  <form class=\"new-post\" \r\n        ng-submit=\"newPost.addPost(newPost.postData)\">\r\n    <input ng-model=\"newPost.postData.title\"\r\n           placeholder=\"Image Title\" />\r\n    <br>\r\n    <input ng-model=\"newPost.postData.url\"\r\n           placeholder=\"URL\" />\r\n    <br>\r\n    <input ng-model=\"newPost.postData.description\"\r\n           placeholder=\"Description\" />\r\n    <br>\r\n    <input type=\"submit\" value=\"Add Image\"/>\r\n  </form>\r\n</div>\r\n";
+	module.exports = "<div class=\"form-container\">  \r\n  <h4>Add New Image</h4>\r\n  <form class=\"new-post\" \r\n        ng-submit=\"newPost.submit()\">\r\n    <input ng-model=\"newPost.postData.title\"\r\n           placeholder=\"Image Title\" />\r\n    <br>\r\n    <input ng-model=\"newPost.postData.url\"\r\n           placeholder=\"URL\" />\r\n    <br>\r\n    <input ng-model=\"newPost.postData.description\"\r\n           placeholder=\"Description\" />\r\n    <br>\r\n    <input type=\"submit\" value=\"Add Image\"/>\r\n  </form>\r\n</div>\r\n";
 
 /***/ },
 /* 25 */

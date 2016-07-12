@@ -23,7 +23,7 @@ div.thumb-overlay {
   height: 100%;
   width: 100%;
   position: absolute;
-  z-index: 5;
+  z-index: 10;
   opacity: 0;
   transition: opacity $delta ease;
 
@@ -41,13 +41,13 @@ div.thumb-overlay {
   }
 
 }
-div.thumb-overlay:hover {
-  opacity: 1;
+div.thumb-overlay-hover {
+  opacity: 1 !important;
 }
 
 span.thumb-overlay-text {
   position: absolute;
-  width: $thumb-size - $indent - 10px;
+  width: $thumb-size - $indent - 25px;
   z-index: 10;
   color: $overlay-text-color;
   font-size: 1.4em;
@@ -55,6 +55,7 @@ span.thumb-overlay-text {
   padding: 10px;
   transition: left $delta * 0.75 ease;
   left: -75px;
+  top: 20px;
 }
 
 span.thumb-overlay-text-hover {

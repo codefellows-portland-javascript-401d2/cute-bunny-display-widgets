@@ -1,11 +1,13 @@
 @import 'colors';
 
 ul.viewer {
-  padding: 0 7%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: flex-start;
+  margin: 15px 0;
+  padding: 0;
 }
 
 li {
@@ -16,10 +18,10 @@ li {
   }
 
   &.text {
-    width: 100%;
+    width: 80%;
   }
 
   &.full {
-    margin-bottom: 50px;
+    margin: 10px 50px;
   }
 }

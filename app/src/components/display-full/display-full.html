@@ -1,8 +1,9 @@
 <section ng-class="full.style.full">  
   <h3>{{full.postTitle}}</h3>
+  <p>In <em>{{full.album}}</em></p>
+  <ng-transclude></ng-transclude>
   <div class="img-wrapper">
     <img ng-src={{full.source}} />
   </div>
   <p>{{full.description}}</p>
-  <ng-transclude></ng-transclude>
 </section>
