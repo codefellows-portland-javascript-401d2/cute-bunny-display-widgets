@@ -1,0 +1,47 @@
+@import 'colors';
+
+:local(.photo-detail) {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 2px;
+  position: relative;
+  height: 600px;
+
+  h2, p {
+    position: absolute;
+    right: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .8);
+  }
+
+  h2 {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+    line-height: 44px;
+  }
+
+  p {
+    bottom: 0;
+    margin: 0;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    padding: 5px;
+  }
+
+  @media (min-width: 544px) {
+    h2 {
+      font-size: 36px;
+      line-height: 56px;
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 34px;
+    }
+  }
+}

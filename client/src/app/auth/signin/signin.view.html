@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="tweleve columns">
+    <section>
+      <h2>Sign In</h2>
+      <p class="error" ng-if='$ctrl.error'>{{ $ctrl.error }}</p>
+      <form ng-submit="$ctrl.signin()">
+        <div>
+          <label for="signin-username">Username</label>
+          <input ng-model="$ctrl.credentials.username" type="text" id="signin-username" autocomplete="off" required>
+        </div>
+        <div>
+          <label for="signin-password">Password</label>
+          <input ng-model="$ctrl.credentials.password" type="password" id="signin-password" autocomplete="off" required>
+        </div>
+        <div>
+          <button type="submit">Sign In</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
