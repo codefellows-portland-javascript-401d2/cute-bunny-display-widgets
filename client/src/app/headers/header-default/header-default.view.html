@@ -1,0 +1,16 @@
+<header ng-class="$ctrl.style.header">
+  <div class="row">
+    <div class="twelve columns">
+      <div ng-class="$ctrl.style.branding">
+        <h1>Cute Bunny Album</h1>
+      </div>
+      <nav ng-class="$ctrl.style['nav-pages']">
+        <ul>
+          <li ng-repeat="page in $ctrl.pages" ng-if="page.isPrivate === $ctrl.isPrivate">
+            <a ui-sref="{{ page.name }}">{{ page.text }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

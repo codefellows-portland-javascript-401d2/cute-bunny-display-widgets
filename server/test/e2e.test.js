@@ -10,30 +10,29 @@ chai.use(chaiHttp);
 
 describe('End to End Testing', () => {
   let request = chai.request(app);
+  let bunniesAlbum = {
+    name: 'bunnies'
+  };
+  let bunnyPhoto = {
+    title: 'Calico Bunny',
+    description: 'Too cute to be real.',
+    photoLink: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
+    photoThumbWidth: 150,
+    photoThumbHeight: 100,
+    photoFullWidth: 504,
+    photoFullHeight: 337,
+    albums: []
+  };
 
   before(done => {
     databaseConnection.on('open', () => {
       databaseConnection.collections['albums'].drop();
-      databaseConnection.collections['images'].drop();
+      databaseConnection.collections['photos'].drop();
       done();
     });
   });
 
   describe('Albums', () => {
-    let bunniesAlbum = {
-      name: 'bunnies'
-    };
-
-    let bunnyImage = {
-      title: 'Calico Bunny',
-      description: 'Too cute to be real.',
-      imageLink: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-      imageThumbWidth: 150,
-      imageThumbHeight: 100,
-      imageFullWidth: 504,
-      imageFullHeight: 337
-    };
-
     it('Create bunnies album', done => {
       request
         .post('/api/albums')
@@ -52,7 +51,7 @@ describe('End to End Testing', () => {
           assert.equal(data.result.name, bunniesAlbum.name);
 
           bunniesAlbum.id = data.result._id;
-          bunnyImage.albums = [data.result._id];
+          bunnyPhoto.albums.push(data.result._id);
 
           done();
         });
@@ -96,12 +95,14 @@ describe('End to End Testing', () => {
           done();
         });
     });
+  });
 
-    it('Create an image for bunnies album', done => {
+  describe('Photos', () => {
+    it('Create a photo for bunnies album', done => {
       request
-      .post(`/api/albums/${bunniesAlbum.id}/images`)
+      .post('/api/photos')
       .set('Content-Type', 'application/json')
-      .send(bunnyImage)
+      .send(bunnyPhoto)
       .end((err, res) => {
         if (err) return done(err);
 
@@ -112,63 +113,63 @@ describe('End to End Testing', () => {
         assert.property(data, 'result');
         assert.property(data.result, '_id');
         assert.property(data.result, 'title');
-        assert.equal(data.result.title, bunnyImage.title);
+        assert.equal(data.result.title, bunnyPhoto.title);
         assert.property(data.result, 'description');
-        assert.equal(data.result.description, bunnyImage.description);
-        assert.property(data.result, 'imageLink');
-        assert.equal(data.result.imageLink, bunnyImage.imageLink);
-        assert.property(data.result, 'imageThumbWidth');
-        assert.equal(data.result.imageThumbWidth, bunnyImage.imageThumbWidth);
-        assert.property(data.result, 'imageThumbHeight');
-        assert.equal(data.result.imageThumbHeight, bunnyImage.imageThumbHeight);
-        assert.property(data.result, 'imageFullWidth');
-        assert.equal(data.result.imageFullWidth, bunnyImage.imageFullWidth);
-        assert.property(data.result, 'imageFullHeight');
-        assert.equal(data.result.imageFullHeight, bunnyImage.imageFullHeight);
+        assert.equal(data.result.description, bunnyPhoto.description);
+        assert.property(data.result, 'photoLink');
+        assert.equal(data.result.photoLink, bunnyPhoto.photoLink);
+        assert.property(data.result, 'photoThumbWidth');
+        assert.equal(data.result.photoThumbWidth, bunnyPhoto.photoThumbWidth);
+        assert.property(data.result, 'photoThumbHeight');
+        assert.equal(data.result.photoThumbHeight, bunnyPhoto.photoThumbHeight);
+        assert.property(data.result, 'photoFullWidth');
+        assert.equal(data.result.photoFullWidth, bunnyPhoto.photoFullWidth);
+        assert.property(data.result, 'photoFullHeight');
+        assert.equal(data.result.photoFullHeight, bunnyPhoto.photoFullHeight);
         assert.property(data.result, 'albums');
-        assert.deepEqual(data.result.albums, bunnyImage.albums);
+        assert.deepEqual(data.result.albums, bunnyPhoto.albums);
 
-        bunnyImage.id = data.result._id;
+        bunnyPhoto.id = data.result._id;
 
         done();
       });
     });
 
-    it('Get all images from bunnies album', done => {
+    it('Get all photos from bunnies album', done => {
       request
-        .get(`/api/albums/${bunniesAlbum.id}/images`)
-        .set('Content-Type', 'application/json')
-        .end((err, res) => {
-          if (err) return done(err);
+      .get('/api/photos')
+      .set('Content-Type', 'application/json')
+      .end((err, res) => {
+        if (err) return done(err);
 
-          let data = res.body;
+        let data = res.body;
 
-          assert.property(data, 'status');
-          assert.equal(data.status, 'success');
-          assert.property(data, 'result');
-          assert.lengthOf(data.result, 1);
+        assert.property(data, 'status');
+        assert.equal(data.status, 'success');
+        assert.property(data, 'result');
+        assert.lengthOf(data.result, 1);
 
-          done();
-        });
+        done();
+      });
     });
 
-    it('Get an image from bunnies album by ID', done => {
+    it('Get a photo from bunnies album by ID', done => {
       request
-        .get(`/api/albums/${bunniesAlbum.id}/images/${bunnyImage.id}`)
-        .set('Content-Type', 'application/json')
-        .end((err, res) => {
-          if (err) return done(err);
+      .get(`/api/photos/${bunnyPhoto.id}`)
+      .set('Content-Type', 'application/json')
+      .end((err, res) => {
+        if (err) return done(err);
 
-          let data = res.body;
+        let data = res.body;
 
-          assert.property(data, 'status');
-          assert.equal(data.status, 'success');
-          assert.property(data, 'result');
-          assert.lengthOf(data.result, 1);
-          assert.equal(data.result[0]._id, bunnyImage.id);
+        assert.property(data, 'status');
+        assert.equal(data.status, 'success');
+        assert.property(data, 'result');
+        assert.lengthOf(data.result, 1);
+        assert.equal(data.result[0]._id, bunnyPhoto.id);
 
-          done();
-        });
+        done();
+      });
     });
   });
 

@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="twelve columns">
+    <section>
+      <h2>Album: {{ $ctrl.data.album.title }}</h2>
+      <p ng-if="$ctrl.data.photos.length < 1">No photos, add one.</p>
+      <div class="row" ng-repeat="photos in $ctrl.data.photos">
+        <div class="column four" ng-repeat="photo in photos">
+          <edit-photo ng-if="photo.updatePhoto === true" photo="photo"></edit-photo>
+          <div ng-if="photo.updatePhoto === false">
+            <a ui-sref="photo-detail({photoId: photo._id})" ng-class="$ctrl.style.thumbnail" ng-style="{'background-image': 'url('+photo.photoLink+')'}" title="{{ photo.description }}">
+              <h2>{{ photo.title }}</h2>
+            </a>
+            <button type="button" ng-click="photo.updatePhoto = true">Edit</button>
+            <button type="button" ng-click="$ctrl.deletePhoto(photo._id)">Remove</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <add-photo album="$ctrl.data.album" photos="$ctrl.data.photos"></add-photo>
+  </div>
+</div>

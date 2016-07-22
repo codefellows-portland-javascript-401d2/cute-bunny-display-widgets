@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const albumSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true
   }
@@ -9,6 +9,4 @@ const albumSchema = new mongoose.Schema({
   timestamps: true
 });
 
-const albumModel = mongoose.model('Album', albumSchema);
-
-module.exports = albumModel;
+module.exports = mongoose.model('Album', albumSchema);

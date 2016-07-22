@@ -1,0 +1,15 @@
+<section>
+  <div class="row no-stacking-on-mobiles">
+    <div class="twelve columns">
+      <edit-photo ng-if="$ctrl.photo.updatePhoto === true" photo="$ctrl.photo"></edit-photo>
+      <div ng-if="$ctrl.photo.updatePhoto === false">
+        <div ng-class="$ctrl.style['photo-detail']" ng-style="{'background-image': 'url('+$ctrl.photo.photoLink+')'}">
+          <h2>{{ $ctrl.photo.title }}</h2>
+          <p>{{ $ctrl.photo.description }}</p>
+        </div>
+        <button type="button" ng-click="$ctrl.photo.updatePhoto = true">Edit</button>
+        <button type="button" ng-click="$ctrl.deletePhoto($ctrl.photo._id)">Remove</button>
+      </div>
+    </div>
+  </div>
+</section>

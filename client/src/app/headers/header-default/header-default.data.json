@@ -1,0 +1,51 @@
+{
+  "pages": [
+    {
+      "name": "home",
+      "text": "Home",
+      "link": "/",
+      "isPrivate": false
+    },
+    {
+      "name": "album-list",
+      "text": "Albums",
+      "link": "/albums",
+      "isPrivate": true
+    },
+    {
+      "name": "signup",
+      "text": "Sign Up",
+      "link": "/signup",
+      "isPrivate": false
+    },
+    {
+      "name": "signin",
+      "text": "Sign In",
+      "link": "/signin",
+      "isPrivate": false
+    },
+    {
+      "name": "signout",
+      "text": "Sign Out",
+      "link": "/signout",
+      "isPrivate": true
+    }
+  ],
+  "displays": [
+    {
+      "name": "list",
+      "text": "List View",
+      "fa": "list"
+    },
+    {
+      "name": "tile",
+      "text": "Tile View",
+      "fa": "th"
+    },
+    {
+      "name": "gallery",
+      "text": "Gallery View",
+      "fa": "image"
+    }
+  ]
+}
