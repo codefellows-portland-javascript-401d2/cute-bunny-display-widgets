@@ -1,0 +1,20 @@
+@import 'colors';
+
+:local(.header) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: 112px;
+  background-color: $color-2;
+  border-bottom: 1px solid $color-3;
+
+  @media (min-width: 544px) {
+    height: 78px;
+  }
+}
+
+:local(.main) {
+  padding: 10px 0;
+}

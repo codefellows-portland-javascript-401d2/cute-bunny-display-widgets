@@ -1,0 +1,34 @@
+{
+  "name": "cute-bunny-display-widgets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "env $(cat .env) node index.js",
+    "start-dev": "env $(cat .env) nodemon index.js",
+    "test": "env $(cat .env) mocha",
+    "test-dev": "env $(cat .env) mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jluangphasy/cute-bunny-display-widgets.git"
+  },
+  "author": "Johnny Luangphasy (https://github.com/jluangphasy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jluangphasy/cute-bunny-display-widgets/issues"
+  },
+  "homepage": "https://github.com/jluangphasy/cute-bunny-display-widgets#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.1.18",
+    "mongoose": "^4.5.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2"
+  }
+}
