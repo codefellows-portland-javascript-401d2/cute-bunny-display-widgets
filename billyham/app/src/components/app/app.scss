@@ -1,0 +1,10 @@
+@import 'colors';
+
+:local(.app){
+  padding: 1em;
+
+  h1 {
+    color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);
+  }
+  
+}

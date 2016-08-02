@@ -1,0 +1,23 @@
+{
+  "name": "cute-bunny-server",
+  "version": "1.0.0",
+  "description": "cute bunny assigment server",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "dev": "env $(cat .env) nodemon index.js",
+    "lint": "eslint ."
+  },
+  "author": "Dave Hanagan",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.2"
+  }
+}

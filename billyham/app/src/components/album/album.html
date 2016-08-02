@@ -1,0 +1,7 @@
+<div>
+  <add-pic add="album.addpic(newpic)"></add-pic>
+  <p ng-show="album.display === 'thumb'"><em>Click on a thumbnail</em></p>
+  <span ng-repeat="pic in album.arrayOfPics">
+    <cell pic="pic" select="album.select(myId)" remove="album.remove(myId)" display="album.display" isodd="$odd"></cell>
+  </span>
+</div>
