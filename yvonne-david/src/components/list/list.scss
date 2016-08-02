@@ -1,0 +1,41 @@
+@mixin transition-effect($time) {
+  -webkit-transition: font-size $time ease, background-color $time ease;
+     -moz-transition: font-size $time ease, background-color $time ease;
+       -o-transition: font-size $time ease, background-color $time ease;
+      -ms-transition: font-size $time ease, background-color $time ease;
+          transition: font-size $time ease, background-color $time ease;
+}
+
+:local(.div) {
+  width: 60%;
+  margin: 30px;
+}
+
+:local(.unordered) {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+:local(.items) {
+  display: list-item;
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+
+  &:last-child {
+    border: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    @include transition-effect(0.3s);
+  }
+
+  a:hover {
+    font-size: 30px;
+    background: #f6f6f6;
+  }
+}

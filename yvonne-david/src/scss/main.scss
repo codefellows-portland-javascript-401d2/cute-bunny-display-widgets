@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@import 'colors';
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  background-color: $header-background
+}
+
+h2 {
+  color: $basic-color;
+}
+
+#intro {
+  background-color: $header-background;
+  text-align: center;
+}
