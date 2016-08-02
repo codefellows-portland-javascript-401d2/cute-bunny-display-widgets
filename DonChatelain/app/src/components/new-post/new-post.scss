@@ -1,0 +1,55 @@
+@import 'colors'; 
+
+.form-container {
+  width: 360px;
+  margin: 0 auto;
+  text-align: center;
+  height: 79vh;
+  margin-bottom: 50px;
+
+  form {
+    input {
+      width: 100%;
+      border: 1px solid #e9e9e9;
+      height: 45px;
+      margin: 15px 0;
+      padding: 2px 0 2px 5px;
+      font-size: 1em;
+    }
+    input[type="submit"] {
+      background: #fff;
+      color: $accent-color;
+      height: 35px;
+      width: 50%;
+      display: block;
+      margin: 10px auto;
+      transition: background 300ms ease, color 300ms ease;
+    }
+    input[type="submit"]:hover {
+      background: $accent-color;
+      border: none;
+      color: #fff;
+    }
+    select {
+      width: 102%;
+      height: 48px;
+      font-size: 1em;
+      border: 1px solid #d8d8d8;
+      color: #626262;
+      margin: 15px 0;
+    }
+    p {
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.8em;
+      margin-bottom: 20px;
+    }
+    .new-album-input {
+      width: 99%;
+      height: 35px;
+      padding: 5px;
+      // margin: 25px 0;
+      font-size: 1em;
+    }
+  }
+}

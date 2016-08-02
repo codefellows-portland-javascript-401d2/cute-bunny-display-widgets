@@ -1,0 +1,33 @@
+:local(.full) {
+
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 1.4em;
+    margin-bottom: 0;
+  }
+  p {
+    padding: 0 25px 0 25px;
+    margin-top: 5px;
+  }
+  div.img-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  img {
+    width: 100%;
+  }
+  ng-transclude button {
+    float: right;
+    background: none;
+    color: #ff5a5a;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: -65px;
+  }
+}

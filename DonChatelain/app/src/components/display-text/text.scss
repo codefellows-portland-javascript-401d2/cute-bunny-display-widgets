@@ -1,0 +1,16 @@
+section.display-text {
+
+  ng-transclude {
+    display: block;
+    text-align: right;
+
+     button {
+      background: none;
+      border: none;
+      color: #ff5a5a;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+}

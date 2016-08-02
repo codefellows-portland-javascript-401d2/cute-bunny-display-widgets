@@ -1,0 +1,65 @@
+@import 'colors';
+
+$thumb-size: 200px;
+$delta: 500ms;
+$indent: 15px;
+
+:local(.thumb-container) {
+  width: $thumb-size;
+  height: $thumb-size;
+  overflow: hidden;
+  position: relative;
+  margin: 25px;
+}
+
+:local(.thumbnail) {
+  position: absolute;
+  left: -40%;
+  width: $thumb-size * 2;
+}
+
+div.thumb-overlay {
+  background: $overlay-bg-color;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity $delta ease;
+
+  ng-transclude button {
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    background: none;
+    color: #ff5a5a;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+}
+div.thumb-overlay-hover {
+  opacity: 1 !important;
+}
+
+span.thumb-overlay-text {
+  position: absolute;
+  width: $thumb-size - $indent - 25px;
+  z-index: 10;
+  color: $overlay-text-color;
+  font-size: 1.4em;
+  font-family: sans-serif;   
+  padding: 10px;
+  transition: left $delta * 0.75 ease;
+  left: -75px;
+  top: 20px;
+}
+
+span.thumb-overlay-text-hover {
+  left: $indent;
+}
+
+

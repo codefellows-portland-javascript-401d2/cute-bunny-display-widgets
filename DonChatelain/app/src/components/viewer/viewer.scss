@@ -1,0 +1,27 @@
+@import 'colors';
+
+ul.viewer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  margin: 15px 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  
+  h3 {
+    color: $h-color;
+  }
+
+  &.text {
+    width: 80%;
+  }
+
+  &.full {
+    margin: 10px 50px;
+  }
+}

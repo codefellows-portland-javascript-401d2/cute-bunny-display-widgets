@@ -1,0 +1,30 @@
+<div class="toggler-container">
+  <form class="toggler-form">
+    <label ng-class="{selected: toggler.viewOption === 'text'}">
+      <input type="radio" value="text" ng-model="toggler.viewOption"
+      ng-change="toggler.change()" />
+      Text Only
+    </label>
+    <label ng-class="{selected: toggler.viewOption === 'thumb'}">
+      <input type="radio"  value="thumb" ng-model="toggler.viewOption"
+      ng-change="toggler.change()" />
+      Thumbnail
+    </label>
+    <label ng-class="{selected: toggler.viewOption === 'full'}">
+      <input type="radio" value="full" ng-model="toggler.viewOption"
+      ng-change="toggler.change()" />
+      Full Post
+    </label>
+  </form>
+  <select class="toggler-select"
+          ng-model="toggler.albumSelect"
+          ng-options="album._id as album.title for album in toggler.albums"
+          ng-change="toggler.change()"> 
+    <option value="">Show All</option>
+  </select>
+</div>
+
+<viewer images="toggler.images"
+        view-option="toggler.viewOption"
+        remove="toggler.removeImage(imageId)">
+</viewer>

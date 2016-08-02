@@ -1,0 +1,14 @@
+<section ng-class="albumControl.style.main">
+  <h2>Manage Albums</h2>
+  <ul>
+    <li ng-repeat="album in albumControl.albums">
+      <p>{{album.title}}
+        <span ng-click="albumControl.removeAlbum(album._id)">
+          X
+        </span>
+      </p>
+
+      <hr>
+    </li>
+  </ul>
+</section>
