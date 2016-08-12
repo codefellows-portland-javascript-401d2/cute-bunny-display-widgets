@@ -7,7 +7,7 @@ import './scss/main.scss';
 
 cuteBunny.config(http);
 cuteBunny.config(routes);
-cuteBunny.value('apiUrl', 'http://localhost:3000/api');
+cuteBunny.value('apiUrl', 'https://billyham.github.io/Photo-Albums/server/api');
 cuteBunny.run(auth);
 
 angular.bootstrap(document, [cuteBunny.name]);
