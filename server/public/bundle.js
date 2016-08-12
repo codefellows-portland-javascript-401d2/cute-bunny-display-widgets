@@ -72,7 +72,7 @@
 	
 	_cuteBunny2.default.config(_http2.default);
 	_cuteBunny2.default.config(_routes2.default);
-	_cuteBunny2.default.value('apiUrl', 'http://localhost:3000/api');
+	_cuteBunny2.default.value('apiUrl', 'https://billyham.github.io/Photo-Albums/server/api');
 	_cuteBunny2.default.run(_auth2.default);
 	
 	_angular2.default.bootstrap(document, [_cuteBunny2.default.name]);

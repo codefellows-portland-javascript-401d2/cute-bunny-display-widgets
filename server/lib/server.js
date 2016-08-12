@@ -15,8 +15,7 @@ app.use('/api/albums', ensureAuth, albums);
 app.use('/api/photos', ensureAuth, photos);
 
 
-app.use( (err, req, res, next) => {
-  next.beQuietLint = true;
+app.use( (err, req, res, next) => {  //eslint-disable-line
   res.status(err.code || 500).json( {error: err.error || 'Server Error', msg: err.msg});
 });
 
