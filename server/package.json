@@ -7,7 +7,7 @@
     "test": "mocha",
     "dev": "env $(cat .env) nodemon index.js",
     "lint": "eslint .",
-		"start": "node ."
+		"start": "node"
   },
   "author": "Dave Hanagan",
   "license": "ISC",
