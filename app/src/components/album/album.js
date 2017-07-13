@@ -4,20 +4,33 @@ import styles from './album.scss';
 export default {
   template,
   bindings: {
-    display: '='
+    animal: '<',
+    animalname: '<',
+    display: '<',
+    picId: '<',
+    arrayOfAnimals: '<',
+    arrayOfPics: '<'
   },
-  controllerAs: 'album',
-  controller: ['$location', '$anchorScroll', 'albumService', controller]
+  controller: ['albumService', '$scope', '$state', controller]
 };
 
-function controller ($location, $anchorScroll, albumService){
-  this.select = function(myId){
-    // Switch to Full display
-    this.display = 'full';
-    // Go to anchor tab with ID
-    $location.hash(myId);
-    $anchorScroll();
-  },
+function controller (albumService, $scope, $state){
+  this.styles = styles;
+
+  $scope.$watch('$ctrl.animal', () => {
+    if (this.animal) {
+      $scope.critter = this.animal;
+    }
+  });
+
+  $scope.$watch('critter', (newValue, oldValue) => {
+    if (newValue !== oldValue){
+      const index = this.arrayOfAnimals.findIndex(item => item._id === newValue);
+      const animalname = (index !== -1) ? this.arrayOfAnimals[index].name : 'Hector Spektor';
+      $state.go('album', {'albumId': newValue, 'animalname': animalname});
+    }
+  });
+
   this.remove = function(myId){
     albumService.remove(myId)
     .then( () => {
@@ -29,6 +42,7 @@ function controller ($location, $anchorScroll, albumService){
     });
   },
   this.addpic = function(newpic){
+    newpic.album = this.animal;
     albumService.add(newpic)
     .then( data => {
       this.arrayOfPics.push(data);
@@ -37,11 +51,10 @@ function controller ($location, $anchorScroll, albumService){
       console.log(err);
     });
   },
-  this.styles = styles;
-
-  albumService.get()
-  .then( result => {
-    this.arrayOfPics = result;
-  });
-
+  this.get = function(albumId){
+    albumService.get(albumId)
+    .then( data => {
+      this.arrayOfPics = data;
+    });
+  };
 }

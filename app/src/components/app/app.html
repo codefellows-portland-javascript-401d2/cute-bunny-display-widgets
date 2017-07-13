@@ -1,4 +1,7 @@
-<div class={{app.styles.app}}>
-  <h1>Bunnies Album</h1>
-  <picker></picker>
-<div>
+<div class={{$ctrl.styles.app}}>
+  <!-- <header display="$ctrl.display"></header> -->
+  <div ui-view="header"></div>
+
+  <h1>Adorable Animal Albums</h1>
+  <div ui-view="main"></div>
+</div>

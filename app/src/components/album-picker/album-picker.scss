@@ -1,0 +1,45 @@
+@import 'colors';
+
+:local(.albumpicker){
+
+  .selection{
+
+    margin-bottom: 1em;
+
+    .animalrow {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      background-color: hsla($background-hue, 80%, 65, 1);
+    }
+
+    .animal{
+      font-family: arial, sans-serif;
+      padding-left: 1em;
+      padding-right: 1em;
+      margin-left: 1em;
+      float: left;
+      width: 200px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .remove{
+      font-size: 70%;
+      color: hsla($text-base-hue, 100%, $text-bright-lightness, 1);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .selected {
+      background-color: hsla($background-hue, 100%, $text-bright-lightness, 1);
+    }
+
+  }
+
+}

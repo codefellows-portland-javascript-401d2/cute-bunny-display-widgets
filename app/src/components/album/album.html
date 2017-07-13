@@ -1,7 +1,22 @@
-<div>
-  <add-pic add="album.addpic(newpic)"></add-pic>
-  <p ng-show="album.display === 'thumb'"><em>Click on a thumbnail</em></p>
-  <span ng-repeat="pic in album.arrayOfPics">
-    <cell pic="pic" select="album.select(myId)" remove="album.remove(myId)" display="album.display" isodd="$odd"></cell>
+<div class={{$ctrl.styles.album}}>
+
+  <display-picker></display-picker>
+
+  <h2>{{$ctrl.animalname}}</h2>
+
+  <select
+    ng-model="critter"
+    ng-options="animal._id as animal.name for animal in $ctrl.arrayOfAnimals">
+  </select>
+
+  <add-pic add="$ctrl.addpic(newpic)"></add-pic>
+
+  <span ng-repeat="pic in $ctrl.arrayOfPics">
+    <cell
+      pic="pic"
+      select="$ctrl.select(myId)"
+      remove="$ctrl.remove(myId)"
+      display="$ctrl.display"
+      isodd="$odd"></cell>
   </span>
 </div>

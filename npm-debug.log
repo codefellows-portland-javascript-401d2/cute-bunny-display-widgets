@@ -2,14 +2,14 @@
 1 verbose cli [ '/Users/raysmith/.node/bin/node',
 1 verbose cli   '/Users/raysmith/.node/bin/npm',
 1 verbose cli   'run',
-1 verbose cli   'dev' ]
+1 verbose cli   'build' ]
 2 info using npm@3.8.6
 3 info using node@v6.1.0
 4 verbose stack Error: ENOENT: no such file or directory, open '/Users/raysmith/codefellows/401/assignments/14/cute-bunny-display-widgets/package.json'
 4 verbose stack     at Error (native)
 5 verbose cwd /Users/raysmith/codefellows/401/assignments/14/cute-bunny-display-widgets
-6 error Darwin 15.5.0
-7 error argv "/Users/raysmith/.node/bin/node" "/Users/raysmith/.node/bin/npm" "run" "dev"
+6 error Darwin 15.6.0
+7 error argv "/Users/raysmith/.node/bin/node" "/Users/raysmith/.node/bin/npm" "run" "build"
 8 error node v6.1.0
 9 error npm  v3.8.6
 10 error path /Users/raysmith/codefellows/401/assignments/14/cute-bunny-display-widgets/package.json

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "dev": "env $(cat .env) nodemon index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start": "node index.js"
   },
   "author": "Dave Hanagan",
   "license": "ISC",
@@ -16,8 +17,13 @@
     "nodemon": "^1.9.2"
   },
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.0.1",
     "mongoose": "^4.5.2"
+  },
+  "engines": {
+    "node": ">=6.11.1"
   }
 }

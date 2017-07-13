@@ -8,13 +8,8 @@
 
   <a id="{{cell.pic._id}}"></a>
 
-  <button
-    ng-click="cell.remove({myId: cell.pic._id})"
-    ng-show="cell.display === 'desc'">Remove
-  </button>
-
   <h3
-    ng-click="cell.select({myId: cell.pic._id})"
+    ui-sref="album({display: 'full', picId: cell.pic._id})"
     ng-hide="cell.display === 'thumb'">{{cell.pic.title}}
   </h3>
 
@@ -24,9 +19,14 @@
   <a href="{{cell.pic.url}}" ng-show="cell.display === 'desc'">{{cell.pic.url}}
   </a>
 
+  <button
+    ng-click="cell.remove({myId: cell.pic._id})"
+    ng-show="cell.display === 'desc'">Remove
+  </button>
+
   <img
   ng-src="{{cell.pic.url}}"
-  ng-click="cell.select({myId: cell.pic._id})"
+  ui-sref="album({display: 'full', picId: cell.pic._id})"
   ng-hide="cell.display === 'desc'">
 
 </span>

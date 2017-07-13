@@ -1,0 +1,14 @@
+@import 'colors';
+
+:local(.display){
+  span {
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  .selected {
+    background-color: hsla($background-hue, 100%, $text-bright-lightness, 1);
+  }
+}

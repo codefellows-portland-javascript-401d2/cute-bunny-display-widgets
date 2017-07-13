@@ -1,4 +1,4 @@
 const server = require('./lib/server');
 require('./lib/config-mongoose');
-
-server.listen(3000);
+console.log('index.js fires');
+server.listen(process.env.PORT);

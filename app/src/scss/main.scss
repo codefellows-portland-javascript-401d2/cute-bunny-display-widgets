@@ -1,6 +1,6 @@
 @import 'colors';
 
-h1, h2, h3, h4, p, a {
+h1, h2, h3, h4, p, a, span {
   font-family: arial, sans-serif;
   color: hsla($text-base-hue, 100%, $text-primary-lightness, 1);
 }
